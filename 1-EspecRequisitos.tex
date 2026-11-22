@@ -1,0 +1,67 @@
+\chapter{Especificações e Requisitos}
+
+O desenvolvimento conceitual e preliminar de uma aeronave comercial exige o alinhamento entre as demandas de mercado, traduzidas nos requisitos operacionais da missão, e as restrições impostas pelas autoridades certificadoras internacionais. Neste capítulo, serão apresentadas as especificações fundamentais do projeto, organizadas entre requisitos de missão, base normativa de aeronavegabilidade e a caracterização das missões típicas.
+
+\section{Requisitos da Missão}
+\label{section:Requisitos}
+
+Conforme a especificação fornecida para o projeto da disciplina, a aeronave deve atender aos seguintes requisitos de desempenho e capacidade operacional:
+
+\begin{itemize}
+    \item \textbf{Missões de Projeto:} Transporte regional de passageiros (primária) e transporte de carga com o uso de contêineres e \textit{pallets} padronizados (ULDs) em configuração \textit{Quick Change} (secundária);
+    
+    
+    \item \textbf{Capacidade de Passageiros:} 60 a 70 passageiros;
+    
+    \item \textbf{Peso Máximo de Decolagem (MTOW):} 50\,000 lb ($\approx 22\,680$ kgf);
+    
+    \item \textbf{Comprimento de Pista de Decolagem:} Máximo de 4\,200 ft ($\approx 1\,280$ m), ao nível do mar, condições ISA, em MTOW -- garantindo operacionalidade em aeroportos regionais de menor porte;
+    
+    \item \textbf{Comprimento de Pista de Pouso:} Máximo de 3\,000 ft ($\approx 914$ m), ao nível do mar, condições ISA, em MLOW;
+    
+    \item \textbf{Velocidade Máxima de Cruzeiro:} 260 kt ($\approx 481$ km/h);
+    
+    \item \textbf{Alcance Máximo:} 800 NM ($\approx 1\,482$ km) com a quantidade determinada de passageiros e reservas IFR regulamentares (RBAC 121/FAR 121: alternado a 100 NM + 45 minutos de espera);
+    
+    \item \textbf{Teto Máximo Operacional (Certificado):} FL250 ($\approx 25\,000$ ft ou $7\,620$ m), em condições ISA -- altitude máxima certificada que otimiza a relação entre pressurização da cabine e arrasto de cruzeiro;
+    
+    \item \textbf{Configuração de Carga:} Compatibilidade com sistemas padronizados de carga aérea, incluindo contêineres e \textit{pallets} (ULDs), visando a conversão rápida (\textit{Quick Change}) e o aumento da taxa de utilização diária da frota;
+
+    \item \textbf{Requisito de Conversão (QC):} O tempo de conversão da cabine de passageiros para carga (ou vice-versa) deve ser inferior a 60 minutos;
+
+    \item \textbf{Ruído e Emissões:} Conformidade com ICAO Annex 16 (Chapter 14/Stage 4) e compatibilidade com 100\% SAF (\textit{Sustainable Aviation Fuel}).
+\end{itemize}
+
+\textbf{\textit{Nota:}} O teto de serviço do FL250 representa a altitude máxima de operação certificada da aeronave, o que não exige que todo voo de cruzeiro ocorra nessa altitude.
+
+\section{Legislação e Requisitos de Aeronavegabilidade}
+
+Com capacidade para até 70 passageiros e MTOW de 50\,000 lb, a aeronave enquadra-se na \textbf{Categoria Transporte}. Dessa forma, o projeto adota como base regulatória as normas de certificação emitidas pela ANAC, FAA e EASA, representadas respectivamente pelo RBAC n° 25, 14 CFR Part 25 e CS-25 \cite{rbac25, far25, cs25}.
+
+Para o dimensionamento conceitual e verificação do projeto, destacam-se os seguintes requisitos normativos:
+
+\begin{itemize}
+    \item \textbf{Desempenho e Subida (\S 25.107 e \S 25.121):} Definição das velocidades operacionais e gradientes mínimos de subida em condição de motor inoperante;
+    \item \textbf{Estabilidade e Controle Longitudinal (\S 25.143, \S 25.173 e \S 25.175):} Requisito de força no manche para variações de velocidade, assegurando autoridade do profundor e capacidade de trimagem via compensador ao longo de todo o envelope do Centro de Gravidade (CG);
+    \item \textbf{Envelopes Estruturais (\S25.337 e \S25.341):} Fatores de carga limite entre $-1,0\,g$ e $+2,5\,g$ e tolerância a cargas de rajada;
+    \item \textbf{Segurança de Cabine e Evacuação (\S25.803 e \S25.853):} Garantia de evacuação total da cabine em até 90 segundos com 50\% das saídas bloqueadas e conformidade dos materiais internos com os ensaios de inflamabilidade;
+    \item \textbf{Ergonomia e Painel (\S25.771 e \S25.781):} Arranjo do cockpit no padrão Basic-T e visibilidade mínima para a tripulação.
+    % ALTERADO: correção de digitação (de-acing/anti-acing -> de-icing/anti-icing)
+    \item \textbf{Proteção contra Gelo e Condições Meteorológicas (\S25.1419):} A aeronave deve possuir sistemas de degelo/anticongelamento (\textit{de-icing/anti-icing}) certificados para operação sob condições conhecidas de formação de gelo.
+\end{itemize}
+
+Adicionalmente, a operação com cargas segue as especificações da IATA ULD Regulations \cite{iatauld} e as diretrizes da norma ISO 6870 \cite{iso4116} para padronização dimensional e travas de contenção. Recomendações práticas para distribuição de massa e amarração no porão/cabine são fundamentadas pela AC 120-85A da FAA \cite{ac12085}, enquanto as regras gerais de operação e navegação IFR atendem ao RBAC 91.
+
+\section{Missões Típicas}
+
+O projeto foi concebido para atender a duas demandas do mercado na aviação regional:
+
+\begin{enumerate}
+    \item \textbf{Transporte Regional de Passageiros:} Operação em rotas de 200 a 800 NM interligando cidades de médio porte à centros regionais. A operação é voltada para pistas curtas (até 4\,200 ft) e baixo tempo de \textit{turnaround}, acomodando de 60 a 70 passageiros com níveis adequados de conforto e pressurização até o FL250.
+
+    \item \textbf{Transporte de Carga Aérea (\textit{Quick Change}):} Atendimento à logística regional e \textit{e-commerce}. A cabine adaptável permite a conversão para transporte de ULDs (\textit{Full Freighter}) ou operação mista (\textit{Kombi}), possibilitando o uso da frota em horários de baixa demanda de passageiros, como voos noturnos, para aumentar a utilização da aeronave. 
+\end{enumerate}
+
+Do ponto de vista operacional, a aeronave deverá ser capaz de realizar missões típicas dentro do alcance especificado de aproximadamente 800 milhas náuticas, permitindo cobrir uma ampla gama de rotas regionais.
+
+Esse perfil de missão inclui etapas de subida, cruzeiro em altitudes médias e descida, com operação em aeroportos de menor porte, considerando as reservas de combustível regulamentares determinadas pelo RBAC 121/FAR 121 para operação sob Regras de Voo por Instrumentos (IFR) -- etapa de alternativa e 45 minutos de espera. Dessa forma, o projeto busca atender não apenas aos requisitos técnicos estabelecidos, mas também às necessidades reais do mercado, conciliando desempenho, flexibilidade e viabilidade operacional.

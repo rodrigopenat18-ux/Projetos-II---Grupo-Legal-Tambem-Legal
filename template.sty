@@ -1,0 +1,282 @@
+% PACOTES LATEX
+\usepackage[brazil]{babel}
+\usepackage[left=2.0cm, right=2.0cm, top=1.5cm, bottom=2.0cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{layout}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[final]{pdfpages}
+\usepackage{subfigure}
+\usepackage{graphicx}   % para incluir imagens
+\usepackage{caption}    % para legendas
+\usepackage{subcaption} % para subfiguras
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+% \usepackage{cite}
+\usepackage[round,numbers]{natbib}
+
+\usepackage[colorlinks,urlcolor=blue,filecolor=black,citecolor=black,linkcolor=black]{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xltabular} % Combina tabularx (largura dinâmica) com longtable (quebra de página)
+\usepackage{booktabs}   % Para linhas mais limpas e profissionais (opcional, mas recomendado)
+
+
+
+%\usepackage[none]{hyphenat}
+\usepackage{titlesec}
+\lstset{literate=
+{á}{{\'a}}1 {Á}{{\'A}}1
+{â}{{\^a}}1 {Â}{{\^A}}1
+{à}{{\`a}}1 {À}{{\`A}}1
+{ã}{{\~a}}1 {Ã}{{\~A}}1
+{é}{{\'e}}1 {É}{{\'E}}1 
+{ê}{{\^e}}1 {Ê}{{\^E}}1 
+{ë}{{\"e}}1 
+{í}{{\'i}}1 {Í}{{\'I}}1
+{ç}{{\c{c}}}1 
+{Ç}{{\c{C}}}1 
+{õ}{{\~o}}1 {Õ}{{\~O}}1
+{ó}{{\'o}}1 {Ó}{{\'O}}1
+{ô}{{\^o}}1 {Ô}{{\^O}}1
+{ú}{{\'u}}1 {Ú}{{\'U}}1
+}
+\usepackage{lipsum}
+\graphicspath{ {./images/} }
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+%===================================================================
+% DEFINICOES DOS NOMES
+\makeatletter
+\newcommand{\escola}[1]{\def\escola {#1}}
+\newcommand{\departamento}[1]{\def\departamento {#1}}
+\newcommand{\materia}[1]{\def\materia {#1}}
+\newcommand{\turma}[1]{\def\turma {#1}}
+\newcommand{\trabalho}[1]{\def\trabalho {#1}}
+\newcommand{\semestre}[1]{\def\semestre {#1}}
+
+% Alunos
+\newcommand{\alunoa}[1]{\def\alunoa {#1}}
+\newcommand{\alunob}[1]{\def\alunob {#1}}
+\newcommand{\alunoc}[1]{\def\alunoc {#1}}
+\newcommand{\alunod}[1]{\def\alunod {#1}}
+\newcommand{\alunoe}[1]{\def\alunoe {#1}}
+\newcommand{\alunof}[1]{\def\alunof {#1}}
+\newcommand{\alunog}[1]{\def\alunog {#1}}
+\newcommand{\alunoh}[1]{\def\alunoh {#1}}
+\newcommand{\alunoi}[1]{\def\alunoi {#1}}
+\newcommand{\alunoj}[1]{\def\alunoj {#1}}
+\newcommand{\alunok}[1]{\def\alunok {#1}}
+\newcommand{\alunol}[1]{\def\alunol {#1}}
+\newcommand{\alunom}[1]{\def\alunom {#1}}
+% Alunos
+
+\newcommand{\logotrabalho}[1]{\def\logotrabalho {#1}}
+\newcommand{\logoufmg}[1]{\def\logoufmg {#1}}
+\newcommand{\data}[1]{\def\data {#1}}
+
+%===================================================================
+% PAGINA INICIAL
+\newcommand{\maketitlepage}{
+    \begin{titlepage}
+        \centering
+
+        % Logo
+        % \vspace*{0.0cm}
+        \includegraphics[width=1.0\textwidth]{\logotrabalho}\par
+
+        % Informações da disciplina
+        \vspace{0.3cm}
+        {\Large \materia\par}
+        \vspace{0.12cm}
+        {\Large \semestre\par}
+
+        % Título do trabalho
+        \vspace{1.1cm}
+        {\LARGE \bfseries \trabalho\par}
+
+        % Linha superior
+        \vspace{0.6cm}
+        \noindent\rule{0.92\textwidth}{0.5pt}
+
+        % Lista de alunos
+        \vspace{0.25cm}
+        {\small
+        \begin{tabular}{c}
+            \alunoa \\[1.5mm]
+            \alunob \\[1.5mm]
+            \alunoc \\[1.5mm]
+            \alunod \\[1.5mm]
+            \alunoe \\[1.5mm]
+            \alunof \\[1.5mm]
+            \alunog \\[1.5mm]
+            \alunoh \\[1.5mm]
+            \alunoi \\[1.5mm]
+            \alunoj \\[1.5mm]
+            \alunok \\[1.5mm]
+            \alunol \\[1.5mm]
+            \alunom
+        \end{tabular}\par
+        }
+
+        % Linha inferior
+        \vspace{0.25cm}
+        \noindent\rule{0.92\textwidth}{0.5pt}
+
+        % Rodapé
+        \vfill
+        {\large Belo Horizonte\par}
+        \vspace{0.05cm}
+        {\large \data\par}
+
+    \end{titlepage}
+}
+%===================================================================
+% ESTILO DAS PAGINAS
+
+\fancypagestyle{IHA-fancy-plain}{
+    \fancyhf{}
+\fancyhead[L]{
+    \begin{tabularx}{\textwidth}{l R}
+        \raisebox{1.5\height}{ \nouppercase{\leftmark} } & \hspace{-0.5cm} \includegraphics[width=20mm]{\logoufmg} \\ \hline
+	\end{tabularx}
+}
+\fancyfoot[L]{
+		\begin{tabularx}{\textwidth}{L R}
+			\hline \\ [-1.5ex]
+			\begin{tabular}{l l@{}}
+				\small{ Equipe: } & \small{ \numeroEquipe\ - \alunos} \\
+				\small{ Instituição: } & \small{ \materia }
+			\end{tabular} &
+			\begin{tabular}{r r@{}}
+				\small{ Página: } & \small{ \thepage\space de \pageref{LastPage}}
+			\end{tabular}
+		\end{tabularx}
+	}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+\fancyhead[L]{
+    \begin{tabularx}{\textwidth}{l R}
+       \raisebox{1.3\height}{ \nouppercase{\leftmark} }  & \hspace{-0.5cm} \includegraphics[width=20mm]{\logoufmg} \\ \hline
+	\end{tabularx}
+}
+\fancyfoot[L]{
+		\begin{tabularx}{\textwidth}{L R}
+			\hline \\ [-1.5ex]
+			\begin{tabular}{l@{}}
+				%\small{ \alunoa } \\ [-2 pt]
+                %\small{ \alunob } \\ [-2 pt]
+                %\small{ \alunoc } \\ [-2 pt]
+                %\small{ \alunod } \\ [-2 pt]
+			\end{tabular} &
+			\begin{tabular}{r}
+			    \small{\materia } \\
+				\small{ Página: } \small{ \thepage\space de \pageref{LastPage}} \\
+			\end{tabular} \\
+		\end{tabularx}
+	}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+
+\setlength{\textheight}{680pt}
+\setlength{\headheight}{20mm}
+\setlength{\parindent}{1em} %tamanho do recuo do parágrafo
+\setlength{\parskip}{1em} % Espaçamento entre parágrafos
+\setlength{\headsep}{15pt}
+\setlength{\topskip}{5pt}
+\setlength{\footskip}{40pt}
+
+
+
+%===================================================================
+% DEFINE ESTILO DO CAPITULO
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+	{\setlength{\parindent}{4em} \raggedright \normalfont
+		\bfseries\LARGE \thechapter~#1 \par \nobreak \vspace{0.1cm}
+	}
+}
+\renewcommand{\@makeschapterhead}[1]{%
+	\vspace*{0pt}%
+	{\setlength{\parindent}{4em} \raggedright \normalfont
+	    \bfseries\Large #1 \par \nobreak \vspace{1cm}
+	}
+}
+\makeatother
+
+%===================================================================
+% CODIGOS
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    %emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small, % Fonte teletype e menor
+    keywordstyle=\color{blue}\bfseries, % Palavras-chave em azul e negrito
+    commentstyle=\color{gray}, % Comentários em cinza
+    stringstyle=\color{red}, % Strings em vermelho
+    numbers=left, % Números de linha à esquerda
+    numberstyle=\tiny\color{gray}, % Estilo dos números de linha
+    stepnumber=1, % Numeração de cada linha
+    breaklines=true, % Quebrar linhas longas
+}
+% Definir cores personalizadas
+\definecolor{mygreen}{RGB}{28,172,0} % Verde para comentários
+\definecolor{mylilas}{RGB}{170,55,241} % Lilás para strings
+\definecolor{myblue}{RGB}{0,0,255} % Azul para palavras-chave
+
+% Configuração do estilo para Python
+\lstset{
+    language=Python,                     % Define a linguagem como Python
+    basicstyle=\ttfamily\footnotesize,   % Fonte básica do código
+    breaklines=true,                     % Quebra automática de linhas
+    morekeywords={matplotlib, numpy},    % Palavras-chave adicionais
+    keywordstyle=\color{myblue},         % Cor das palavras-chave
+    stringstyle=\color{mylilas},         % Cor das strings
+    commentstyle=\color{mygreen},        % Cor dos comentários
+    identifierstyle=\color{black},       % Identificadores (ex.: nomes de variáveis)
+    showstringspaces=false,              % Ocultar espaços em strings
+    numbers=left,                        % Números das linhas à esquerda
+    numberstyle=\tiny\color{black},      % Estilo dos números das linhas
+    numbersep=9pt,                       % Distância entre os números e o código
+    frame=single,                        % Adiciona uma borda ao redor do código
+    framerule=0.5pt,                     % Espessura da borda
+    rulecolor=\color{gray!70},           % Cor da borda
+    emph=[1]{for, if, while, return, import, def, as, pass, break}, % Palavras para destacar
+    emphstyle=[1]\color{red},            % Cor das palavras destacadas
+}
+

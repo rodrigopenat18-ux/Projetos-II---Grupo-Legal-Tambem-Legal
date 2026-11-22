@@ -1,0 +1,64 @@
+\documentclass[oneside,12pt,a4paper]{report}
+
+\usepackage{template}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{pdfpages}
+\selectlanguage{brazil}
+
+\materia{EMA053 - Projeto de Aeronaves II}
+\escola{Escola de Engenharia}
+\departamento{Departamento de Engenharia Mecânica}
+\semestre{2026/2}
+\trabalho{Entrega Final}
+
+% Definindo todos como vazios para o template não quebrar
+\alunoa{}
+\alunob{}
+\alunoc{}
+\alunod{}
+\alunoe{}
+\alunof{}
+\alunog{}
+\alunoh{}
+\alunoi{}
+\alunoj{}
+\alunok{}
+\alunol{}
+\alunom{}
+
+\data{\today}
+
+\logotrabalho{images/Logo_Trabalho.png}
+\logoufmg{images/logo_ufmg.png}
+
+\begin{document}
+\pagestyle{plain}
+\maketitlepage
+
+\everymath{\displaystyle}
+
+\tableofcontents
+
+\include{0.0 - Lista de variáveis}
+\include{0.1-Introdução}
+\include{1-EspecRequisitos}
+\include{2-EstudoConceitual}
+\include{3-AnteProjeto}
+\include{4-EstudoConversao}
+\include{7-Conclusão}
+\include{5-ProjetoPreliminar}
+\include{9-CG2}
+\include{8-Desempenho}
+\include{8.1-Cargas}
+\include{8.5-Calculo_Estrutural}
+\include{10-Estabilidade}
+\include{11-AeronaveFinal}
+\include{12-Anexo}
+
+\bibliography{referencias}
+\bibliographystyle{ieeetr}
+
+\end{document}
