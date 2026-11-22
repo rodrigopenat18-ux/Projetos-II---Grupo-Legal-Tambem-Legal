@@ -43,7 +43,6 @@ A fim de determinar o peso de cada componente da aeronave, é utilizada a metodo
     $l_f$ & Comprimento da Fuselagem & 85,3 ft \\
     $w_f + h_f$ & Largura + Altura da Fuselagem & 18,18 ft \\
     $V_D$ & Velocidade de Mergulho de Projeto & 250 kt \\
-    $V_C$ & Velocidade de Cruzeiro de Projeto & 178,6 kt \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -157,9 +156,7 @@ Em que, $K_{fsp}$ é a densidade do combustível QAV em lbs/gal.
 
 \paragraph{Hélice}
 
-De acordo com o manual de treinamento da Caribbean Airlines, o avião é equipado com duas hélices, e cada um desses sistemas pesa cerca de 159 kg (350 libras).
-
-Essa hélice previamente escolhida foi a HAMILTON STANDARD 568F, que equipa as aeronaves ATR72-600.
+De acordo com o manual de treinamento da Caribbean Airlines, o avião é equipado com duas hélices, e cada um desses sistemas pesa cerca de 159 kg (350 libras). Essa hélice previamente escolhida foi a HAMILTON STANDARD 568F, que equipa as aeronaves ATR72-600.
 
 \paragraph{Controladores}
 
@@ -255,7 +252,7 @@ Peso estimado pela Equação 7.51:
     W_{pt} = 0,003 W_{TO}
 \end{equation}
 
-\subsection{Resultados das Estimativas de Peso}
+\subsection{Peso Vazio e Resultados das Estimativas}
 \begin{table}[H]
   \centering
   \linespread{1}\small
@@ -298,7 +295,6 @@ Peso estimado pela Equação 7.51:
   \end{tabularx}
 \end{table}
 
-\subsection{Peso vazio}
 \label{sec:cg_pesovazio}
 O peso vazio ($W_E$) é o somatório dos grupos estrutural, motopropulsor e de equipamentos fixos, estimados pelo método Classe~II nas seções anteriores. Duas dessas correlações dependem do peso zero combustível: a da asa, proporcional a $W_{MZF}^{0,70}$, e a do mobiliário, proporcional a $(W_{TO}-W_F)^{0,91}$, em que $W_{TO}-W_F$ é o próprio peso zero combustível. Na primeira avaliação, essas equações foram feitas com $W_F = 11\,000$ lb, que é a capacidade dos tanques, o que equivale a supor decolagem no MTOW com tanques cheios. Com 64 passageiros essa hipótese não se sustenta (Seção~\ref{sec:cg_fechamento}), e o valor de projeto passa a ser o MZFW da cabine cheia. Como o MZFW depende do peso vazio, as duas correlações são iteradas até a convergência:
 
@@ -397,7 +393,7 @@ O datum é a ponta do nariz da fuselagem, com o eixo $x$ positivo em direção �
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{Images-CG/VistaLateral.jpeg}
-\caption{Vista lateral com cotas usada como referência geométrica.}
+\caption{Vista lateral com cotas (mm), com asa e trem principal nas posições definidas neste capítulo. Fonte: adaptado do desenho elaborado por Gabriel Soares.}
 \label{fig:cg_vista_ref}
 \end{figure}
 
@@ -405,7 +401,7 @@ O datum é a ponta do nariz da fuselagem, com o eixo $x$ positivo em direção �
 
 A posição da asa é definida pelo bordo de ataque da CMA, $X_{BA,\text{CMA}} = 10{,}30$ m, com $\bar{c} = 2{,}755$ m. Essa é a posição em que o braço da empenagem horizontal ($l_{EH} = 12{,}0$ m) e o volume de cauda ($\bar{V}_{HT} = 1{,}1$) da Conclusão do Anteprojeto (Tabela~\ref{tab:dimensoes_conclusao}) são consistentes: o centro aerodinâmico da asa fica em 10,99 m e o da empenagem em 22,99 m, junto ao braço de 23,08 m da empenagem horizontal.
 
-Os itens presos à asa acompanham sua posição. O O CG da asa mantém a posição relativa adotada no anteprojeto, a 25\% da CMA (0,686 m atrás do bordo de ataque) O combustível, nos tanques integrais, é posicionado a 40\% da CMA (11,40 m).
+Os itens presos à asa acompanham sua posição. O CG da asa mantém a posição relativa adotada no anteprojeto, a 25\% da CMA (0,686 m atrás do bordo de ataque). O combustível, nos tanques integrais, é posicionado a 40\% da CMA (11,40 m).
 
 O braço do grupo motopropulsor foi estimado pelos seus subcomponentes, com as distâncias ao bordo de ataque da CMA medidas na vista lateral (Tabela~\ref{tab:cg_gmp}). O resultado coloca o conjunto 0,68 m à frente do bordo de ataque da CMA, coerente com motores montados à frente da asa.
 
@@ -573,10 +569,10 @@ O envelope de CG é usado pelo operador e pelo despacho para definir como a aero
 
 A posição longitudinal do trem principal é verificada pelos dois critérios de Raymer \cite{raymer2018}, aplicados aos limites de CG da Seção~\ref{sec:cg_margem}:
 \begin{itemize}
-    \item ângulo de \emph{tip-back}, entre a vertical do CG e a linha que liga o CG ao contato do trem principal, de pelo menos 15° no CG traseiro;
+    \item ângulo de tip-back, entre a vertical do CG e a linha que liga o CG ao contato do trem principal, de pelo menos 15° no CG traseiro;
     \item fração do peso no trem de nariz entre 8\% e 15\%, com faixa admissível de 5\% a 20\%, nos extremos traseiro e dianteiro.
 \end{itemize}
-A altura do CG em relação ao solo é $h_{CG} = 0{,}70 + 0{,}59 = 1{,}29$ m, soma da altura do trem e da altura do CG acima do ponto mais baixo da fuselagem. O trem de nariz permanece em 1,87 m. A fração no nariz e o ângulo de \emph{tip-back} são
+A altura do CG em relação ao solo é $h_{CG} = 0{,}70 + 0{,}59 = 1{,}29$ m, soma da altura do trem e da altura do CG acima do ponto mais baixo da fuselagem. O trem de nariz permanece em 1,87 m. A fração no nariz e o ângulo de tip-back são
 \begin{equation}
 \frac{N}{W} = \frac{x_{TP} - \bar{X}_{CG}}{x_{TP} - x_{TN}}, \qquad
 \theta_{tb} = \arctan\frac{x_{TP} - \bar{X}_{CG}}{h_{CG}}.
@@ -585,7 +581,7 @@ A altura do CG em relação ao solo é $h_{CG} = 0{,}70 + 0{,}59 = 1{,}29$ m, so
 
 Na posição anterior ($x_{TP} = 10{,}87$ m), o CG fica atrás do trem principal em toda condição acima de 20,7\% da CMA, o que inclui a cabine cheia: a aeronave apoiaria a cauda no solo. Impondo os critérios aos limites de CG:
 \begin{itemize}
-    \item \emph{tip-back} $\geq 15^\circ$ no limite traseiro: $x_{TP} \geq 11{,}91$ m;
+    \item tip-back $\geq 15^\circ$ no limite traseiro: $x_{TP} \geq 11{,}91$ m;
     \item nariz $\geq 5\%$ no limite traseiro: $x_{TP} \geq 12{,}07$ m (para $\geq 8\%$: $x_{TP} \geq 12{,}41$ m);
     \item nariz $\leq 20\%$ no limite dianteiro: $x_{TP} \leq 13{,}02$ m (para $\leq 15\%$: $x_{TP} \leq 12{,}37$ m).
 \end{itemize}
@@ -619,7 +615,7 @@ A faixa preferencial de 8\% a 15\% não tem solução, por 4 cm, porque a excurs
 
 Na Tabela~\ref{tab:cg_trem}, $x_m$ e $x_n$ são as distâncias horizontais do CG ao contato do trem principal e do trem de nariz, e as alturas são $z_m = z_n = 1{,}29$ m. Esses valores devem ser usados nas cargas de solo da Seção~\ref{sec:cargas_solo}. Para o dimensionamento de pneus, a carga máxima do trem principal ocorre no limite traseiro (92,1\% do peso) e a do trem de nariz no limite dianteiro (15,3\%), e não na divisão de 90\%/10\% adotada anteriormente.
 
-\textbf{Precisa deslocar o trem?} Sim. O trem principal vai de 10,87 m para 12,40 m, 1,53 m para trás. Nessa posição ele fica sob a região da longarina traseira da raiz da asa (raiz de 10,08 m a 13,78 m), o que permite fixá-lo na caverna reforçada de ligação asa--fuselagem. O alojamento nas carenagens laterais deve ser redesenhado para essa estação.
+\textbf{Precisa deslocar o trem?} Sim. O trem principal vai de 10,87 m para 12,40 m, 1,53 m para trás. Nessa posição ele fica sob a região da longarina traseira da raiz da asa (raiz de 10,08 m a 13,78 m), o que permite fixá-lo na caverna reforçada de ligação asa--fuselagem.
 
 \section{Valores de Entrada para os Demais Capítulos}
 \label{sec:cg_saidas}
@@ -651,8 +647,10 @@ Na Tabela~\ref{tab:cg_trem}, $x_m$ e $x_n$ são as distâncias horizontais do CG
 \end{table}
 
 \section{Limitações}
-\label{sec:cg_pendencias}
+\label{sec:cg_limitacoes}
 
-Os braços dos sistemas distribuídos e da fuselagem são os que mais pesam no resultado. Um metro de erro no braço do mobiliário desloca o CG do peso vazio em 0,12 m (4,4\% da CMA), e no braço da fuselagem em 0,28 m (10,3\% da CMA). Em uma revisão futura, esses braços devem ser substituídos pelos centroides das massas obtidas no dimensionamento estrutural (Capítulo de Dimensionamento Estrutural), e os pesos estatísticos devem ser comparados com essas massas.
+A estimativa de pesos usa velocidade de mergulho de projeto $V_D = 250$ kt (Tabela~\ref{tab:geometricos_desempenho}), valor do anteprojeto. No Capítulo de Análise de Cargas, a revisão das velocidades pelos mínimos do 14 CFR Part 25 levou a $V_C = 230$ kt e $V_D = 288$ kt, de modo que as duas etapas não usam a mesma entrada. As correlações da fuselagem e das empenagens dependem de $V_D$. Com $V_D = 288$ kt e a iteração do MZFW refeita, o peso vazio passaria de 13\,064 para cerca de 13\,470 kgf, o MZFW para cerca de 20\,000 kgf e o combustível disponível com a cabine cheia, no MTOW, de 3\,088 para cerca de 2\,680 kgf, o que reduziria o alcance com 64 passageiros. O CG e o posicionamento do trem praticamente não se alteram.
 
-O braço dos comandos de voo (1,62 m) representa o conjunto inteiro no posto de pilotagem. Como a correlação de Roskam inclui cabos, atuadores e articulações até as superfícies, esse braço é conservador para o limite dianteiro.
+As massas disponíveis do dimensionamento estrutural também foram comparadas com esta estimativa. As longarinas da asa somam 1\,395,9 kg, o que corresponde a 61\% dos 2\,283,3 kgf estimados para a asa inteira, antes de incluir revestimento, nervuras e superfícies de comando. Isso indica que o peso estatístico da asa está subestimado e que o peso vazio real tende a ser maior que o adotado.
+
+As duas diferenças atuam no mesmo sentido: o peso vazio real da aeronave deve ser maior que o adotado neste capítulo, e o combustível disponível com a cabine cheia, menor. A unificação de $V_D$ e a substituição dos pesos estatísticos pelas massas dimensionadas, com a atualização do peso vazio, do CG e do alcance, são as primeiras revisões recomendadas para um desenvolvimento posterior hipotético da aeronave.

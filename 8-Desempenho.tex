@@ -1369,6 +1369,89 @@ Por fim, o comprimento exigido de pista para que a aeronave complete toda a oper
 
 Esse valor estimado cumpre o requisito de projeto de ter uma pista de decolagem de 4200 ft (1280,16 m).
 
+\subsection{Comprimento de Pista Balanceado (BFL)}
+\label{sec:bfl}
+
+O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e massa máxima de decolagem de $22\,680~\mathrm{kg}$.
+
+Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se como estimativa de $C_{L_{\max,TO}}$ o maior valor representado na polar de decolagem da Figura~\ref{fig:polar_decolagem}.
+
+A velocidade de subida inicial e o coeficiente de sustentação correspondente foram determinados por:
+\begin{equation}
+    V_2 = 1{,}2
+    \sqrt{\frac{2W}{\rho S C_{L_{\max,TO}}}},
+    \qquad
+    C_{L,\mathrm{sub}} =
+    \frac{C_{L_{\max,TO}}}{1{,}2^2}.
+\end{equation}
+
+Para a subida monomotor, consideraram-se o trem de pouso recolhido e a hélice do motor inoperante embandeirada. O coeficiente de arrasto foi obtido corrigindo a polar de decolagem:
+\begin{equation}
+    C_{D,\mathrm{OEI}} =
+    C_{D,\mathrm{TO}}(C_{L,\mathrm{sub}})
+    - \Delta C_{D,\mathrm{LG}}
+    + \Delta C_{D,\mathrm{hélice}}.
+\end{equation}
+
+O arrasto e a tração do motor remanescente foram calculados por:
+\begin{equation}
+    D_{\mathrm{OEI}} =
+    \frac{1}{2}\rho V_2^2 S C_{D,\mathrm{OEI}},
+    \qquad
+    T_{\mathrm{OEI}} =
+    \frac{\eta_p P_{\mathrm{eixo},1}}{V_2},
+\end{equation}
+com a eficiência propulsiva interpolada na velocidade $V_2$. O ângulo de subida resultante é:
+\begin{equation}
+    \gamma_{\mathrm{OEI}} =
+    \arcsin\left(
+    \frac{T_{\mathrm{OEI}}-D_{\mathrm{OEI}}}{W}
+    \right),
+\end{equation}
+correspondente a um gradiente de subida estimado de $3{,}29\%$.
+
+A expressão de Raymer, convertida para fornecer a BFL em metros com as demais grandezas no Sistema Internacional, é:
+\begin{equation}
+    \mathrm{BFL} =
+    \frac{0{,}863}{1+2{,}3G}
+    \left(
+    \frac{W/S}{\rho g C_{L,\mathrm{sub}}}
+    + h_{\mathrm{obs}}
+    \right)
+    \left[
+    \frac{1}{T_{\mathrm{av}}/W-U}+2{,}7
+    \right]
+    + \frac{199{,}64}{\sqrt{\sigma}},
+    \label{eq:bfl_raymer}
+\end{equation}
+em que $\sigma=\rho/\rho_{SL}$, $h_{\mathrm{obs}}$ é a altura de referência e os parâmetros auxiliares são:
+\begin{equation}
+    G = \gamma_{\mathrm{OEI}}-0{,}024,
+    \qquad
+    U = 0{,}01C_{L_{\max,TO}}+0{,}02,
+\end{equation}
+utilizando-se $\gamma_{\mathrm{OEI}}$ em radianos.
+
+A tração média equivalente durante a aceleração foi estimada pela correlação para aeronaves a hélice:
+\begin{equation}
+    T_{\mathrm{av}} =
+    5{,}75P
+    \left(
+    \frac{\sigma N_e D_p^2}{P}
+    \right)^{1/3},
+\end{equation}
+na qual $P$ é a potência total de eixo em hp, $D_p$ é o diâmetro da hélice em pés e $N_e$ é o número de motores. A tração obtida em lbf foi convertida para newtons antes da aplicação na Equação~\ref{eq:bfl_raymer}.
+
+Substituindo os parâmetros calculados, obtém-se:
+\begin{equation}
+    \boxed{
+    \mathrm{BFL} \approx 1\,620~\mathrm{m}
+    \approx 5\,320~\mathrm{ft}
+    }.
+\end{equation}
+
+A estimativa supera em aproximadamente $26{,}7\%$ o comprimento de pista especificado para a missão. A avaliação do atendimento ao requisito depende da definição da condição de decolagem associada a esse comprimento. O método fornece uma estimativa preliminar, sem determinar explicitamente $V_1$ ou integrar as trajetórias de interrupção e continuação da decolagem.
+
 \section{Distância de Pouso}
 
 O procedimento de aterrissagem da aeronave em estudo é segmentado em três etapas consecutivas, conforme esquematizado na Figura \ref{fig:fases_pouso}. A fundamentação analítica para a determinação das distâncias correspondentes baseia-se nas diretrizes de homologação para a categoria transporte (RBAC 25). 
