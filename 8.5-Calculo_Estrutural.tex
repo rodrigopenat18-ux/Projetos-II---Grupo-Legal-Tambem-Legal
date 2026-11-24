@@ -85,7 +85,7 @@ $$\sigma_{VM} = \sqrt{\sigma^2 + 3\tau^2}$$
 
 em que $\sigma$ representa a tensão normal e $\tau$ a tensão de cisalhamento.
 
-Os critérios de resistência adotados fundamentam-se nos requisitos do regulamento FAR/CS 25, em particular nas seções 25.303 e 25.305. A norma exige que a estrutura não apresente deformação permanente sob a aplicação das cargas limites. Desse modo, para o carregamento limite, impõe-se que a tensão equivalente não ultrapasse o limite de escoamento do material ($\sigma_{VM} \le F_{ty}$). O regulamento também estabelece que a estrutura deve ser capaz de suportar as cargas últimas sem sofrer ruptura. As cargas últimas são obtidas pela multiplicação das cargas limites por um \textbf{fator de segurança de 1,5}. Para esta condição, a tensão equivalente deve ser inferior ao limite de ruptura do material ($\sigma_{VM} \le F_{tu}$).
+Os critérios de resistência adotados fundamentam-se nos requisitos do 14 CFR Part 25 (e da CS-25), em particular nos \S 25.303 e \S 25.305. A norma exige que a estrutura não apresente deformação permanente sob a aplicação das cargas limites. Desse modo, para o carregamento limite, impõe-se que a tensão equivalente não ultrapasse o limite de escoamento do material ($\sigma_{VM} \le F_{ty}$). O regulamento também estabelece que a estrutura deve ser capaz de suportar as cargas últimas sem sofrer ruptura. As cargas últimas são obtidas pela multiplicação das cargas limites por um \textbf{fator de segurança de 1,5}. Para esta condição, a tensão equivalente deve ser inferior ao limite de ruptura do material ($\sigma_{VM} \le F_{tu}$).
 
 O parâmetro utilizado para quantificar o atendimento a esses critérios estruturais é a Margem de Segurança (MS), definida como:
 
@@ -160,7 +160,7 @@ O critério básico de resistência ao cisalhamento impõe:
     \label{eq:criterio_cisalhamento}
 \end{equation}
 
-\noindent onde $A_w = h_w \cdot t_w$ é a área efetiva da alma e $\tau_\text{adm} = \tau_y / FS$ é a tensão cisalhante admissível. Adotando $\tau_y = 290$\,MPa e fator de segurança $FS = 1{,}5$, conforme requisito FAR\,25.303:
+\noindent onde $A_w = h_w \cdot t_w$ é a área efetiva da alma e $\tau_\text{adm} = \tau_y / FS$ é a tensão cisalhante admissível. Adotando $\tau_y = 290$\,MPa e fator de segurança $FS = 1{,}5$, conforme o \S 25.303 do 14 CFR Part 25:
 
 \begin{equation}
     \tau_\text{adm} = \frac{290}{1{,}5} \approx 193\,\text{MPa}
@@ -994,7 +994,7 @@ Cada critério abaixo exige margem de segurança mínima $MS = F_{adm}/f - 1 \ge
   \begin{equation}
     \sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_\theta + \sigma_\theta^2 + 3\tau^2} \leq F_{tu}.
   \end{equation}
-  \item \textbf{Pressão isolada} (FAR 25.365(d)): $1{,}33\,\Delta p$ como carga limite, com $\sigma_\theta \leq F_{ty}$ na limite e $\sigma_\theta \leq F_{tu}$ na última.
+  \item \textbf{Pressão isolada} (\S 25.365(d)): $1{,}33\,\Delta p$ como carga limite, com $\sigma_\theta \leq F_{ty}$ na limite e $\sigma_\theta \leq F_{tu}$ na última.
   \item \textbf{Compressão no reforçador}, sem pressurização: $\sigma_{st} = M_u/(\pi R^2 t_{eq}) \leq F_{cy}$.
   \item \textbf{Flambagem do painel} $b \times L$, sem pressurização, por interação compressão--cisalhamento de placa plana (a curvatura foi desprezada, o que é conservativo), com o revestimento sem flambar até $\pend{FS_{pan}}$ vezes a carga limite:
   \begin{equation}
