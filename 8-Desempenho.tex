@@ -1,8 +1,6 @@
+\chapter{Cálculos de Aerodinâmica e Desempenho}
 
-
-\chapter{Desempenho}
-
-\section{Cálculo Estimado da Polar de Arrasto}
+\section{Cálculo da Polar de Arrasto}
 
 Nesta seção, determina-se a curva $C_D \times C_L$ da aeronave regional de projeto, que serve como base fundamental para mapear o envelope aerodinâmico e subsidiar todos os cálculos subsequentes de desempenho em missão. A polar de arrasto global é modelada analiticamente pela equação quadrática:
 \begin{equation}
@@ -16,7 +14,7 @@ Para uma plataforma de transporte comercial deste porte, o arrasto parasita tota
     \item \textbf{Sistemas de Refrigeração e Admissão:} Perda de quantidade de movimento do ar captado para os motores e trocadores de calor.
 \end{itemize}
 
-Uma estimativa refinada do coeficiente de arrasto parasita total ($C_{D_0}$) exige ensaios em túnel de vento ou análises de CFD de alta fidelidade. Para o escopo deste anteprojeto preliminar, ele será estimado de forma analítica e empírica segundo o procedimento consolidado em \cite{Pullin}.
+Uma estimativa refinada do coeficiente de arrasto parasita total ($C_{D_0}$) exige ensaios em túnel de vento ou análises de CFD de alta fidelidade. Para o escopo desta etapa de projeto, ele será estimado de forma analítica e empírica segundo o procedimento consolidado em \cite{Pullin}.
 
 Segue a apresentação das metodologias e valores calculados para as parcelas que compõem o balanço de $C_{D_0}$ final da aeronave.
 
@@ -229,7 +227,7 @@ Como o modelo digital (CAD) da aeronave ainda não contempla o detalhamento comp
 
 Com base nos coeficientes extraídos e nas áreas estimadas, calculou-se a contribuição individual aerodinâmica. O coeficiente total referenciado à área de asa do projeto ($S = 74,1 \text{ m}^2$) é dado pela soma das parcelas do trem de nariz e dos dois conjuntos do trem principal. 
 
-A Tabela \ref{tab:trem_pouso} apresenta os valores detalhados e o coeficiente final obtido nesta etapa preliminar do anteprojeto.
+A Tabela \ref{tab:trem_pouso} apresenta os valores detalhados e o coeficiente final obtido.
 
 \begin{table}[H]
     \centering
@@ -327,7 +325,7 @@ Onde:
     \item $S = 74,1 \text{ m}^2$: Área alar de referência da asa.
 \end{itemize}
 
-O dimensionamento preliminar adota os parâmetros de vazão e operação nominal fornecidos pelo fabricante para o grupo motopropulsor em regime de cruzeiro a 260 kt e altitude de 20.000 pés (FL200), que representa a altitude ótima de cruzeiro (80\% do teto de serviço). Os valores calculados para a contribuição deste efeito na fixação do arrasto parasita global estão detalhados na Tabela 8.10.
+O dimensionamento preliminar adota os parâmetros de vazão e operação nominal fornecidos pelo fabricante para o grupo motopropulsor em regime de cruzeiro a 260 kt e altitude de 20.000 pés (FL200), que representa a altitude ótima de cruzeiro (80\% do teto de serviço). Os valores calculados para a contribuição deste efeito na fixação do arrasto parasita global estão detalhados na Tabela \ref{tab:arrasto_coleta}
 
 \begin{table}[H]
     \centering
@@ -1372,9 +1370,7 @@ Esse valor estimado cumpre o requisito de projeto de ter uma pista de decolagem 
 \subsection{Comprimento de Pista Balanceado (BFL)}
 \label{sec:bfl}
 
-O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e massa máxima de decolagem de $22\,680~\mathrm{kg}$.
-
-Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se como estimativa de $C_{L_{\max,TO}}$ o maior valor representado na polar de decolagem da Figura~\ref{fig:polar_decolagem}.
+O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e massa máxima de decolagem de $22\,680~\mathrm{kg}$. Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se o valor de $C_{L_{\max,TO}}$ retirado da polar de decolagem.
 
 A velocidade de subida inicial e o coeficiente de sustentação correspondente foram determinados por:
 \begin{equation}
@@ -1390,7 +1386,7 @@ Para a subida monomotor, consideraram-se o trem de pouso recolhido e a hélice d
     C_{D,\mathrm{OEI}} =
     C_{D,\mathrm{TO}}(C_{L,\mathrm{sub}})
     - \Delta C_{D,\mathrm{LG}}
-    + \Delta C_{D,\mathrm{hélice}}.
+    + \Delta C_{D,\text{hélice}}.
 \end{equation}
 
 O arrasto e a tração do motor remanescente foram calculados por:
@@ -1424,7 +1420,7 @@ A expressão de Raymer, convertida para fornecer a BFL em metros com as demais g
     + \frac{199{,}64}{\sqrt{\sigma}},
     \label{eq:bfl_raymer}
 \end{equation}
-em que $\sigma=\rho/\rho_{SL}$, $h_{\mathrm{obs}}$ é a altura de referência e os parâmetros auxiliares são:
+em que $\sigma=\rho/\rho_{SL}$, $h_{\mathrm{obs}}=35~\mathrm{ft}=10{,}668~\mathrm{m}$ é a altura de referência e os parâmetros auxiliares são:
 \begin{equation}
     G = \gamma_{\mathrm{OEI}}-0{,}024,
     \qquad
@@ -1555,11 +1551,20 @@ Para estabelecer a exigência final de pista, as três parcelas analisadas são 
 
 Esse valor estimado cumpre o requisito de comprimento de pista de pouso igual a 914,4 m (3000 ft).
 
-O gráfico da imagem \ref{fig:distancias_pouso} a seguir resume de forma visual as distâncias de pouso calculadas para diversos pesos operacionais da aeronave (do OEW até o MTOW), considerando pista seca e pista molhada. O requisito de projeto dado foi marcado no gráfico.
+
+A Figura \ref{fig:distancias_pouso} apresenta a variação estimada da
+distância de pouso em função do peso da aeronave,
+considerando condições de pista seca e molhada. O intervalo de referência compreende o peso vazio operacional
+(OEW), de $13\,512\ \mathrm{kg}$, e o peso
+máximo de pouso (MLW), de
+$22\,350\ \mathrm{kg}$. O comprimento máximo de pista especificado
+para a missão, de $914{,}4\ \mathrm{m}$,
+também é apresentado para comparação com
+os resultados estimados.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/distancias_pouso.png}
+    \includegraphics[width=0.7\textwidth]{images/distancias_pouso.png}
     \caption{Distâncias de Pouso para a aeronave projetada.}
     \label{fig:distancias_pouso}
 \end{figure}
@@ -1866,7 +1871,8 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         \multirow{3}{*}{\textbf{Pesos e Capacidades}}
         & Peso Máximo de Decolagem (MTOW) & 22.680 kg (50.000 lb) \\
         & Peso Máximo de Pouso (MLW) & 22.350 kg (49.273 lb) \\
-        & Peso Vazio Operacional (OEW) & 12.766 kg (28.144 lb) \\
+        & Peso Vazio Operacional (OEW) &
+        13.512 kg (29.789 lb) \\
         \midrule
         
         \multirow{2}{*}{\textbf{Motorização}}

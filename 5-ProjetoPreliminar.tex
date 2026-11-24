@@ -421,13 +421,25 @@ Com a forma em planta e os perfis aerodinâmicos previamente definidos, procedeu
     \label{fig:washout_estol}
 \end{figure}
 
-Como observado na \autoref{fig:wahsout_LD}, a adoção de ângulos de torção muito acentuados acarreta uma degradação geométrica que penaliza o coeficiente de sustentação máximo da asa. Dessa forma, buscando o melhor balanço entre o $L/D$ e $C_{L_{max}}$, adotou-se a maior torção admissível tal que a penalidade no limite de sustentação fosse restrita a $\Delta C_{L_{max}} \geq -0.03$, possibilitanto o ganho de $\Delta \frac{L}{D}_{max} \approx1$.
+Como observado na \autoref{fig:wahsout_LD}, a adoção de ângulos de torção muito acentuados acarreta uma degradação geométrica que penaliza o coeficiente de sustentação máximo da asa. Dessa forma, buscando o melhor balanço entre o $L/D$ e $C_{L_{max}}$, adotou-se a maior torção admissível tal que a penalidade no limite de sustentação fosse restrita a $\Delta C_{L_{max}} \geq -0.03$, possibilitando o ganho de $\Delta \frac{L}{D}_{max} \approx1$.
+
+\subsubsection{Torção Aerodinâmica}
+
+Segundo Raymer~\cite{raymer2018}, a torção geométrica corresponde à variação do ângulo de incidência dos perfis ao longo da envergadura, medida em relação ao perfil da raiz, enquanto a torção aerodinâmica é o ângulo entre a linha de sustentação nula de um perfil e a do perfil da raiz. Quando o perfil varia ao longo da envergadura, a torção total é a torção geométrica acrescida da diferença entre os ângulos de sustentação nula da raiz e da ponta:
+
+\begin{equation}
+  \varepsilon_{\mathrm{total}} = \varepsilon_{\mathrm{geo}}
+  + \left(\alpha_{L0,\mathrm{raiz}} - \alpha_{L0,\mathrm{ponta}}\right)
+  \label{eq:torcao_total}
+\end{equation}
+
+Na asa projetada, os perfis da raiz (NACA 43016) e da ponta (NACA 43009) compartilham a mesma linha média (430), diferindo apenas na espessura. Pela teoria de perfis finos, o ângulo de sustentação nula depende somente da linha média, de modo que a parcela aerodinâmica da torção é desprezível. Assim, a torção total da asa é essencialmente a torção geométrica (\textit{washout}) de $-4{,}2^\circ$ apresentada na Figura \autoref{fig:wahsout_LD}.
 
 \section{Geometria das Empenagens e Superficies de Controle}
 
 \subsection{Empenagens Horizontal e Vertical}
 
-O valor dos volumes de cauda definidos no anteprojeto se mantiveram onde: 
+O valor dos volumes de cauda definidos no projeto conceitual se mantiveram onde: 
 
 \begin{equation*}
     \overline{V}_{HT} = 1,1   \qquad  \overline{V}_{VT} = 0,08
