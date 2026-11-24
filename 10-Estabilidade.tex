@@ -28,7 +28,7 @@ que ilustra como essas forças se distribuem ao longo do comprimento da fuselage
 
 \section{Análise Preliminar da Estabilidade Longitudinal}
 
-Com a determinação do envelope do centro de gravidade, foi feita uma análise inicial da estabilidade longitudinal da aeronave.
+Com o envelope de CG definido na Seção~\ref{sec:cg_envelope} ($X_{BA,\text{CMA}} = 10{,}30$~m, limites de 17,9\% e 45,9\% da CMA), foi feita a análise da estabilidade longitudinal nos dois limites. A verificação simplificada da margem estática da Seção~\ref{sec:cg_margem} é confirmada aqui com as derivadas do AVL. O modelo do AVL foi atualizado para essa posição da asa: como as empenagens continuam fixas na fuselagem, o deslocamento da asa de 0,58~m para trás reduziu a distância entre os centros aerodinâmicos da asa e da EH de 12,66~m para 12,08~m, e a da EV de 11,36~m para 10,78~m.
 
 
 
@@ -50,21 +50,21 @@ As principais derivadas de estabilidade longitudinal obtidas no AVL, para as dua
        \hline
        $h_{CG}$ (\%  $\bar{c}$)        & $0{,}179$   & $0{,}459$  \\
        \hline
-       Margem estática (SM)              & $0{,}587$   & $0{,}307$  \\
+       Margem estática (SM)              & $0{,}561$   & $0{,}281$  \\
        \hline
        $C_{L_\alpha}$ [rad$^{-1}$]       & $5{,}816$   & $5{,}816$  \\
        \hline
-       $C_{L_q}$ [rad$^{-1}$]            & $14{,}907$  & $11{,}649$ \\
+       $C_{L_q}$ [rad$^{-1}$]            & $14{,}532$  & $11{,}274$ \\
        \hline
-       $C_{m_\alpha}$ [rad$^{-1}$]       & $-3{,}412$  & $-1{,}783$ \\
+       $C_{m_\alpha}$ [rad$^{-1}$]       & $-3{,}265$  & $-1{,}636$ \\
        \hline
-       $C_{m_q}$ [rad$^{-1}$]            & $-42{,}955$ & $-37{,}783$\\
+       $C_{m_q}$ [rad$^{-1}$]            & $-39{,}323$ & $-34{,}338$\\
        \hline
     \end{tabular}
     \label{tab:derivadas_long}
 \end{table}
 
-Antes da análise modal, verificou-se a coerência física dos sinais das derivadas dominantes em arfagem. Em ambas as condições de CG, $C_{m_\alpha} < 0$ confirma estabilidade estática longitudinal (com margem estática positiva em todo o envelope), e $C_{m_q} < 0$ confirma amortecimento positivo em arfagem. Como esperado, a rigidez estática $C_{m_\alpha}$ e a margem estática são maiores na condição de CG dianteiro, tornando a aeronave mais estável (porém menos manobrável) nessa configuração, e menores na condição traseira, que representa o caso crítico de estabilidade do envelope.
+Antes da análise modal, verificou-se a coerência física dos sinais das derivadas dominantes em arfagem. Em ambas as condições de CG, $C_{m_\alpha} < 0$ confirma estabilidade estática longitudinal (com margem estática positiva em todo o envelope), e $C_{m_q} < 0$ confirma amortecimento positivo em arfagem. Como esperado, a rigidez estática $C_{m_\alpha}$ e a margem estática são maiores na condição de CG dianteiro, tornando a aeronave mais estável (porém menos manobrável) nessa configuração, e menores na condição traseira, que representa o caso crítico de estabilidade do envelope. O ponto neutro resultante é $h_n = h_{CG} + SM = 0{,}740$, a 0,5\% da CMA da estimativa simplificada de 0,745 da Seção~\ref{sec:cg_margem}.
 
 Por fim, com o fim de simplificação de análise, foi feito desacoplamento do movimento longitudinal com o látero-direcional. Dessa forma, as variáveis de estado $\vec{x}_{long}$ e entradas $\vec{u}_{long}$ que descrevem o movimento são:
 
@@ -146,7 +146,7 @@ A amplitude foi mantida pequena ($1^\circ$ de deflexão) de modo a preservar a v
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Polos_projetos.png}
-    \caption{Polos para o movimento longitudinal da aeronave.}
+    \caption{Polos do movimento longitudinal da aeronave nos dois limites de CG.}
     \label{polos}
 \end{figure}
 
@@ -164,38 +164,40 @@ O modo curto período da aeronave tem as seguintes propriedades:
 
 \begin{table}[H]
     \centering
-    \caption{Características do curto período.}
-    \begin{tabular}{|c|c|}
+    \caption{Características do curto período nos dois limites de CG.}
+    \begin{tabular}{|c|c|c|}
        \hline
-       Polos  & $-1,0835 \pm 3,2287i$ \\
+        & CG dianteiro (17,9\%) & CG traseiro (45,9\%) \\
        \hline
-       Frequência natural ($\omega_n$) & $3,4057$ rad/s \\
+       Polos  & $-1{,}0228 \pm 3{,}1646i$ & $-0{,}9397 \pm 2{,}2452i$ \\
        \hline
-       Taxa de amortecimento ($\zeta_{d}$) & $0,3182$\\
+       Frequência natural ($\omega_n$) & $3{,}326$ rad/s & $2{,}434$ rad/s \\
        \hline
-       Período ($T$) & $1,9460$ s \\
+       Taxa de amortecimento ($\zeta$) & $0{,}308$ & $0{,}386$ \\
        \hline
-       Tempo de decaimento ($t_{1/2}$) & $0,6397$ s \\
+       Período ($T$) & $1{,}985$ s & $2{,}799$ s \\
        \hline
-       Tempo de acomodação 2\% ($t_{s}$) & $3,6916$ s\\
+       Tempo de meia amplitude ($t_{1/2}$) & $0{,}678$ s & $0{,}738$ s \\
+       \hline
+       Tempo de acomodação 2\% ($t_{s}$) & $3{,}91$ s & $4{,}26$ s \\
        \hline
     \end{tabular}
     \label{curto_periodo}
 \end{table}
 
-O curto período da aeronave apresenta uma alta taxa de amortecimento e um pequeno período, o que auxilia a difícil percepção desse modo pelo piloto. O valor de $\zeta_d$ para o curto período está dentro do previsto na norma militar americana MIL-F-8785C para aeronaves do tipo. Nas Figuras \ref{curto_tras} e \ref{curto_dian} pode ser observado, para as condições traseira e dianteira do CG, a evolução no curto período para os ângulos $\alpha$, $\theta$ e $\gamma$. Demais gráficos podem ser encontrados no anexo.
+O curto período tem período pequeno (2,0 a 2,8~s) e amortecimento moderado, que cresce com o CG para trás: a frequência natural cai junto com $|C_{m_\alpha}|$, enquanto o termo de amortecimento varia pouco. Pela especificação militar MIL-F-8785C, para aeronaves da classe~II em fase de voo de categoria~B (cruzeiro), o nível~1 exige $0{,}30 \le \zeta_{sp} \le 2{,}0$. Os dois limites de CG atendem, com o CG dianteiro (0,308) próximo do limite inferior. Nas Figuras \ref{curto_tras} e \ref{curto_dian} pode ser observado, para as condições traseira e dianteira do CG, a evolução no curto período para os ângulos $\alpha$, $\theta$ e $\gamma$. Demais gráficos podem ser encontrados no anexo.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/Imagem - desempenho/angulos_curto_CG_traseiro.jpeg}
+    \includegraphics[width=0.8\textwidth]{images/estabilidade/angulos_curto_CG_traseiro.png}
     \caption{Condição de CG traseiro para o curto período.}
     \label{curto_tras}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/Imagem - desempenho/angulos_CG_dianteiro.png}
+    \includegraphics[width=0.8\textwidth]{images/estabilidade/angulos_curto_CG_dianteiro.png}
     \caption{Condição de CG dianteiro para o curto período.}
     \label{curto_dian}
 \end{figure}
@@ -213,38 +215,40 @@ O modo longo período ou fugóide da aeronave tem as seguintes propriedades:
 
 \begin{table}[H]
     \centering
-    \caption{Características do longo período.}
-    \begin{tabular}{|c|c|}
+    \caption{Características do longo período nos dois limites de CG.}
+    \begin{tabular}{|c|c|c|}
        \hline
-       Polos  & $-0.0030 \pm 0.1018i$ \\
+        & CG dianteiro (17,9\%) & CG traseiro (45,9\%) \\
        \hline
-       Frequência natural ($\omega_n$) & $0,1018$ rad/s \\
+       Polos  & $-0{,}0030 \pm 0{,}1019i$ & $-0{,}0021 \pm 0{,}0981i$ \\
        \hline
-       Taxa de amortecimento ($\zeta_{d}$) & $0,0291$\\
+       Frequência natural ($\omega_n$) & $0{,}1019$ rad/s & $0{,}0981$ rad/s \\
        \hline
-       Período ($T$) & $61,7479$ s \\
+       Taxa de amortecimento ($\zeta$) & $0{,}0290$ & $0{,}0215$ \\
        \hline
-       Tempo de decaimento ($t_{1/2}$) & $234$ s \\
+       Período ($T$) & $61{,}7$ s & $64{,}1$ s \\
        \hline
-       Tempo de acomodação 2\% ($t_{s}$) & $1350$ s\\
+       Tempo de meia amplitude ($t_{1/2}$) & $234$ s & $329$ s \\
+       \hline
+       Tempo de acomodação 2\% ($t_{s}$) & $1.352$ s & $1.899$ s \\
        \hline
     \end{tabular}
     \label{longo_periodo}
 \end{table}
 
-O modo longo período apresenta um amortecimento extremamente baixo (mesmo para os padrões da fugóide), fazendo com que a aeronave oscile muito tempo até retornar a condição de equilíbrio. Entretanto, o período também é de magnitude considerável o que ajuda a não percepção desse movimento, fazendo com que o baixo amortecimento não seja problemático. A aeronave consta dentro das especificações da norma MIL-F-8785C para aeronaves desse tipo. Nas Figuras \ref{longo_tras} e \ref{longo_dian} pode ser observado para ambos limites do CG a resposta da velocidade e altitude ao longo período. Gráficos das demais variáveis estão apresentados no anexo.
+O modo longo período apresenta amortecimento muito baixo ($\zeta = 0{,}029$ no CG dianteiro e $0{,}022$ no traseiro), e a aeronave oscila por muito tempo até voltar à condição de equilíbrio. O período longo, de 62 a 64~s, torna o movimento lento e fácil de corrigir pelo piloto, de modo que o baixo amortecimento não compromete a operação. Pela MIL-F-8785C, porém, o nível~1 exige $\zeta_p \ge 0{,}04$: com os valores obtidos a fugóide fica no nível~2 ($\zeta_p > 0$), e seria preciso aumentar o amortecimento (por exemplo, com um piloto automático de atitude) para chegar ao nível~1. Nas Figuras \ref{longo_tras} e \ref{longo_dian} pode ser observado para ambos limites do CG a resposta da velocidade e altitude ao longo período. Gráficos das demais variáveis estão apresentados no anexo.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/h_longo_CG_trazeiro.jpeg}
+    \includegraphics[width=\textwidth]{images/estabilidade/h_longo_CG_traseiro.png}
     \caption{Condição de CG traseiro para o longo período.}
     \label{longo_tras}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/h_longo_CG_dianteiro.jpeg}
+    \includegraphics[width=\textwidth]{images/estabilidade/h_longo_CG_dianteiro.png}
     \caption{Condição de CG dianteiro para o longo período.}
     \label{longo_dian}
 \end{figure}
@@ -264,6 +268,6 @@ Como verificação independente, a resposta temporal obtida na simulação não-
 
 \subsection{Conclusões}
 
-A aeronave é caracterizada como dinamicamente estável em voo de cruzeiro em uma condição de voo reto nivelado, com características dos modos de longo e curto período que se adéquam à norma MIL-F-8785C para seu tipo. Para uma análise mais profunda de qualidade de voo é necessário avaliar a estabilidade látero direcial. Por fim, apesar das normas demonstrarem uma boa ideia sobre a validação das características dos modos longitudinais, uma avaliação completa dos modos longitudinais é feita em partes mais avançadas dor projeto, com dados de testes de modelos e ensaios em voo.
+A aeronave é caracterizada como dinamicamente estável em voo de cruzeiro em uma condição de voo reto nivelado, com o curto período no nível~1 e a fugóide no nível~2 da especificação MIL-F-8785C para seu tipo. Para uma análise mais profunda de qualidade de voo é necessário avaliar a estabilidade látero direcial. Por fim, apesar de as especificações darem uma boa ideia sobre a validação das características dos modos longitudinais, uma avaliação completa dos modos longitudinais é feita em partes mais avançadas dor projeto, com dados de testes de modelos e ensaios em voo.
 
 

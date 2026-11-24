@@ -303,7 +303,7 @@ $CD_{HP} = n \cdot (0,1 + \cos^2 \beta) \cdot \frac{Sp}{S}$
 
 Onde $n = 6$ é o número de pás por hélice, $S_p = 0,45 \text{ m}^2$ é a área projetada estimada da pá e $S = 74,1 \text{ m}^2$ é a área alar de referência da aeronave.  Neste projeto, avaliam-se as duas condições operacionais distintas que ocorrem após uma falha de motor. A primeira delas é a condição de Moinho de Vento (Windmilling), que corresponde ao instante imediatamente após a falha, antes da atuação do sistema de embandeiramento. Assumindo que a hélice permaneça destravada e com o ângulo de passo de cruzeiro $\beta = 30^\circ$, o escoamento incidente força a rotação do disco, extraindo energia do ar e gerando um arrasto maciço. Para esta condição transitória crítica, o coeficiente calculado é:  $CD_{HP, wind} = 6 \cdot (0,1 + \cos^2 30^\circ) \cdot \frac{0,45}{74,1} \approx 0,0310$. 
 
-A segunda é a condição embandeirada. Para assegurar a controlabilidade direcional e permitir o cumprimento dos gradientes mínimos de subida monomotor exigidos pelo FAA Part 25.121, a aeronave conta com um sistema de embandeiramento automático (auto-feather). Este sistema rotaciona as pás para alinhá-las com o escoamento livre, de modo que $\beta \approx 90^\circ$. Nessa posição, o termo $\cos^2(90^\circ)$ zera, reduzindo o bloqueio frontal da hélice:
+A segunda é a condição embandeirada. Para assegurar a controlabilidade direcional e permitir o cumprimento dos gradientes mínimos de subida monomotor exigidos pelo \S 25.121 do 14 CFR Part 25, a aeronave conta com um sistema de embandeiramento automático (auto-feather). Este sistema rotaciona as pás para alinhá-las com o escoamento livre, de modo que $\beta \approx 90^\circ$. Nessa posição, o termo $\cos^2(90^\circ)$ zera, reduzindo o bloqueio frontal da hélice:
 
 $CD_{HP, feather} = 6 \cdot (0,1 + 0) \cdot \frac{0,45}{74,1} \approx 0,0036$
 
@@ -352,9 +352,9 @@ O coeficiente de arrasto total da aeronave varia substancialmente entre as fases
 
 A equação geral da polar de arrasto é modelada como $C_D = C_{D_0} + K \cdot C_L^2$. A configuração de cruzeiro (limpa) serve como linha de base. Nela, o coeficiente de arrasto parasita total ($C_{D_{0,limpo}} = 0,032$) é composto exclusivamente pelo atrito e pressão da fuselagem, empenagens, naceles e arrastos de interferência. Para as fases de decolagem e pouso, a aeronave assume configurações sujas. Os incrementos são tratados de forma geometricamente isolada.
 
-O incremento do Trem de Pouso (afeta apenas $C_D$), sendo que a extensão do trem de pouso atua no escoamento como um conjunto de corpos rombudos, gerando um incremento de arrasto estritamente parasita (estimado em $\Delta C_{D_{LG}} = 0,00377$, conforme a Seção 8.3). O trem de pouso não altera o campo de pressões em torno dos perfis alares, portanto, não modifica o $C_L$ da aeronave nem a parcela de arrasto induzido ($K$).
+O incremento do Trem de Pouso (afeta apenas $C_D$), sendo que a extensão do trem de pouso atua no escoamento como um conjunto de corpos rombudos, gerando um incremento de arrasto estritamente parasita (estimado em $\Delta C_{D_{LG}} = 0,00377$, conforme a Tabela~\ref{tab:trem_pouso}). O trem de pouso não altera o campo de pressões em torno dos perfis alares, portanto, não modifica o $C_L$ da aeronave nem a parcela de arrasto induzido ($K$).
 
-O incremento dos Flapes (afeta $C_L$ e $C_D$), de forma que a deflexão do sistema hipersustentador (10° na decolagem e 40° no pouso) altera a curvatura efetiva da asa. Isso gera dois efeitos simultâneos: adiciona uma parcela significativa de arrasto parasita de perfil ($\Delta C_{D_{0,flap}}$) devido ao aumento da esteira turbulenta e da área frontal e desloca a curva de sustentação para a esquerda (aumentando o $C_L$ obtido para um mesmo ângulo de ataque $\alpha$) e modifica o fator de eficiência da asa (fator de Oswald, $e$), alterando diretamente o arrasto induzido ($K \cdot C_L^2$).
+O incremento dos Flaps (afeta $C_L$ e $C_D$), de forma que a deflexão do sistema hipersustentador (10° na decolagem e 40° no pouso) altera a curvatura efetiva da asa. Isso gera dois efeitos simultâneos: adiciona uma parcela significativa de arrasto parasita de perfil ($\Delta C_{D_{0,flap}}$) devido ao aumento da esteira turbulenta e da área frontal e desloca a curva de sustentação para a esquerda (aumentando o $C_L$ obtido para um mesmo ângulo de ataque $\alpha$) e modifica o fator de eficiência da asa (fator de Oswald, $e$), alterando diretamente o arrasto induzido ($K \cdot C_L^2$).
 
 Dessa forma, as equações polares para as configurações de voo são decompostas da seguinte maneira para os cálculos de desempenho:
 
@@ -364,7 +364,7 @@ Decolagem (Sujo): $C_D = (C_{D_{0,limpo}} + \Delta C_{D_{LG}} + \Delta C_{D_{0,f
 
 Pouso (Sujo): $C_D = (C_{D_{0,limpo}} + \Delta C_{D_{LG}} + \Delta C_{D_{0,flap40}}) + K_{flap40} \cdot C_L^2$
 
-Nota: Os valores precisos de $\Delta C_{D_{0,flap}}$ e do fator $K$ para as configurações sujas são capturados intrinsecamente pela simulação numérica 3D descrita na Seção 8.4.6.
+Nota: Os valores precisos de $\Delta C_{D_{0,flap}}$ e do fator $K$ para as configurações sujas são capturados intrinsecamente pela simulação numérica 3D descrita adiante (Figura~\ref{fig:vlm_paineis}).
 
 \subsection{Arrastos parasita e induzido das superfícies alares}
 
@@ -381,7 +381,7 @@ Diferentemente de uma análise puramente potencial, que forneceria apenas a incl
 
 A geometria foi modelada reproduzindo as características descritas no Capítulo 4, utilizando os perfis NACA 43016 (raiz) e NACA 43009 (ponta) para a asa, e NACA 0012 para as empenagens.
 
-Foram simuladas três condições operacionais distintas, considerando as deflexões de flape pertinentes a cada fase de voo.
+Foram simuladas três condições operacionais distintas, considerando as deflexões de flap pertinentes a cada fase de voo.
 
 O cálculo considerou a geometria completa da aeronave, variando-se o ângulo de ataque global ($\alpha$), mas mantendo a deflexão das superfícies de controle (profundor) nula em todos os pontos. Portanto, os valores representam a capacidade de geração de sustentação e o arrasto associado para a atitude da aeronave, sem o equilíbrio de momentos longitudinais.
 
@@ -1219,17 +1219,17 @@ Na condição de pouso, não se utiliza a interseção entre potência requerida
 
 
 
-Conforme extraído da tabela \ref{tab:clmax}, o coeficiente de sustentação máximo ($C_{L,máx}$) não é fixo, variando de acordo com a configuração das superfícies hipersustentadoras (flapes). Além disso, por ser inversamente proporcional à raiz quadrada da densidade do ar ($\rho$), a velocidade verdadeira de estol (TAS - \textit{True Airspeed}) aumenta à medida que a aeronave ganha altitude e o ar se torna mais rarefeito.
+Conforme extraído da tabela \ref{tab:clmax}, o coeficiente de sustentação máximo ($C_{L,máx}$) não é fixo, variando de acordo com a configuração das superfícies hipersustentadoras (flaps). Além disso, por ser inversamente proporcional à raiz quadrada da densidade do ar ($\rho$), a velocidade verdadeira de estol (TAS - \textit{True Airspeed}) aumenta à medida que a aeronave ganha altitude e o ar se torna mais rarefeito.
 
 Aplicando os parâmetros da aeronave e as respectivas configurações aerodinâmicas para cada fase de voo, obtêm-se as seguintes velocidades de estol:
 
 \begin{itemize}
-    \item \textbf{Pouso (Nível do mar):} Na configuração de aproximação final, utiliza-se a deflexão máxima dos flapes ($\delta_f = 40^\circ$), o que eleva o coeficiente para $C_{L,máx} = 1.59$. Considerando a densidade atmosférica padrão ($\rho = 1,225 \text{ kg/m}^3$), a velocidade mínima sustentável cai significativamente para:
+    \item \textbf{Pouso (Nível do mar):} Na configuração de aproximação final, utiliza-se a deflexão máxima dos flaps ($\delta_f = 40^\circ$), o que eleva o coeficiente para $C_{L,máx} = 1.59$. Considerando a densidade atmosférica padrão ($\rho = 1,225 \text{ kg/m}^3$), a velocidade mínima sustentável cai significativamente para:
     \begin{equation}
         V_{estol} = 55,5 \text{ m/s} \approx 107.9 \text{ kt}
     \end{equation}
     
-    \item \textbf{Decolagem (Nível do mar):} Para otimizar a sustentação sem gerar arrasto excessivo, utiliza-se uma deflexão parcial de flapes ($\delta_f = 10^\circ$), resultando em um $C_{L,máx} = 1,17$. Sob a mesma densidade ao nível do mar, tem-se:
+    \item \textbf{Decolagem (Nível do mar):} Para otimizar a sustentação sem gerar arrasto excessivo, utiliza-se uma deflexão parcial de flaps ($\delta_f = 10^\circ$), resultando em um $C_{L,máx} = 1,17$. Sob a mesma densidade ao nível do mar, tem-se:
     \begin{equation}
         V_{estol} = 64,7 \text{ m/s} \approx 125.8\text{ kt}
     \end{equation}
@@ -1348,7 +1348,7 @@ O ganho de altitude correspondente a este segmento ($h$) pode ser aproximado pel
     h = 4,92 \text{ m}
 \end{equation}
 
-Em seguida, o segmento $S_{2}$ é computado admitindo-se uma taxa de subida constante até passar de um obstáculo padrão ($H$) definido pelo FAA Part25. Fixou-se, então, $H = 35 \text{ ft (10,66 m)}$. O espaço horizontal deste trecho retilíneo torna-se, portanto:
+Em seguida, o segmento $S_{2}$ é computado admitindo-se uma taxa de subida constante até passar de um obstáculo padrão ($H$) definido pelo 14 CFR Part 25. Fixou-se, então, $H = 35 \text{ ft (10,66 m)}$. O espaço horizontal deste trecho retilíneo torna-se, portanto:
 \begin{equation}
     S_{2} = \frac{H - h}{\tan \gamma}
 \end{equation}
@@ -1370,7 +1370,7 @@ Esse valor estimado cumpre o requisito de projeto de ter uma pista de decolagem 
 \subsection{Comprimento de Pista Balanceado (BFL)}
 \label{sec:bfl}
 
-O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e massa máxima de decolagem de $22\,680~\mathrm{kg}$. Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se o valor de $C_{L_{\max,TO}}$ retirado da polar de decolagem.
+O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e peso máximo de decolagem de $22\,680~\mathrm{kgf}$. Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se o valor de $C_{L_{\max,TO}}$ retirado da polar de decolagem.
 
 A velocidade de subida inicial e o coeficiente de sustentação correspondente foram determinados por:
 \begin{equation}
@@ -1493,7 +1493,7 @@ Calculando a média para o \textit{flare}:
     V_{f} = 54,44 \text{ m/s}
 \end{equation}
 
-A magnitude de $V_{S}$ foi baseada na polar aerodinâmica de pouso (trem abaixado e flapes em deflexão máxima) no nível do mar. Assumindo um incremento de fator de carga provocado pela rotação do manche na ordem de $n_{flare} = 1,2$, o raio e a altura de quebra resultam em:
+A magnitude de $V_{S}$ foi baseada na polar aerodinâmica de pouso (trem abaixado e flaps em deflexão máxima) no nível do mar. Assumindo um incremento de fator de carga provocado pela rotação do manche na ordem de $n_{flare} = 1,2$, o raio e a altura de quebra resultam em:
 \begin{equation}
     R = 1510,6 \text{ m}
 \end{equation}
@@ -1501,7 +1501,7 @@ A magnitude de $V_{S}$ foi baseada na polar aerodinâmica de pouso (trem abaixad
     h_{F} = 2,07 \text{ m}
 \end{equation}
 
-Segundo a norma, o obstáculo balizador que inicia a manobra de pouso possui uma altura convencional de $H = 50 \text{ ft} = 15,24 \text{ m}$. Por consequência, a projeção horizontal da aproximação em voo livre é:
+Segundo o \S 25.125 do 14 CFR Part 25, o obstáculo balizador que inicia a manobra de pouso possui uma altura convencional de $H = 50 \text{ ft} = 15,24 \text{ m}$. Por consequência, a projeção horizontal da aproximação em voo livre é:
 \begin{equation}
     S_{af} = \frac{H - h_{F}}{\tan(\gamma)}
 \end{equation}
@@ -1555,9 +1555,9 @@ Esse valor estimado cumpre o requisito de comprimento de pista de pouso igual a 
 A Figura \ref{fig:distancias_pouso} apresenta a variação estimada da
 distância de pouso em função do peso da aeronave,
 considerando condições de pista seca e molhada. O intervalo de referência compreende o peso vazio operacional
-(OEW), de $13\,512\ \mathrm{kg}$, e o peso
+(OEW), de $13\,512\ \mathrm{kgf}$, e o peso
 máximo de pouso (MLW), de
-$22\,350\ \mathrm{kg}$. O comprimento máximo de pista especificado
+$22\,350\ \mathrm{kgf}$. O comprimento máximo de pista especificado
 para a missão, de $914{,}4\ \mathrm{m}$,
 também é apresentado para comparação com
 os resultados estimados.
@@ -1648,14 +1648,14 @@ Com essas relações, foram obtidas as curvas de alcance e autonomia em função
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/alcance_max.png} 
-    \caption{Alcance estimado em função da velocidade.}
+    \caption{Alcance do trecho de cruzeiro em função da velocidade, com os 2.104~kgf de combustível de cruzeiro da missão com cabine cheia (Tabela~\ref{tab:combustivel_missao}), $\eta_{\mathrm{prop}} = 0{,}85$ e velocidades acima de $1{,}2\,V_S$.}
     \label{fig:alcance_max}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/autonomia_max.png}
-    \caption{Autonomia estimada em função da velocidade.}
+    \caption{Autonomia do trecho de cruzeiro em função da velocidade, nas mesmas condições da Figura~\ref{fig:alcance_max}.}
     \label{fig:autonomia_max}
 \end{figure}
 
@@ -1685,24 +1685,90 @@ O sumário dos limites estratégicos atingidos por esta configuração, mapeados
     \label{tab:resultados_alcance}
 \end{table}
 
-Para uma estimativa da missão típica, aplicou-se a equação de Bréguet apenas ao trecho de cruzeiro, adotando altitude constante de 20.000 ft e velocidade de cruzeiro de $V_C=178,6$ kt ($91,88$ m/s). Foi utilizado o consumo específico $c=0,459~\mathrm{lb/(shp\cdot h)}$ e uma quantidade de combustível correspondente a aproximadamente 40\% da capacidade máxima da aeronave.
+\subsection{Alcance da Missão de Projeto}
+\label{sec:alcance_missao}
 
-Dessa forma, os valores apresentados representam uma aproximação de cruzeiro e não incluem diretamente as parcelas de combustível e tempo associadas à decolagem, subida, descida, aproximação e pouso.
+O alcance da missão de projeto foi calculado com a cabine cheia (64 passageiros com bagagem despachada) e decolagem no MTOW. Nessa condição o combustível a bordo é de 3.088~kgf (Tabela~\ref{tab:cg_pesos}), e não uma fração arbitrária da capacidade dos tanques. Esse combustível foi distribuído entre as fases da missão e as reservas IFR do requisito de alcance (alternativa a 100~NM e 45~minutos de espera, Seção~\ref{section:Requisitos}), com as seguintes hipóteses:
+
+\begin{itemize}
+    \item partida, táxi e decolagem com fração de peso de 0,995; descida e pouso com 0,997 cada;
+    \item subida até 20.000~ft com o ângulo de $4{,}60^{\circ}$ do diagrama de missão, com o combustível obtido pela energia fornecida, $W\,\Delta h + D\,s$, com eficiência propulsiva de 0,80;
+    \item cruzeiro a 20.000~ft pela Equação~\ref{eq:breguet_alcance}, com $c = 0{,}459~\mathrm{lb/(shp\cdot h)}$, $C_L$ constante na condição de máximo alcance limitada a $1{,}3\,V_S$ ($C_L = 0{,}89$, $V \approx 193$~kt TAS, $L/D = 13{,}8$ e $\eta_{\mathrm{prop}} = 0{,}85$, da tabela de eficiência da hélice em cruzeiro) e a polar de cruzeiro do CEA-VLM;
+    \item descida em rampa de $3^{\circ}$, que percorre 116~km (Tabela~\ref{tab:fases_missao});
+    \item reservas: alternativa a 100~NM em cruzeiro a 10.000~ft e espera de 45~minutos a 1.500~ft na velocidade de potência mínima.
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Distribuição do combustível na missão de projeto (cabine cheia, MTOW).}
+    \label{tab:combustivel_missao}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Fase} & \textbf{Combustível [kgf]} & \textbf{Distância [NM]} \\
+        \midrule
+        Partida, táxi e decolagem & 113 & -- \\
+        Subida até 20.000 ft & 246 & 41 \\
+        Cruzeiro a 20.000 ft & 2.104 & 821 \\
+        Descida e pouso & 121 & 63 \\
+        Reserva: alternativa a 100 NM & 248 & -- \\
+        Reserva: espera de 45 min & 256 & -- \\
+        \midrule
+        \textbf{Total} & \textbf{3.088} & \textbf{925} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+O alcance com a cabine cheia é de 925~NM, acima do requisito de 800~NM. Para voar exatamente 800~NM com as mesmas reservas são necessários 2.749~kgf de combustível, de modo que sobram cerca de 340~kgf. A aeronave pousa com cerca de 20.100~kgf, abaixo do MLW de 22.350~kgf. Com o combustível do trecho de cruzeiro voado na velocidade de potência mínima, a autonomia desse trecho é de cerca de 4,7~h (Tabela~\ref{tab:autonomia_alcance_cruzeiro}).
 
 \begin{table}[H]
 \centering
-\caption{Autonomia e Alcance estimados para uma missão típica em cruzeiro.}
+\caption{Alcance e autonomia da missão de projeto (cabine cheia, reservas IFR).}
 \begin{tabular}{cc}
 \hline
-Alcance (NM) & Autonomia (h) \\
+Alcance (NM) & Autonomia do trecho de cruzeiro (h) \\
 \hline
-772,11 & 8,86 \\
+925 & 4,7 \\
 \hline
 \end{tabular}
 \label{tab:autonomia_alcance_cruzeiro}
 \end{table}
 
-O alcance obtido é próximo ao requisito de 800 NM, devendo a verificação definitiva ser realizada posteriormente por meio de uma análise completa da missão, incluindo as demais fases de voo e as reservas de combustível aplicáveis.
+\subsection{Diagrama de Carga Paga--Alcance}
+\label{sec:carga_paga_alcance}
+
+O diagrama de carga paga--alcance (Figura~\ref{fig:carga_paga_alcance}) mostra as combinações de passageiros, carga e combustível que respeitam o MTOW, o MZFW e a capacidade dos tanques, com o mesmo modelo de missão e as mesmas reservas da Tabela~\ref{tab:combustivel_missao}. Ele é definido pelos quatro pontos da Tabela~\ref{tab:pontos_carga_paga}:
+
+\begin{itemize}
+    \item \textbf{A}: carga paga máxima (6.080~kgf), limitada pelo MZFW, sem combustível de missão;
+    \item \textbf{B}: carga paga máxima e combustível até o MTOW (3.088~kgf). Entre A e B, a carga paga é limitada pelo MZFW;
+    \item \textbf{C}: tanques cheios (4.990~kgf) no MTOW, com a carga paga reduzida para 4.178~kgf. Entre B e C, cada quilograma-força de combustível a mais exige um a menos de carga paga, para não ultrapassar o MTOW;
+    \item \textbf{D}: tanques cheios e nenhuma carga paga (voo de translado), decolando com 18.502~kgf.
+\end{itemize}
+
+Os pontos B e C são os limites da Tabela~\ref{tab:cg_cargapaga}. Em nenhum ponto o peso de pouso ultrapassa o MLW.
+
+\begin{table}[H]
+    \centering
+    \caption{Pontos do diagrama de carga paga--alcance.}
+    \label{tab:pontos_carga_paga}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{Ponto} & \textbf{Carga paga [kgf]} & \textbf{Combustível [kgf]} & \textbf{Peso de decolagem [kgf]} & \textbf{Alcance [NM]} & \textbf{Limitado por} \\
+        \midrule
+        A & 6.080 & 0     & 19.592 & 0     & MZFW \\
+        B & 6.080 & 3.088 & 22.680 & 925   & MZFW e MTOW \\
+        C & 4.178 & 4.990 & 22.680 & 1.767 & MTOW e tanques \\
+        D & 0     & 4.990 & 18.502 & 2.265 & tanques \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/Imagem - desempenho/carga_paga_alcance.png}
+    \caption{Diagrama de carga paga--alcance com cruzeiro a 20.000~ft em máximo alcance e reservas IFR (alternativa a 100~NM e 45~min de espera). O quadrado marca o requisito de 800~NM com 64 passageiros.}
+    \label{fig:carga_paga_alcance}
+\end{figure}
 
 
 \section{Envelope de Voo}
@@ -1746,16 +1812,38 @@ Esta consideração explica a curvatura da fronteira esquerda do envelope em alt
 
 \subsection{Resultados do Envelope}
 
-A Figura \ref{fig:envelope_de_voo} apresenta o envelope de voo calculado. Observa-se que a região operacional se estreita com o ganho de altitude até convergir para um único ponto: o Teto Absoluto. Neste ponto, $V_{min} = V_{max}$, indicando que a aeronave possui apenas uma velocidade possível de voo nivelado e a razão de subida é nula.
+A Figura \ref{fig:envelope_de_voo} apresenta o envelope de voo calculado no MTOW, com a área alar de 74,1~m$^2$ (a versão anterior desta análise usava 54,1~m$^2$, diferente da área alar de 74,1~m$^2$ do projeto). Observa-se que a região operacional se estreita com o ganho de altitude até convergir para um único ponto: o Teto Absoluto. Neste ponto, $V_{min} = V_{max}$, indicando que a aeronave possui apenas uma velocidade possível de voo nivelado e a razão de subida é nula.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{images//Imagem - desempenho/envelope de voo.png}
-    \caption{Envelope de Voo}
+    \includegraphics[width=0.9\linewidth]{images/Imagem - desempenho/envelope_voo.png}
+    \caption{Envelope de voo no MTOW ($S = 74{,}1$~m$^2$, ISA): limite inferior de estol ou de potência, velocidade máxima em voo nivelado e tetos.}
     \label{fig:envelope_de_voo}
 \end{figure}
 
-Com os cálculos obteve-se um teto de $7370 \ m = 24180 \ ft$.
+Com os cálculos obteve-se um teto absoluto de 7.960~m (26.115~ft). A velocidade máxima em voo nivelado é de 122,1~m/s (237~kt) ao nível do mar e de 114,0~m/s (222~kt TAS) a 20.000~ft.
+
+\subsection{Envelope de Operação}
+\label{sec:envelope_operacao}
+
+O envelope de operação (Figura~\ref{fig:envelope_operacao}) reúne, em altitude-pressão e velocidade verdadeira, os limites aerodinâmicos e propulsivos do envelope de voo e os limites estruturais e operacionais definidos para a certificação:
+
+\begin{itemize}
+    \item velocidade de estol 1~g com flaps recolhidos ($V_{S1}$, $C_{L,max} = 1{,}50$);
+    \item velocidade máxima em voo nivelado, limitada pela potência disponível;
+    \item velocidade máxima operacional $V_{MO}$, adotada igual a $V_C = 230$~kt EAS, já que o \S 25.1505 do 14 CFR Part 25 não permite $V_{MO}$ maior que $V_C$ (Seção~\ref{sec:cargas_vn});
+    \item velocidade de mergulho de projeto $V_D = 288$~kt EAS (\S 25.335(b)), que não pode ser atingida em operação normal;
+    \item teto de serviço, teto absoluto e o FL250 do requisito de teto operacional.
+\end{itemize}
+
+Abaixo de cerca de 2.000~ft a velocidade máxima em voo nivelado (237~kt EAS ao nível do mar) supera $V_{MO}$, e o limite à direita passa a ser estrutural. Acima disso, o limite à direita é a potência disponível. O teto de serviço de 24.438~ft fica 562~ft abaixo do FL250 requerido, de modo que o teto operacional certificável, no MTOW, fica limitado pelo teto de serviço. A faixa de cruzeiro a 20.000~ft vai de 193~kt TAS, na condição de máximo alcance, a 222~kt TAS, na potência máxima.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/Imagem - desempenho/envelope_operacao.png}
+    \caption{Envelope de operação no MTOW: limites de estol, potência, $V_{MO} = V_C$ e $V_D$ (14 CFR Part 25), tetos de serviço e absoluto, FL250 requerido e faixa de cruzeiro a 20.000~ft.}
+    \label{fig:envelope_operacao}
+\end{figure}
 
 
 
@@ -1769,19 +1857,19 @@ A capacidade de subida da aeronave é determinada pelo excesso de potência espe
 
 Para cada altitude analisada, o código identificou o valor máximo dessa função ($RC_{max}$), que corresponde à melhor taxa de subida possível naquela condição atmosférica.
 
-A Figura \ref{fig:desempenho_subida} ilustra a degradação da razão de subida máxima com o aumento da altitude. O ponto onde a curva intercepta o eixo vertical (Altitude) corresponde ao Teto Absoluto Teórico, onde $RC_{max} = 0$. Para fins operacionais, destaca-se também o Teto de Serviço, definido como a altitude onde a razão de subida cai para 0,5 m/s (aproximadamente 100 ft/min).
+A Figura \ref{fig:desempenho_subida} ilustra a degradação da razão de subida máxima com o aumento da altitude. O ponto onde a curva intercepta o eixo horizontal (altitude) corresponde ao teto absoluto teórico, onde $RC_{max} = 0$. Para fins operacionais, destaca-se também o Teto de Serviço, definido como a altitude onde a razão de subida cai para 0,5 m/s (aproximadamente 100 ft/min).
 
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{images//Imagem - desempenho/desempenho de subida.png}
-    \caption{Desempenho de Subida}
+    \includegraphics[width=0.9\linewidth]{images/Imagem - desempenho/desempenho_subida.png}
+    \caption{Razão de subida máxima em função da altitude, no MTOW ($S = 74{,}1$~m$^2$).}
     \label{fig:desempenho_subida}
 \end{figure}
 
 
-Assim, obteve-se um teto de serviço de $6937 \ m = 22759 \ ft$.
+Assim, obteve-se um teto de serviço de 7.449~m (24.438~ft). A 20.000~ft, a razão de subida máxima é de 1,81~m/s (356~ft/min).
 
 
 
@@ -1869,10 +1957,10 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         \midrule
         
         \multirow{3}{*}{\textbf{Pesos e Capacidades}}
-        & Peso Máximo de Decolagem (MTOW) & 22.680 kg (50.000 lb) \\
-        & Peso Máximo de Pouso (MLW) & 22.350 kg (49.273 lb) \\
+        & Peso Máximo de Decolagem (MTOW) & 22.680 kgf (50.000 lb) \\
+        & Peso Máximo de Pouso (MLW) & 22.350 kgf (49.273 lb) \\
         & Peso Vazio Operacional (OEW) &
-        13.512 kg (29.789 lb) \\
+        13.512 kgf (29.789 lb) \\
         \midrule
         
         \multirow{2}{*}{\textbf{Motorização}}
@@ -1881,7 +1969,7 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         \midrule
         
         \multirow{4}{*}{\textbf{Velocidades}}
-        & Velocidade de Cruzeiro Típica ($V_C$) & 178,6 kt \\
+        & Velocidade de Cruzeiro de Máximo Alcance (20.000 ft) & 193 kt TAS \\
         & Velocidade Máxima em Cruzeiro ($V_{max,cru}$) & 247,1 kt \\
         & Velocidade Máxima de Decolagem ($V_{max,TO}$) & 209,0 kt \\
         & Razão de Subida Máxima para Cruzeiro ($RC_{max,cru}$) & 1,23 m/s \\
@@ -1893,10 +1981,10 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         \midrule
         
         \multirow{4}{*}{\textbf{Limites de Missão}}
-        & Alcance Máximo de Projeto (Range) & 800 NM \\
-        & Autonomia em Missão Típica & 8,86 horas \\
-        & Teto de Serviço Operacional & 22.759 ft (6937 m) \\
-        & Teto Máximo Operacional & 24180 ft (7370 m) \\
+        & Alcance com Cabine Cheia e Reservas IFR & 925 NM (requisito: 800 NM) \\
+        & Autonomia do Trecho de Cruzeiro (cabine cheia) & 4,7 horas \\
+        & Teto de Serviço & 24.438 ft (7.449 m) \\
+        & Teto Absoluto & 26.115 ft (7.960 m) \\
         
         \bottomrule
     \end{tabular}

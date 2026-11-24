@@ -38,7 +38,7 @@ Considerando cruzeiro a 20.000 ft, equivalente a 80\% do teto operacional, o coe
 \label{eq:ClCruseiro}
     C_{l_{cruise}} = \frac{MTOW \cdot g}{\frac{1}{2}\rho_{cruise} V_{cruise}^2 S_{wing}} = 0,48
 \end{equation}
-Onde o $MTOW = 22680 \ kg$, $V_{cruise} = 260 \ kt$, $S = 74,1 \ m^2$.
+Onde o $MTOW = 22680 \ kgf$, $V_{cruise} = 260 \ kt$, $S = 74,1 \ m^2$.
 
 Com o valor obtido pela Eq. \ref{eq:ClCruseiro}, podemos estimar o coeficiente que o perfil aerodinâmico deve gerar levando em conta efeitos tridimensionais e de perfil ideal, tal que Raymer \cite{raymer2018} indica:
 
@@ -327,7 +327,7 @@ sustentação máximo requerido na configuração com flap:
 \end{equation}
 
 As velocidades de operação para as fases de decolagem e pouso são definidas
-pelo \S~25.107 e \S~25.125 do FAR Part~25~\cite{far25}, que estabelecem
+pelo \S~25.107 e \S~25.125 do 14 CFR Part~25~\cite{far25}, que estabelecem
 fatores mínimos sobre a velocidade de pouso e decolagem a partir das velocidades de estol do projeto. Para a decolagem, a velocidade de segurança deve satisfazer:
 
 \begin{equation}
@@ -386,7 +386,7 @@ hipersustentação, optou-se pelo flap \textit{single slotted}, o qual oferece
 um incremento máximo de $\Delta C_{L_{\max}} = 1{,}3$. Este valor supera o
 incremento requerido pelo projeto de $\Delta C_{L_{\max}} = 1{,}19$,
 confirmando que o dispositivo escolhido é capaz de atender aos requisitos
-estabelecidos pelo \S~25.107 e \S~25.125 do FAR Part~25~\cite{far25}.
+estabelecidos pelo \S~25.107 e \S~25.125 do 14 CFR Part~25~\cite{far25}.
 
 Os ângulos de deflexão adotados para o sistema de flap são de $10^{\circ}$ para a
 decolagem e $40^{\circ}$ para o pouso. Estas configurações foram simuladas no XFLR5
@@ -484,7 +484,7 @@ Para o dimensionamento das superfícies de controle, foram novamente utilizados 
 
 \subsubsection{Profundor}
 
-Para o profundor foi decido que sua corda é constante, com valor igual a 30\% da corda na raiz ($c_r$) do estabilizador horizontal, e cobrindo toda sua envergadura.
+Para o profundor foi decido que sua corda é constante, com valor igual a 30\% da corda na raiz ($c_r$) da empenagem horizontal, e cobrindo toda sua envergadura.
 
 
 \begin{table}[H]
@@ -545,12 +545,12 @@ Os ailerons possuem corda constante ao equivalente de 30\% da corda média aerod
 O desenvolvimento da cabine de comando foi realizado com base nos requisitos
 estabelecidos pela regulamentação de aviação 14 CFR Part 25
 (\S 25.771 a \S 25.781), que trata dos aspectos relacionados ao cockpit e à
-interação do piloto com os comandos. O requisito 14 CFR Part 25
-(\S 25.771) estabelece que a cabine deve permitir operação segura e eficiente
+interação do piloto com os comandos. O \S 25.771 do 14 CFR Part 25
+estabelece que a cabine deve permitir operação segura e eficiente
 da aeronave, garantindo adequada disposição dos tripulantes e dos comandos.
 Já 14 CFR Part 25 (\S 25.773) define requisitos relacionados ao campo de visão
 do piloto, exigindo visibilidade adequada durante táxi, decolagem e pouso.
-Os requisitos 14 CFR Part 25 (\S 25.777 e \S 25.779) abordam a disposição,
+Os \S 25.777 e \S 25.779 do 14 CFR Part 25 abordam a disposição,
 acessibilidade e movimentação dos controles, visando reduzir a possibilidade
 de erros operacionais, enquanto 14 CFR Part 25 (\S 25.781) estabelece critérios
 para diferenciação tátil e visual das manetes e comandos principais.
@@ -674,10 +674,10 @@ piloto. O resultado está apresentado nas imagens a seguir:
 \subsection{Painel de Comando e Aviônicos}
 \label{sec:painel_comando_avionicos}
 
-A aeronave é certificada sob RBAC~25~\cite{rbac25}, FAR Part~25~\cite{far25} e
+A aeronave é certificada sob RBAC~25~\cite{rbac25}, 14 CFR Part~25~\cite{far25} e
 CS-25~\cite{cs25}, incluindo os requisitos associados à disposição dos
-instrumentos e comandos no painel. O requisito determinante para o
-\textit{layout} é o CS/FAR-25.1321, que estabelece critérios para o agrupamento
+instrumentos e comandos no painel. O requisito normativo determinante para o
+\textit{layout} é o \S 25.1321 (14 CFR Part 25 e CS-25), que estabelece critérios para o agrupamento
 e posicionamento dos instrumentos de voo em relação ao plano vertical da visão
 frontal do piloto. A disposição das informações primárias segue o conceito
 denominado \textit{basic T}, herdado da instrumentação eletromecânica clássica
@@ -1008,7 +1008,7 @@ As diretrizes de dimensionamento adotadas baseiam-se nos requisitos de aeronaveg
 
 A distribuição de cargas entre o trem de pouso principal (\textit{Main Landing Gear} - MLG) e o trem de nariz (\textit{Nose Landing Gear} - NLG) é determinada a partir do equilíbrio estático de forças na aeronave. Em configurações triciclo convencionais, o trem de pouso principal suporta aproximadamente 90\% do peso da aeronave, enquanto o de nariz suporta os 10\% restantes.
 
-Para o dimensionamento preliminar, adotou-se essa distribuição de 90\% da carga no MLG e 10\% no NLG, considerando a condição crítica de peso máximo de decolagem (\textit{Weight Takeoff} --- WTO). Conforme recomendado por Raymer e Gudmundsson para aeronaves certificadas sob o FAR Part 25, foi aplicada uma margem adicional de 7\% sobre as cargas estáticas, associada às condições operacionais no solo.  Destaca-se que, apesar de os autores também proporem uma margem de $25 \%$ que pode ser aplicada ao cálculo da cagra máxima, esta é indicada apenas para acrescentar uma folga para possíveis acréscimos de massa na aeronave ao longo de seu dewsenvolvimento. Como este projeto adota o peso máximo de decolagem como pré-requisito, esta margem adicional não se faz necessária. A formulação utilizada para determinação das cargas críticas, então, é dada por:
+Para o dimensionamento preliminar, adotou-se essa distribuição de 90\% da carga no MLG e 10\% no NLG, considerando a condição crítica de peso máximo de decolagem (\textit{Weight Takeoff} --- WTO). Conforme recomendado por Raymer e Gudmundsson para aeronaves certificadas sob o 14 CFR Part 25, foi aplicada uma margem adicional de 7\% sobre as cargas estáticas, associada às condições operacionais no solo.  Destaca-se que, apesar de os autores também proporem uma margem de $25 \%$ que pode ser aplicada ao cálculo da cagra máxima, esta é indicada apenas para acrescentar uma folga para possíveis acréscimos de massa na aeronave ao longo de seu dewsenvolvimento. Como este projeto adota o peso máximo de decolagem como pré-requisito, esta margem adicional não se faz necessária. A formulação utilizada para determinação das cargas críticas, então, é dada por:
 
 \begin{equation}
 W_{MLG} = \eta_{MLG} \cdot W_{TO} \cdot (1 + \sigma_{FAR}) \cdot (1 + \sigma_{growth})
@@ -1066,7 +1066,7 @@ A partir dessas configurações, determina-se a carga estática atuante em cada 
         & 5000 / 2268 
         & 2500 / 1134 \\
         
-        Com Margem FAR Part 25 (+7\%) 
+        Com Margem do 14 CFR Part 25 (+7\%) 
         & 48150 / 21840 
         & 12037,5 / 5460 
         & 5350 / 2427 
@@ -1094,7 +1094,7 @@ D_{ext} = 1,63 \cdot \left(W_w\right)^{0,315}
 W_{ext} = 0,1043 \cdot \left(W_w\right)^{0,480}
 \end{equation}
 
-Para o trem de pouso principal, considerando a carga crítica estática com margem regulamentar do FAR Part 25 e sem margem de crescimento estrutural, obtém-se:
+Para o trem de pouso principal, considerando a carga crítica estática com margem regulamentar do 14 CFR Part 25 e sem margem de crescimento estrutural, obtém-se:
 
 \begin{equation}
 W_w = \frac{48150}{4} = 12037,5\ \text{lb}
@@ -1435,7 +1435,7 @@ O trem de nariz é recolhido para a região frontal da fuselagem, abaixo do cock
 
 \subsubsection{Comprimentos}
 
-Pelo FAR Part 25, há a exigência de que a hélice esteja a pelo menos $7"$ do solo, ou 178 mm. Com isso, a partir da clearance lateral exigida, conforme Trahmer, na figura \ref{fig:lateral clearence} e pela geometria, foi possível estimar uma altura de 0,70 m para os trens de pouso, considerando que a aeronave ficará nivelada em solo.
+Pelo 14 CFR Part 25, há a exigência de que a hélice esteja a pelo menos $7"$ do solo, ou 178 mm. Com isso, a partir da clearance lateral exigida, conforme Trahmer, na figura \ref{fig:lateral clearence} e pela geometria, foi possível estimar uma altura de 0,70 m para os trens de pouso, considerando que a aeronave ficará nivelada em solo.
 
 \begin{figure}[H]
     \centering
@@ -1464,7 +1464,7 @@ A partir do requerimento de ângulo de turnover mostrado na figura \ref{fig:trem
     \end{minipage}
 \end{figure}
 
-Já em relação ao posicionamento longitudinal, o trem de pouso de nariz foi arbitrariamente posicionado a 1,87 m do nariz. Esse valor vem da análise comparativa e corrobora com a estrutura interna da aeronave, ajustado posteriormente com base no avanço do projeto.
+Já em relação ao posicionamento longitudinal, o trem de nariz foi arbitrariamente posicionado a 1,87 m do nariz. Esse valor vem da análise comparativa e corrobora com a estrutura interna da aeronave, ajustado posteriormente com base no avanço do projeto.
 
 Já o trem de pouso principal deve estar posicionado de forma que a linha entre o CG e o MLG forme um ângulo de no mínimo 15° com a vertical. Com base na geometria, foi obtido que a distância entre o NLG e o MLG é de 9,0 m.
 
@@ -1522,7 +1522,7 @@ Demais componentes & 4.500 psi& 6.000 psi \\
 \hline
 \end{tabular}
 \end{table}
- Adicionalmente, o requisito exige que os integrantes do sistema sejam capazes de suportar a pressão operacional de projeto juntamente com as cargas estruturais máximas previstas sem deformação que prejudique sua função, isto inclui suportar as cargas aerodinâmicas, as cargas devido a pressão interna, a vibrações, entre outras. Ademais, a tripulação deve ser informada imediatamente em caso de algum tipo de falha e possui meios para monitorar e ser alertada em caso de algum problema do sistema.\\
+ Adicionalmente, o \S 25.1435 exige que os integrantes do sistema sejam capazes de suportar a pressão operacional de projeto juntamente com as cargas estruturais máximas previstas sem deformação que prejudique sua função, isto inclui suportar as cargas aerodinâmicas, as cargas devido a pressão interna, a vibrações, entre outras. Ademais, a tripulação deve ser informada imediatamente em caso de algum tipo de falha e possui meios para monitorar e ser alertada em caso de algum problema do sistema.\\
  Em resumo, o regulamento exige que:
  \begin{itemize}
      \item Cada componente suporte as pressões indicadas na Tabela \ref{tab:pressao_hidraulica};
@@ -1648,7 +1648,7 @@ Vale ressaltar que os valores obtidos mostram-se coerentes com aqueles encontrad
 
 O  ECS (\textit{Environmental Control System}) é responsável por garantir condições ambientais adequadas aos ocupantes da aeronave, proporcionando conforto e segurança. Suas principais funções incluem o fornecimento e a distribuição de ar para a cabine, o controle da temperatura, a remoção de contaminantes e a manutenção da pressão interna em níveis adequados. O dimensionamento preliminar foca apenas no sistema de pressurização da cabine e no sistema de ar-condicionado.
 
-Conforme o requisito §25.841, aeronaves certificadas para operação até $25000 \ ft$, como este projeto, devem ter uma altitude máxima de cabine de $8000 \ ft$. Usando a atmosfera ISA, pode-se calcular o diferencial de pressão máximo no teto operacional.
+Conforme o \S 25.841 do 14 CFR Part 25, aeronaves certificadas para operação até $25000 \ ft$, como este projeto, devem ter uma altitude máxima de cabine de $8000 \ ft$. Usando a atmosfera ISA, pode-se calcular o diferencial de pressão máximo no teto operacional.
 
 \begin{equation}
     \Delta P=P_{cab}-P_{FL250}=10,92-5,45=5,47 \ psi
@@ -1659,9 +1659,9 @@ Deve haver uma válvula de alívio de pressão positiva para evitar a hiperpress
 O balanço de massa deve ser feito para o dimensionamento preliminar dos PACK's - \textit{Pressurization Air Conditioning Kit}. Tem-se:
 \begin{equation}
     \dot{m}_{supply}=\dot{m}_{outflow}+\dot{m}_{leakage}
-\end{equation} onde $\dot{m}_{outflow}$ é a vazão da válvula de saída de ar, $\dot{m}_{supply}$ a vazão por PACK e $\dot{m}_{leakage}$ a taxa de vazamentos em juntas da fuselagem. Foram adotados dois PACK's (um por motor), permitindo redundância do sistema conforme o requisito §25.831.
+\end{equation} onde $\dot{m}_{outflow}$ é a vazão da válvula de saída de ar, $\dot{m}_{supply}$ a vazão por PACK e $\dot{m}_{leakage}$ a taxa de vazamentos em juntas da fuselagem. Foram adotados dois PACK's (um por motor), permitindo redundância do sistema conforme o \S 25.831.
 
-Como critério de projeto, os vazamentos devem ser compensados. Logo, considerando o requisito §25.831 - a), a vazão fornecida $\dot{m}_{supply}$ deve ser:
+Como critério de projeto, os vazamentos devem ser compensados. Logo, considerando o \S 25.831(a), a vazão fornecida $\dot{m}_{supply}$ deve ser:
 
 \begin{align}
 \dot{m}_{supply} &
@@ -1765,7 +1765,7 @@ A pressão operacional do distribuidor pneumático é regulada entre $15\text{ p
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Componente} & \textbf{Qtd.} & \textbf{Tipo de Proteção} & \textbf{Massa Total (kgf)} & \textbf{Estação $X$ (m)} \\ \hline
+\textbf{Componente} & \textbf{Qtd.} & \textbf{Tipo de Proteção} & \textbf{Massa Total (kg)} & \textbf{Estação $X$ (m)} \\ \hline
 Botas da Asa (Interna/Externa) & 4 & Pneumática (Borracha) & 42,0 & $11,20$ \\
 Botas da Empenagem Horizontal & 2 & Eletrotérmica / Pneumática & 18,0 & $24,80$ \\
 Resistências das Hélices & 12 & Eletrotérmica & 15,0 & $8,10$ \\
@@ -1777,7 +1777,7 @@ Válvulas, Distribuidores e Tubos & --- & Pneumática / Elétrica & 25,0 & $11,8
 }
 \end{table}
 
-A massa total de $120,0\text{ kgf}$ do sistema é integrada ao grupo de \textit{Equipamentos Fixos e Sistemas} no cálculo do $OEW$ (Tabela 4.7 e Tabela 11.1). Como o braço médio de atuação do sistema posiciona-se na estação $X = 12,35\text{ m}$ (próximo à região do bordo de ataque da CMA da asa e da transição com a cauda), o impacto no balanço de momentos mantém o envelope do Centro de Gravidade ($CG$) dentro do intervalo operacional seguro ($17,9\%\,\bar{c}$ a $45,9\%\,\bar{c}$).
+A massa total de $120,0\text{ kg}$ do sistema é integrada ao grupo de \textit{Equipamentos Fixos e Sistemas} no cálculo do $OEW$ (Tabela 4.7 e Tabela 11.1). Como o braço médio de atuação do sistema posiciona-se na estação $X = 12,35\text{ m}$ (próximo à região do bordo de ataque da CMA da asa e da transição com a cauda), o impacto no balanço de momentos mantém o envelope do Centro de Gravidade ($CG$) dentro do intervalo operacional seguro ($17,9\%\,\bar{c}$ a $45,9\%\,\bar{c}$).
 
 A Tabela~\ref{tab:posicoes_degelo} resume a distribuição espacial e a tecnologia adotada para cada superfície crítica da aeronave. Enquanto a Figura~\ref{fig:posicao_degelo} as apresenta graficamente.
 
