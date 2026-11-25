@@ -542,38 +542,10 @@ Os ailerons possuem corda constante ao equivalente de 30\% da corda média aerod
 \subsection{Ergonomia}
 \label{sec:ergonomia}
 
-O desenvolvimento da cabine de comando foi realizado com base nos requisitos
-estabelecidos pela regulamentação de aviação 14 CFR Part 25
-(\S 25.771 a \S 25.781), que trata dos aspectos relacionados ao cockpit e à
-interação do piloto com os comandos. O \S 25.771 do 14 CFR Part 25
-estabelece que a cabine deve permitir operação segura e eficiente
-da aeronave, garantindo adequada disposição dos tripulantes e dos comandos.
-Já 14 CFR Part 25 (\S 25.773) define requisitos relacionados ao campo de visão
-do piloto, exigindo visibilidade adequada durante táxi, decolagem e pouso.
-Os \S 25.777 e \S 25.779 do 14 CFR Part 25 abordam a disposição,
-acessibilidade e movimentação dos controles, visando reduzir a possibilidade
-de erros operacionais, enquanto 14 CFR Part 25 (\S 25.781) estabelece critérios
-para diferenciação tátil e visual das manetes e comandos principais.
 
-Entretanto, a 14 CFR Part 25 apresenta esses requisitos de maneira
-predominantemente qualitativa, sem especificar dimensões geométricas fixas
-para o dimensionamento da cabine de comando. Dessa forma, para o
-desenvolvimento dos desenhos deste projeto, utilizou-se como referência a
-aeronave ATR 72-600, por possuir características operacionais e configuração
-semelhantes às da aeronave desenvolvida neste trabalho. Em complemento à
-geometria do ATR, para garantir o rigor do estudo ergonômico na modelagem no
-Fusion 360, foram utilizadas as diretrizes do Human Factors Design Standard
-(HFDS) da FAA. Desse documento, extraíram-se principalmente as dimensões
-anatômicas estatísticas de pilotos dos sexos masculino e feminino em diferentes
-percentis populacionais. A integração dessas duas referências norteou o
-posicionamento relativo dos pilotos, a definição da geometria geral do cockpit
-e a disposição dos painéis frontal, superior e pedestal central, além da
-organização dos comandos de voo, navegação e gerenciamento dos motores.
-Dessa maneira, os critérios ergonômicos relacionados ao alcance físico dos
-controles, campo de visão do piloto, posicionamento dos displays principais e
-separação funcional dos sistemas puderam ser quantificados, buscando atender
-plenamente aos requisitos de operação segura, acessibilidade e visibilidade
-previstos pela 14 CFR Part 25.
+O desenvolvimento da cabine de comando foi realizado com base nos requisitos estabelecidos pelo 14 CFR Part 25 (\S 25.771 a \S 25.781), que trata do arranjo do cockpit e da interação da tripulação com os comandos. O \S 25.771 exige que a cabine permita a operação segura e eficiente da aeronave, assegurando disposição adequada para os pilotos e controles. O \S 25.773 define os critérios do campo de visão externo, exigindo visibilidade apropriada durante o táxi, a decolagem e o pouso. Já os \S 25.777 e \S 25.779 regulam a disposição, a acessibilidade e o sentido de atuação dos controles para prevenir erros operacionais, enquanto o \S 25.781 estabelece requisitos de diferenciação tátil e visual para as manetes e comandos principais.
+
+Como o 14 CFR Part 25 formula esses requisitos de maneira predominantemente qualitativa, sem fixar dimensões geométricas, adotou-se a aeronave ATR 72-600 como referência inicial de configuração, por apresentar características operacionais semelhantes às características deste projeto. Em complemento, utilizaram-se as diretrizes do Human Factors Design Standard (HFDS) da FAA \cite{FAA_HFDS} para quantificar os parâmetros ergonômicos aplicados à modelagem tridimensional no software Fusion~360.
 
 \begin{figure}[H]
     \centering
@@ -582,73 +554,10 @@ previstos pela 14 CFR Part 25.
     \label{fig:dimensoes_ergonomicas_cabine}
 \end{figure}
 
-\begin{table}[H]
-\centering
-\caption{Dimensões anatômicas estáticas detalhadas para ergonomia da cabine [cm].}
-\label{tab:dimensoes_anatomicas_cabine}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lcccccc}
-\hline
-\textbf{Dimensão} &
-\multicolumn{3}{c}{\textbf{Masculino (M)}} &
-\multicolumn{3}{c}{\textbf{Feminino (F)}} \\
-\cline{2-7}
-& \textbf{5º} & \textbf{50º} & \textbf{95º}
-& \textbf{5º} & \textbf{50º} & \textbf{95º} \\
-\hline
-1 - Altura em posição sentada &
-85,8 & 91,4 & 97,2 & 79,5 & 85,1 & 91,0 \\
 
-2 - Altura dos olhos, sentado &
-73,5 & 79,2 & 84,8 & 68,5 & 73,8 & 79,4 \\
+A partir das dimensões anatômicas estáticas extraídas do FAA HFDS (reproduzidas na Tabela~\ref{tab:dimensoes_anatomicas_cabine}, conforme a numeração da Figura~\ref{fig:dimensoes_ergonomicas_cabine}), o posto de pilotagem foi dimensionado para acomodar pilotos entre o 5º percentil feminino e o 95º percentil masculino. Três medidas guiaram esse dimensionamento: a altura dos olhos na posição sentada (68,5 a 84,8~cm), que define o curso de regulagem vertical do assento para alinhar todos os pilotos à mesma posição de referência visual; o alcance funcional do braço do 5º percentil feminino (67,7~cm), que limita a distância máxima aos comandos do painel e do pedestal central; e a largura dos ombros do 95º percentil masculino (53,5~cm), que estabelece a largura livre mínima de cada assento.
 
-3 - Altura do ombro, sentado &
-54,9 & 59,8 & 64,6 & 50,9 & 55,5 & 60,4 \\
-
-4 - Altura do cotovelo, sentado &
-18,4 & 23,2 & 27,4 & 17,6 & 22,1 & 26,4 \\
-
-5 - Espessura da coxa &
-14,9 & 16,8 & 19,0 & 14,0 & 15,8 & 18,0 \\
-
-6 - Altura do joelho, sentado &
-51,4 & 55,8 & 60,6 & 47,4 & 49,8 & 56,0 \\
-
-7 - Altura poplítea, sentado &
-39,5 & 43,3 & 47,6 & 35,1 & 38,9 & 42,9 \\
-
-8 - Comprimento antebraço-ponta do dedo &
-44,8 & 48,3 & 52,4 & 40,6 & 44,2 & 48,3 \\
-
-Alcance funcional do braço &
-73,9 & 80,0 & 86,7 & 67,7 & 73,4 & 79,7 \\
-
-9 - Largura dos ombros (bideltoide) &
-45,0 & 49,1 & 53,5 & 39,7 & 43,1 & 47,2 \\
-
-10 - Largura entre cotovelos &
-47,8 & 54,5 & 62,1 & 41,5 & 46,7 & 52,8 \\
-\hline
-\end{tabular}%
-}
-
-\vspace{0.2cm}
-\small Fonte: Adaptado de FAA HFDS, Seção 5.12.3.2.
-\end{table}
-
-Com base no levantamento das dimensões anatômicas detalhadas e nos requisitos
-operacionais preestabelecidos, desenvolveu-se um modelo tridimensional
-preliminar da cabine de comando utilizando o software Fusion 360. As figuras
-a seguir apresentam os esboços iniciais resultantes dessa modelagem. Por se
-tratar de uma concepção conceitual, a geometria e o arranjo apresentados estão
-sujeitos a refinamentos e possíveis alterações nas fases subsequentes do projeto.
-Contudo, esses modelos já fornecem uma visualização consistente da disposição
-espacial interna, elaborada com foco contínuo na ergonomia da tripulação.
-O dimensionamento físico das estações de trabalho foi conduzido com o objetivo
-de garantir a correta acomodação dos pilotos, assegurando a acessibilidade física
-aos comandos e a estrita manutenção dos volumes de tolerância, de modo a evitar
-colisões ou restrições de espaço entre os ocupantes e a estrutura da cabine de
-piloto. O resultado está apresentado nas imagens a seguir:
+A integração entre a configuração do ATR 72-600 e esses critérios antropométricos norteou o posicionamento relativo dos pilotos, a geometria geral do cockpit e a distribuição dos painéis frontal, superior e pedestal central, consolidados no modelo preliminar em CAD (Figuras~\ref{fig:arranjo_ergonomico_cabine}, \ref{fig:vista_superior_cabine} e \ref{fig:vista_lateral_assento}). O arranjo resultante garante o acesso aos comandos de voo, navegação e gerenciamento dos motores, além de preservar os volumes de folga necessários para evitar interferências entre os tripulantes e a estrutura interna. Por se tratar de uma concepção conceitual, a geometria apresentada permanece sujeita a refinamentos nas próximas fases do projeto.
 
 \begin{figure}[H]
     \centering
@@ -1238,7 +1147,7 @@ A pressão de inflação nominal do pneu do trem principal de $115 \ \text{psi}$
 
 
 \subsection{Dimensionamento e Análise dos Freios}
-
+\label{sec:dimensionamento_freios}
 \subsubsection{Determinação da Velocidade de Decisão de Decolagem ($V_1$)}
 
 O dimensionamento térmico e mecânico do sistema de freios deve ser conduzido com base
@@ -1353,53 +1262,9 @@ do RBAC~25.
 
 \subsection{Seleção da Tecnologia de Freios}
 
-A dissipação de aproximadamente $8,26, \ \text{MJ}$ por roda impõe elevada solicitação térmica ao sistema de frenagem, exigindo materiais com alta resistência térmica e estabilidade estrutural. Para a aeronave, adotou-se o uso de freios multidisco de carbono em substituição aos conjuntos convencionais de aço.
+A dissipação de aproximadamente $8{,}26~\text{MJ}$ por conjunto freio--roda no caso de decolagem rejeitada (Seção~\ref{sec:dimensionamento_freios}) impõe elevada solicitação térmica ao sistema de frenagem, exigindo materiais com alta capacidade de absorção de calor e estabilidade dimensional em alta temperatura. Por essa razão, adotaram-se freios multidisco de carbono em substituição aos conjuntos convencionais de aço.
 
-As principais características e impactos dessa escolha são apresentados na \autoref{tab:comparacao_freios}.
-
-\begin{table}[H]
-    \centering
-    \caption{Comparação entre tecnologias de freios aeronáuticos.}
-    \vspace{0.2cm}
-
-    \renewcommand{\arraystretch}{1.6}
-    \setlength{\tabcolsep}{6pt}
-
-    \begin{tabular}{|p{3.5cm}|p{3.2cm}|p{3.5cm}|p{5.2cm}|}
-        \hline
-        \textbf{Propriedade / Característica} &
-        \textbf{Freios de Aço} &
-        \textbf{Freios de Carbono} &
-        \textbf{Impacto Técnico no Projeto} \\
-        \hline
-
-        Peso do Conjunto de Freios
-        & Elevado (referência)
-        & Redução de 35\% a 42\% em massa
-        & Redução do OEW e aumento da capacidade de carga paga ou combustível \\
-        \hline
-
-        Condutividade Térmica
-        & Moderada
-        & Elevada
-        & Dissipação térmica mais eficiente e menor risco de superaquecimento \\
-        \hline
-
-        Resistência Térmica e Vida Útil
-        & Perda de eficiência acima de $500^\circ$C; vida útil entre 800 e 1200 ciclos
-        & Operação estável até $1200^\circ$C; vida útil entre 1500 e 3000 ciclos
-        & Maior confiabilidade operacional e redução de manutenção \\
-        \hline
-
-        Custo de Aquisição Inicial
-        & Baixo
-        & Elevado
-        & Maior custo inicial compensado pela durabilidade e menor custo operacional \\
-        \hline
-    \end{tabular}
-
-    \label{tab:comparacao_freios}
-\end{table}
+A comparação entre as duas tecnologias está detalhada na Tabela~\ref{tab:comparacao_freios} (Anexo). Três propriedades justificaram a escolha: o conjunto de carbono é de $35$ a $42\%$ mais leve, reduzindo o OEW e ampliando na mesma medida a carga paga ou o combustível disponível no MTOW (conforme o fechamento de pesos do Capítulo~6); mantém estabilidade operacional até cerca de $1\,200^\circ\text{C}$, enquanto o aço perde eficiência acima de $500^\circ\text{C}$; e apresenta vida útil de $1\,500$ a $3\,000$ ciclos, contra $800$ a $1\,200$ do aço, compensando o maior custo de aquisição.
 
 
 \subsection{Sistema de Atuação Hidráulica e Segurança}

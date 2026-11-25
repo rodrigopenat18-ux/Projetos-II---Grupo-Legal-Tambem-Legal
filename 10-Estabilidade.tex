@@ -271,3 +271,80 @@ Como verificação independente, a resposta temporal obtida na simulação não-
 A aeronave é caracterizada como dinamicamente estável em voo de cruzeiro em uma condição de voo reto nivelado, com o curto período no nível~1 e a fugóide no nível~2 da especificação MIL-F-8785C para seu tipo. Para uma análise mais profunda de qualidade de voo é necessário avaliar a estabilidade látero direcial. Por fim, apesar de as especificações darem uma boa ideia sobre a validação das características dos modos longitudinais, uma avaliação completa dos modos longitudinais é feita em partes mais avançadas dor projeto, com dados de testes de modelos e ensaios em voo.
 
 
+\section{Verificação simples da recuperação em parafuso.}
+
+\section{Verificação Simplificada de Recuperação de Parafuso}
+\label{sec:parafuso}
+
+A capacidade de recuperação de parafuso foi verificada pelo método simplificado de Raymer \cite{raymer2018}, obtido a partir de ensaios em túnel de parafuso da NACA \cite{naca1045}. O método compara o fator de potência de amortecimento da cauda (\textit{tail damping power factor}, TDPF) da aeronave com um valor mínimo, que depende da densidade relativa da aeronave e da sua distribuição de massa.
+
+\subsection{Metodologia}
+
+O TDPF é dado pelas Eqs.~(16.67) a (16.69) de Raymer \cite{raymer2018}:
+\begin{equation}
+  \mathrm{TDPF} = \mathrm{TDR}\cdot\mathrm{URVC},
+  \label{eq:parafuso_tdpf}
+\end{equation}
+\begin{equation}
+  \mathrm{TDR} = \frac{S_F\,L^2}{S\,(b/2)^2}, \qquad
+  \mathrm{URVC} = \frac{S_{R1}\,L_1 + S_{R2}\,L_2}{S\,(b/2)},
+  \label{eq:parafuso_tdr_urvc}
+\end{equation}
+em que TDR é a razão de amortecimento da cauda e URVC é o coeficiente de volume do leme não bloqueado. $S_F$ é a área lateral da fuselagem abaixo da empenagem horizontal, tomada do bordo de ataque da empenagem até o fim da fuselagem. $S_{R1}$ e $S_{R2}$ são as parcelas do leme fora da esteira da empenagem horizontal estolada, delimitada por uma reta a $60^\circ$ a partir do seu bordo de ataque e por uma reta a $30^\circ$ a partir do seu bordo de fuga: $S_{R1}$ fica acima da primeira e $S_{R2}$, abaixo da segunda. $L$, $L_1$ e $L_2$ são as distâncias do CG aos centroides dessas áreas.
+
+A densidade relativa é dada pela Eq.~(16.70) de Raymer \cite{raymer2018}:
+\begin{equation}
+  \mu = \frac{W/S}{\rho\,g\,b}.
+  \label{eq:parafuso_mu}
+\end{equation}
+
+Para tornar a verificação conservadora:
+\begin{itemize}
+  \item os braços são medidos a partir do CG mais traseiro do envelope, $\bar{X}_{CG} = 11{,}56$~m ($45{,}9\%$ da CMA, Seção~\ref{sec:cg_margem}), o que reduz $L$ e $L_1$;
+  \item $\mu$ é calculado com o MTOW e a densidade a 15\,000~ft, altitude de parafuso adotada nos relatórios da NACA que deram origem ao critério \cite{naca711}. Como o TDPF exigido cresce com $\mu$, esse caso é mais severo que o do nível do mar.
+\end{itemize}
+
+\subsection{Resultados}
+
+A geometria das empenagens e do leme foi tirada das Tabelas~\ref{GeoEH_Final}, \ref{GeoEV_Final} e \ref{leme_geo}, e a posição de cada empenagem, do seu braço medido a partir do centro aerodinâmico da asa (Seção~\ref{sec:cg_posicoes}), conforme a convenção de Raymer \cite{raymer2018}. A altura da empenagem horizontal e o contorno do cone de cauda, que não constam das tabelas, foram obtidos da vista lateral (Figura~\ref{fig:cg_vista_ref}). Como o leme começa no topo do cone de cauda, acima do plano da empenagem horizontal, não há leme abaixo da reta de $30^\circ$, e $S_{R2} = 0$.
+
+Com $W/S = 3\,002$~N/m$^2$, $b = 28{,}5$~m e $\rho = 0{,}771$~kg/m$^3$ (ISA, 15\,000~ft), a Eq.~\eqref{eq:parafuso_mu} resulta em $\mu = 13{,}9$, dentro da faixa de validade do critério, de $\mu = 6$ a $35$ \cite{bowman1971}. O parâmetro de inércia $(I_x - I_y)/(b^2 W/g)$ foi calculado com os momentos de inércia da Tabela~\ref{tab:inercia}, os mesmos da análise de estabilidade dinâmica, e vale $+114\times10^{-4}$. O valor positivo indica massa concentrada na asa (\textit{wing heavy}) e fica próximo do limite superior de validade do critério, de $+120\times10^{-4}$ \cite{bowman1971}.
+
+Com esses parâmetros, o TDPF mínimo foi lido na Fig.~16.32 de Raymer \cite{raymer2018}, na curva de recuperação apenas com o leme, interpolando entre as curvas de $\mu = 12$ e $\mu = 15$. Os resultados estão na Tabela~\ref{tab:parafuso_tdpf}.
+
+\begin{table}[H]
+    \centering
+    \caption{Verificação de recuperação de parafuso apenas com o leme (CG traseiro, MTOW, 15\,000~ft).}
+    \begin{tabular}{|l|c|}
+       \hline
+       \textbf{Grandeza} & \textbf{Valor} \\
+       \hline
+       Área lateral abaixo da EH, $S_F$ / braço $L$ & $3{,}98$ m$^2$ / $11{,}88$ m \\
+       \hline
+       Leme fora da esteira, $S_{R1}$ / braço $L_1$ & $2{,}03$ m$^2$ ($42{,}5\%$ do leme) / $12{,}52$ m \\
+       \hline
+       Leme abaixo da EH, $S_{R2}$ & $0$ \\
+       \hline
+       TDR / URVC & $0{,}0374$ / $0{,}0241$ \\
+       \hline
+       Densidade relativa, $\mu$ & $13{,}9$ \\
+       \hline
+       Parâmetro de inércia & $+114\times10^{-4}$ \\
+       \hline
+       \textbf{TDPF da aeronave} & $\mathbf{9{,}00\times10^{-4}}$ \\
+       \hline
+       \textbf{TDPF exigido (Raymer, Fig. 16.32)} & $\mathbf{9{,}05\times10^{-4}}$ \\
+       \hline
+    \end{tabular}
+    \label{tab:parafuso_tdpf}
+\end{table}
+
+\subsection{Conclusão}
+
+Pela verificação simplificada de Raymer, a aeronave fica no limite do requisito de recuperação de parafuso apenas com o leme: o TDPF da aeronave fica menos de $1\%$ abaixo do exigido, diferença inferior à precisão de leitura do gráfico. A parcela do leme fora da esteira da empenagem horizontal, de $42{,}5\%$, atende à regra prática de Raymer de pelo menos um terço \cite{raymer2018}. O resultado foi obtido nas condições mais severas (CG traseiro, MTOW e 15\,000~ft) e é sensível ao parâmetro de inércia, que, por ser positivo e próximo do limite de validade, eleva o TDPF exigido. Assim, não há margem de segurança, e a verificação deve ser refeita quando a distribuição de massa for detalhada.
+
+O resultado também depende da posição relativa entre a empenagem horizontal e o leme. Se a empenagem horizontal fosse avançada $0{,}4$~m em relação à posição definida pelas tabelas de geometria, a parcela desbloqueada do leme cairia para $24\%$, abaixo de um terço, e o TDPF para $5{,}6\times10^{-4}$, bem abaixo do exigido. Por isso, os desenhos e o detalhamento da cauda devem manter as posições definidas pelas tabelas.
+
+O critério não considera a posição da asa. Em parafuso, o vento relativo vem de baixo da aeronave, e a esteira de uma asa alta tende a passar acima da cauda \cite{bowman1971}. Na geometria desta aeronave, a esteira da raiz da asa só atinge a empenagem vertical para ângulos de ataque de até cerca de $26^\circ$, de modo que a asa alta não deve reduzir a eficácia do leme no parafuso desenvolvido.
+
+Por fim, trata-se de uma estimativa inicial, baseada em um critério empírico obtido de ensaios com modelos de aviões das décadas de 1930 e 1940. Em ensaios posteriores com modelos de aviação geral, esse critério não conseguiu prever as características de recuperação \cite{burk1977}. Resultados mais confiáveis exigem uma análise mais aprofundada, com dados aerodinâmicos em alto ângulo de ataque e com rotação (túnel de parafuso, balança rotativa ou CFD), o cálculo do equilíbrio de parafuso e de seus polos e a simulação não linear da recuperação.

@@ -980,7 +980,7 @@ Como a massa da casca entra nas cargas de inércia, o cálculo é iterativo. Par
  
 \subsection{Critérios de dimensionamento}
  
-As propriedades da seção usam a espessura equivalente $t_{eq} = t + A_s/b$ para tensões longitudinais, onde $A_s$ é a área de um reforçador e $b = 2\pi R/n_s$ o espaçamento entre reforçadores. Para cisalhamento e tensão circunferencial, considera-se apenas o revestimento. Na posição angular $\theta$ (medida a partir do ponto de flexão máxima):
+As propriedades da seção usam a espessura equivalente $t_{eq} = t + A_s/b$ para tensões longitudinais, onde $A_s$ é a área de um reforçador e $b = 2\pi R/n_s$ o espaçamento entre reforçadores. Os reforçadores têm seção em Z de altura $h_s$, espessura $t_s$ e abas de largura $f_s = 0{,}4\,h_s$, de modo que $A_s = t_s\,(h_s + 2 f_s)$, como pode ser observador na . Para cisalhamento e tensão circunferencial, considera-se apenas o revestimento. Na posição angular $\theta$ (medida a partir do ponto de flexão máxima):
 \begin{equation}
   \sigma_x(\theta) = \frac{M_u}{\pi R^2 t_{eq}}\cos\theta + \frac{\Delta p_u R}{2\, t_{eq}}, \quad
   \sigma_\theta = \frac{\Delta p_u R}{t}, \quad
@@ -1081,10 +1081,27 @@ As reações da asa sobre a fuselagem, obtidas por equilíbrio, foram de $-14{,}
     Massa     & revestimento / reforçadores / cavernas [kg]     & \pend{729,2 / 128,4 / 77,0} \\
               & \textbf{total da casca} [kg]         & \textbf{934,7} \\
     \bottomrule
+    \label{tab:config_menor_massa}
   \end{tabular}
 \end{table}
  
 A espessura do revestimento resultou governada pelos critérios de flexão e estabilidade, e não pela pressurização. A seção da caverna ficou limitada pela razão $h/w$ imposta, de modo que sua altura reflete essa restrição e não um ótimo estrutural. O reforçador resultou na menor bitola disponível ($t_s = 0{,}81$~mm), que corresponde ao limite inferior de fabricação adotado.
+
+As Figuras~\ref{fig:esq_reforcador_fus} e \ref{fig:esq_caverna} mostram as seções do reforçador e da caverna da configuração de menor massa.
+
+\begin{figure}[H]
+    \centering
+    \caption{Seção do revestimento da fuselagem com reforçadores em Z na configuração de menor massa. A curvatura do revestimento foi desprezada no desenho.}
+    \includegraphics[width=0.9\linewidth]{images/esquema_reforcador_fuselagem.eps}
+    \label{fig:esq_reforcador_fus}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Seção transversal das cavernas na configuração de menor massa, em corte longitudinal.}
+    \includegraphics[width=0.9\linewidth]{images/esquema_caverna.eps}
+    \label{fig:esq_caverna}
+\end{figure}
  
 O envelope simultâneo de $M$, $V$ e $T$ e a seção constante tornam o resultado conservativo em massa. A seção constante obriga regiões menos solicitadas, como o nariz e cone de cauda, a usar a mesma seção da região crítica, junto à asa. Um zoneamento da espessura reduziria a massa.
 
@@ -1093,7 +1110,270 @@ A Figura \ref{fig:cad_dimensionamento_3} representa o arranjo estrutural final d
 \begin{figure}[H]
     \centering
     \caption{Arranjo estrutural da aeronave completa.}
-    \includegraphics[width=1\textwidth]{Images-3-ProjetoDetalhado/cad-03.jpeg}
+    \includegraphics[width=1\textwidth]{Images-3-ProjetoDetalhado/cad-04.jpeg}
     \label{fig:cad_dimensionamento_3}
 \end{figure}
 
+\section{Bulkheads}
+\label{sec:bulkheads}
+
+A cabine pressurizada é fechada por duas bulkheads: uma dianteira, logo atrás do radome, e uma traseira, no fim da cabine. O dimensionamento foi implementado em Python, considerando bitolas comerciais e perfis em I, seguindo a mesma lógica de margem de segurança da Seção~10.6.1. O critério de aprovação é $MS = F_{adm}/f - 1 \geq 0{,}10$, calculada na carga última.
+
+\subsection{Geometria e materiais}
+
+\begin{itemize}
+    \item \textbf{Dianteira} ($x = 0{,}95$~m, $R = 950$~mm): bulkhead \emph{plana enrijecida}, com chapa de Al~2024-T3, vigas verticais em I de Al~7075-T6 e anel de contorno em I de Al~7075-T6. A geometria plana é compatível com o espaço reduzido do nariz e com a instalação do radar.
+    \item \textbf{Traseira} ($x = 19{,}50$~m, $R = 1450$~mm): \emph{calota esférica} (domo) de Al~2024-T3 com anel de contorno em I de Al~7075-T6. A forma esférica trabalha essencialmente em tração de membrana, o que a torna mais leve que uma parede plana para o mesmo raio.
+\end{itemize}
+
+Os materiais e suas propriedades seguem a Tabela~10.4. As chapas de pressão usam 2024-T3, por causa da fadiga e da tolerância a dano, e os perfis usam 7075-T6 extrudado.
+
+\subsection{Cargas}
+
+A pressão diferencial nominal em FL250 é $\Delta p = 5{,}47$~psi. O dimensionamento usa a pressão de abertura da válvula de alívio positiva, $\Delta p_{v} = 6{,}0$~psi. A carga limite considera o fator de pressão isolada do \S~25.365(d) e a carga última usa o fator de segurança do \S~25.303:
+\begin{equation}
+    p_{lim} = 1{,}33\,\Delta p_{v}, \qquad p_{ult} = 1{,}5\,p_{lim}.
+\end{equation}
+A flambagem do domo é verificada para a pressão negativa da válvula de alívio, $\Delta p_{neg} = 0{,}5$~psi, multiplicada por 1,5.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Pressões de projeto das anteparas.}
+    \label{tab:bulk_pressoes}
+    \begin{tabular}{lcc}
+        \toprule
+        Grandeza & Símbolo & Valor [kPa] \\
+        \midrule
+        Válvula de alívio positiva (6,0 psi) & $\Delta p_{v}$ & 41,37 \\
+        Pressão limite & $p_{lim}$ & 55,02 \\
+        Pressão última & $p_{ult}$ & 82,53 \\
+        Pressão negativa última (flambagem do domo) & $p_{neg,ult}$ & 5,17 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Além da pressão, os anéis recebem cargas de inércia no plano, em $+2{,}5g$ e $-1{,}0g$ (com $FS = 1{,}5$):
+\begin{itemize}
+    \item \textbf{Dianteira:} massa estimada de 50~kg (radome e radar), aplicada no fundo do anel.
+    \item \textbf{Traseira:} 200~kg (galley e parcela de piso) divididos nos dois nós de fixação do piso, a $z = -685$~mm.
+\end{itemize}
+O anel é modelado por elementos finitos 2D de viga de Euler--Bernoulli (180 nós). O equilíbrio é feito por um fluxo de cisalhamento e daí se obtêm $|M|_{max}$, $|N|_{max}$ e $|V|_{max}$.
+
+\subsection{Perfis I e modos de falha}
+
+Os perfis I (vigas e anéis) são selecionados por em uma grade de $h$, $b_f$, $t_f$ e $t_w$. A solução é o perfil de menor massa que satisfaz todos os critérios e as proporções de fabricação por extrusão ($2t_f < 0{,}6h$, $t_f \leq 2{,}5t_w$, $b_f \geq 6t_f$ e $h \geq 2b_f$). As flambagens locais usam
+\begin{equation}
+    \sigma_{cr} = k\,\dfrac{\pi^2 E}{12(1-\nu^2)}\left(\dfrac{t}{b}\right)^2,
+\end{equation}
+com $k = 0{,}43$ para a mesa, $k = 23{,}9$ para a alma em flexão e $k = 5{,}34$ para a alma em cisalhamento, limitadas por $F_{cy}$ e $F_{su}$. Os anéis ainda são verificados quanto à rigidez mínima de Shanley, como as cavernas da fuselagem (Eq.~10.51).
+
+\subsection{Bulkhead dianteira (plana enrijecida)}
+
+\subsubsection{Chapa}
+
+A chapa é tratada como uma faixa longa engastada entre vigas vizinhas, com vão $s$ igual ao espaçamento das vigas. A tensão máxima, no engaste, é
+\begin{equation}
+    \sigma = \dfrac{p\,s^2}{2\,t^2},
+\end{equation}
+avaliada com $p_{lim}$ contra $F_{ty}$ e com $p_{ult}$ contra $F_{tu}$. Foram varridos os espaçamentos $s \in \{140, \dots, 250\}$~mm, e o de menor massa total (chapa + vigas) foi $s = 150$~mm, com 12 vigas. A chapa resultante tem $t = 1{,}60$~mm.
+
+\subsubsection{Vigas verticais}
+
+Cada viga é biapoiada no anel e recebe a pressão de uma faixa de largura $s$. O vão crítico é $L_{max} \approx 1{,}90$~m e os esforços são
+\begin{equation}
+    M_{ult} = \dfrac{p_{ult}\,s\,L_{max}^2}{8} \approx 5{,}6~\text{kN}\cdot\text{m}, \qquad
+    V_{ult} = \dfrac{p_{ult}\,s\,L_{max}}{2}.
+\end{equation}
+Além de resistência e flambagens locais, impõe-se flecha limite de $L_{max}/100$ sob $p_{lim}$. A viga selecionada é um I de $140 \times 30 \times 3{,}0 \times 2{,}0$~mm ($h \times b_f \times t_f \times t_w$). O modo crítico é a flambagem da alma ($MS = +0{,}11$).
+
+\subsubsection{Anel de contorno}
+
+O anel recebe a carga de inércia do radome e é limitado pela rigidez de Shanley, escalonada ao diâmetro local, e pela altura mínima $h \geq 0{,}75\,h_{viga}$. O perfil é um I de $120 \times 30 \times 2 \times 2$~mm, com $MS$ mínima de $+10{,}88$ (flambagem da alma). A grande folga indica que o anel é governado por restrições geométricas e pelo critério de rigidez, e não pelos esforços calculados. O fluxo longitudinal de pressão a transferir à fuselagem pelos rebites é
+\begin{equation}
+    q_{ax} = \dfrac{p_{ult}\,R}{2} = 39{,}2~\text{N/mm}.
+\end{equation}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Resultados da antepara dianteira.}
+    \label{tab:bulk_diant}
+    \begin{tabular}{llccc}
+        \toprule
+        Componente & Dimensões [mm] & Massa [kg] & Modo crítico & $MS$ mín. \\
+        \midrule
+        Chapa 2024-T3 & $t = 1{,}60$ & 12,6 & Ruptura & $+0{,}22$ \\
+        12 vigas 7075-T6 ($s = 150$) & I $140\times30\times3{,}0\times2{,}0$ & 23,5 & Flamb.\ da alma & $+0{,}11$ \\
+        Anel 7075-T6 & I $120\times30\times2\times2$ & 4,7 & Flamb.\ da alma & $+10{,}88$ \\
+        \midrule
+        \textbf{Total} & & \textbf{40,9} & & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Na chapa, a margem de escoamento é $+0{,}34$. Nas vigas, as demais margens são $+1{,}31$ (escoamento), $+0{,}72$ (ruptura), $+0{,}54$ (mesa), $+0{,}78$ (cisalhamento crítico), $+5{,}62$ (cisalhamento da alma) e $+0{,}21$ (flecha).
+
+A Figura~\ref{fig:esq_bh_dianteira} mostra a seção da chapa com as vigas.
+
+\begin{figure}[H]
+    \centering
+    \caption{Seção da bulkhead dianteira em corte horizontal: chapa de espessura $t$ e vigas verticais em I ($h \times b_f \times t_f \times t_w$) com espaçamento $s$.}
+    \includegraphics[width=0.8\linewidth]{images/esquema_bulkhead_dianteira.png}
+    \label{fig:esq_bh_dianteira}
+\end{figure}
+
+\subsection{Bulkhead traseira (calota esférica)}
+
+\subsubsection{Geometria do domo}
+
+Com raio de fuselagem $R = 1450$~mm e profundidade $h = 500$~mm ($h/R \approx 0{,}345$), o raio de curvatura esférico e o ângulo de abertura são
+\begin{equation}
+    R_s = \dfrac{R^2 + h^2}{2h} = 2352{,}5~\text{mm}, \qquad \alpha_0 = \arcsin\!\left(\dfrac{R}{R_s}\right) = 38{,}1^\circ.
+\end{equation}
+
+\subsubsection{Membrana}
+
+A tensão de membrana da casca esférica é $\sigma = p\,R_s/(2t)$. A espessura é escolhida entre as bitolas comerciais e verificada em quatro critérios:
+\begin{itemize}
+    \item \textbf{Fadiga:} $\sigma(\Delta p_{v}) \leq 90$~MPa (admissível adotado para vida em fadiga);
+    \item \textbf{Escoamento} com $p_{lim}$ e \textbf{ruptura} com $p_{ult}$;
+    \item \textbf{Flambagem} sob pressão negativa, com fator de redução (\emph{knockdown}) $k_d = 0{,}25$ (NASA SP-8032):
+    \begin{equation}
+        p_{cr} = k_d\,\dfrac{2E}{\sqrt{3(1-\nu^2)}}\left(\dfrac{t}{R_s}\right)^2 \geq 1{,}1\,p_{neg,ult}.
+    \end{equation}
+\end{itemize}
+A menor bitola que atende é $t = 1{,}27$~mm, com $\sigma(\Delta p_{v}) \approx 38$~MPa e $p_{cr} \approx 6{,}5$~kPa. A flambagem sob pressão negativa governa ($MS = +0{,}25$). A massa da membrana é de 26,1~kg.
+
+\subsubsection{Anel de contorno}
+
+A componente radial da força de membrana na borda do domo gera compressão circunferencial (\emph{hoop}) no anel:
+\begin{equation}
+    P_{hoop} = \tfrac{1}{2}\,p\,R^2\cot\alpha_0, \qquad P_{hoop,ult} = 110{,}8~\text{kN}.
+\end{equation}
+Os esforços de flexão e normal das cargas de piso, obtidos no MEF 2D, são pequenos ($|M| = 0{,}35$~kN$\cdot$m e $|N| = 2{,}5$~kN) em comparação à compressão do domo, e o anel é verificado para a soma dos dois efeitos. A flambagem do anel no plano sob carga radial é estimada por
+\begin{equation}
+    P_{cr,anel} = \dfrac{3\,E\,I}{R^2}.
+\end{equation}
+Considera-se ainda 30\% de recortes na alma do anel (passagens e furos) na verificação ao cisalhamento e na massa. O perfil selecionado é um I de $140\times30\times3\times2$~mm, governado pela flambagem do anel ($MS = +0{,}14$). O fluxo longitudinal de pressão para os rebites é $q_{ax} = 59{,}8$~N/mm.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Resultados da Bulkhead traseira.}
+    \label{tab:bulk_tras}
+    \begin{tabular}{llccc}
+        \toprule
+        Componente & Dimensões [mm] & Massa [kg] & Modo crítico & $MS$ mín. \\
+        \midrule
+        Membrana 2024-T3 & $t = 1{,}27$ ($R_s = 2352{,}5$) & 26,1 & Flamb.\ ($p_{neg}$) & $+0{,}25$ \\
+        Anel 7075-T6 & I $140\times30\times3\times2$ & 9,4 & Flamb.\ do anel & $+0{,}14$ \\
+        \midrule
+        \textbf{Total} & & \textbf{35,5} & & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Na membrana, as demais margens são $+1{,}35$ (fadiga), $+5{,}36$ (escoamento) e $+4{,}77$ (ruptura). No anel, são $+1{,}66$ (escoamento), $+0{,}97$ (ruptura), $+0{,}77$ (mesa), $+0{,}28$ (alma), $+38{,}50$ (cisalhamento) e $+91{,}86$ (Shanley).
+
+A Figura~\ref{fig:esq_aneis_bh} mostra as seções dos anéis de contorno das duas bulkheads.
+
+\begin{figure}[H]
+    \centering
+    \caption{Seção transversal dos anéis de contorno em I das bulkheads, em corte longitudinal: (a) dianteiro e (b) traseiro.}
+    \includegraphics[width=0.9\linewidth]{images/esquema_aneis_bulkhead.png}
+    \label{fig:esq_aneis_bh}
+\end{figure}
+
+\subsection{Resultados}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Resumo Bulkheads.}
+    \label{tab:bulk_resumo}
+    \begin{tabular}{lccc}
+        \toprule
+        & Dianteira & Traseira & Total \\
+        \midrule
+        Tipo & Plana enrijecida & Calota esférica & -- \\
+        Posição $x$ [m] & 0,95 & 19,50 & -- \\
+        Massa [kg] & 40,9 & 35,5 & \textbf{76,4} \\
+        Momento em relação ao nariz [kg$\cdot$m] & 38,8 & 692,3 & 731,1 \\
+        $q_{ax}$ [N/mm] & 39,2 & 59,8 & -- \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Todos os critérios atendem $MS \geq 0{,}10$. Os pontos principais são:
+\begin{itemize}
+    \item A Bulkhead plana pesa mais que a esférica por unidade de área, pois a chapa trabalha em flexão. Ela tem raio menor ($950$~mm contra $1450$~mm) e pesa 40,9~kg, contra 35,5~kg do domo.
+    \item No domo, as tensões de membrana são baixas e a espessura de 1,27~mm é governada pela flambagem sob pressão negativa, que depende do fator $k_d$ adotado. 
+    \item O anel dianteiro está sobredimensionado em resistência. Seu perfil é governado pela altura mínima e pelos critérios de rigidez e fabricação, e há espaço para redução de massa.
+\end{itemize}
+
+\section{Dimensionamento de uma Ferragem}
+
+Para o dimensionamento de uma ferragem, aqui foi escolhido o berço do motor. Essa estrutura tem como função alojar o motor e fixá-lo à asa, no caso da aeronave de projeto. 
+
+Essa ferragem é fixada na wingbox por meio de 5 parafusos que devem cisalhar em caso de cargas maiores que as planejadas, a fim de preservar a estrutura da asa. Esses parafusos tiveram suas dimensões obtidas a partir da análise comparativa com a aeronave ATR72-600, que é equipada com o mesmo motor e tem características próximas. O parafuso é de aço e tem diâmetro de 12,7 mm.
+
+Para a geometria da estrutura do berço, primeiramente foram obtidas as medidas do motor PW127M. Além disso, foram medidos seus quatro pontos de fixação.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{1\textwidth} % Ajuste o 0.8 para aumentar ou diminuir o tamanho
+        \centering
+        \includegraphics[width=\linewidth]{images/Braathens-flight-PW127M-1-1024x683.jpg}
+        \caption{Motor PW127M.}
+        \label{fig:Motor PW127M}
+    \end{minipage}
+\end{figure}
+
+Para viabilizar a construção, foi proposta uma estrutura tubular em aço 15CDV6, que tem alta soldabilidade. 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{1\textwidth} % Ajuste o 0.8 para aumentar ou diminuir o tamanho
+        \centering
+        \includegraphics[width=\linewidth]{images/Detalhamento berço.png}
+        \caption{Dimensões do berço do motor proposto.}
+        \label{fig:Detalhamento berço}
+    \end{minipage}
+\end{figure}
+
+A fim de dimensionar a estrutura, foi realizado um ensaio em elementos finitos, em que foram considerados os carregamentos de tração e peso.
+
+Calculou-se a tração a partir da potência do motor, e das características da hélice. Foi considerada a eficiência de 1 para a hélice, como consideração do caso crítico. A seguinte equação de Raymer foi utilizada:
+
+$$T_{\text{estática}} = \eta_{\text{est}} \cdot \left( 2 \cdot \rho \cdot A \cdot P^2 \right)^{1/3}$$
+
+\begin{itemize}
+    \item Potência por motor: $P = 2.475\text{ shp} = 1.845.600\text{ W}$
+    \item Densidade do ar ao nível do mar: $\rho =1,225\text{ kg/m}^3$
+    \item Área do disco da hélice: $ A = \frac{\pi \cdot (3,93)^2}{4} \approx 12,13\text{ m}^2$
+    \item Eficiência da hélice: $\eta_{\text{est}} = 1,0$
+\end{itemize}
+
+$$T_{\text{ult}} = \left( 2 \cdot 1,225 \cdot 12,13 \cdot (1.845.600)^2 \right)^{1/3} \approx 46.600\text{ N}$$
+
+Já para o peso, considerou-se o peso do conjunto hélice-motor e um fator de carga de 4,0, considerado para o pouso pelo Part 25. A massa do motor é $480{,}8\text{ kg}$, somada à massa da hélice $159{,}0\text{ kg}$, resulta em $m_{\text{conjunto}} = 639{,}8\text{ kg}$. Aplicando o fator de carga último de pouso ($n_{\text{ult},l} = 4{,}0$), obtém-se a carga vertical:
+
+\begin{equation}
+P_{GMP, ult} = n_{\text{ult},l} \cdot m_{\text{conjunto}} \cdot g = 4{,}0 \cdot 639{,}8 \cdot 9{,}81 \approx 25.106\text{ N}
+\end{equation}
+
+A partir dessas cargas e da estrutura proposta, foram avaliadas as tensões de Von-Mises. 
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{1\textwidth} % Ajuste o 0.8 para aumentar ou diminuir o tamanho
+        \centering
+        \includegraphics[width=\linewidth]{images/Ensaio berço.png}
+        \caption{Distribuição de cargas ao longo do berço do motor.}
+        \label{fig:Ensaio berço}
+    \end{minipage}
+\end{figure}
+
+O valor máximo de tensão foi 311 MPa. Ao se considerar o limite de escoamento do aço 15CDV6 como 550 MPa, foi encontrado um fator de segurança de 1,77, acima do 1,5 exigido pelo Part 25.
+
+A estrutura ainda pode ser otimizada, mas a massa 37,1 kg foi considerada condizente.

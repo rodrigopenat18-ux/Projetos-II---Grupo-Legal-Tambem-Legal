@@ -29,7 +29,7 @@ Flaubert Silva Ferreira & -- \\
 Gabriel Fernando Duarte Marques & 2022060134 \\
 Gabriel Henrique Ferreira Soares & 2019070418 \\
 Gabriela Araujo Machado & 2019022367 \\
-Luísa Vilela Gonçalves & -- \\
+Luísa Vilela Gonçalves & 2020069380 \\
 Pedro Henrique Oliveira Roquette & 2022060410 \\
 Pedro Palma Maia Ornelas & 2022095612 \\
 Rodrigo Pena Teobaldo & 2022060312 \\
@@ -115,31 +115,149 @@ Vitor de Jesus Mendes & 2022421170 \\ \hline
 \end{table}
 
 
+\section{Dimensões Antropométricas de Pilotos}
+\begin{table}[H]
+    \centering
+    \caption{Dimensões anatômicas estáticas detalhadas para ergonomia da cabine [cm].}
+    \label{tab:dimensoes_anatomicas_cabine}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lcccccc}
+    \hline
+        \textbf{Dimensão} &
+        \multicolumn{3}{c}{\textbf{Masculino (M)}} &
+        \multicolumn{3}{c}{\textbf{Feminino (F)}} \\
+        \cline{2-7}
+        & \textbf{5º} & \textbf{50º} & \textbf{95º}
+        & \textbf{5º} & \textbf{50º} & \textbf{95º} \\
+    \hline
+        1 - Altura em posição sentada &
+        85,8 & 91,4 & 97,2 & 79,5 & 85,1 & 91,0 \\
+
+        2 - Altura dos olhos, sentado &
+        73,5 & 79,2 & 84,8 & 68,5 & 73,8 & 79,4 \\
+
+        3 - Altura do ombro, sentado &
+        54,9 & 59,8 & 64,6 & 50,9 & 55,5 & 60,4 \\
+
+        4 - Altura do cotovelo, sentado &
+        18,4 & 23,2 & 27,4 & 17,6 & 22,1 & 26,4 \\
+
+        5 - Espessura da coxa &
+        14,9 & 16,8 & 19,0 & 14,0 & 15,8 & 18,0 \\
+
+        6 - Altura do joelho, sentado &
+        51,4 & 55,8 & 60,6 & 47,4 & 49,8 & 56,0 \\
+
+        7 - Altura poplítea, sentado &
+        39,5 & 43,3 & 47,6 & 35,1 & 38,9 & 42,9 \\
+
+        8 - Comprimento antebraço-ponta do dedo &
+        44,8 & 48,3 & 52,4 & 40,6 & 44,2 & 48,3 \\
+
+        Alcance funcional do braço &
+        73,9 & 80,0 & 86,7 & 67,7 & 73,4 & 79,7 \\
+
+        9 - Largura dos ombros (bideltoide) &
+        45,0 & 49,1 & 53,5 & 39,7 & 43,1 & 47,2 \\
+
+        10 - Largura entre cotovelos &
+        47,8 & 54,5 & 62,1 & 41,5 & 46,7 & 52,8 \\
+    \hline
+\end{tabular}%
+}
+
+\vspace{0.2cm}
+\small Fonte: Adaptado de FAA HFDS \cite{FAA_HFDS}, Seção 5.12.3.2.
+\end{table}
+
+\section{Comparação entre Tecnologias de Freios}
+\begin{table}[H]
+    \centering
+    \caption{Comparação entre tecnologias de freios aeronáuticos.}
+    \vspace{0.2cm}
+
+    \renewcommand{\arraystretch}{1.6}
+    \setlength{\tabcolsep}{6pt}
+
+    \begin{tabular}{|p{3.5cm}|p{3.2cm}|p{3.5cm}|p{5.2cm}|}
+        \hline
+        \textbf{Propriedade / Característica} &
+        \textbf{Freios de Aço} &
+        \textbf{Freios de Carbono} &
+        \textbf{Impacto Técnico no Projeto} \\
+        \hline
+
+        Peso do Conjunto de Freios
+        & Elevado (referência)
+        & Redução de 35\% a 42\% em massa
+        & Redução do OEW e aumento da capacidade de carga paga ou combustível \\
+        \hline
+
+        Condutividade Térmica
+        & Moderada
+        & Elevada
+        & Dissipação térmica mais eficiente e menor risco de superaquecimento \\
+        \hline
+
+        Resistência Térmica e Vida Útil
+        & Perda de eficiência acima de $500^\circ$C; vida útil entre 800 e 1200 ciclos
+        & Operação estável até $1200^\circ$C; vida útil entre 1500 e 3000 ciclos
+        & Maior confiabilidade operacional e redução de manutenção \\
+        \hline
+
+        Custo de Aquisição Inicial
+        & Baixo
+        & Elevado
+        & Maior custo inicial compensado pela durabilidade e menor custo operacional \\
+        \hline
+    \end{tabular}
+
+    \label{tab:comparacao_freios}
+\end{table}
+
 \section{Imagens Adicionais da Aeronave}
 \begin{figure}[H] 
     \centering 
-    \includegraphics[width=0.85\textwidth]{Images-3-ProjetoDetalhado/render_frontal.jpeg} \caption{Renderização frontal da configuração final da aeronave.} 
+    \includegraphics[width=1.00\textwidth]{Images-3-ProjetoDetalhado/Render_Frontal_v2.png} \caption{Vista frontal da configuração final da aeronave.} 
     \label{render_frontal} 
 \end{figure}
 
+% \begin{figure}[H] 
+%     \centering 
+%     \includegraphics[width=0.85\textwidth]{Images-3-ProjetoDetalhado/render_frontal.jpeg} \caption{Renderização frontal da configuração final da aeronave.} 
+%     \label{render_frontal} 
+% \end{figure}
+
 \begin{figure}[H] 
     \centering 
-    \includegraphics[width=1.0\textwidth]{Images-3-ProjetoDetalhado/render_perspectiva.jpeg} \caption{Renderização em perspectiva da configuração final da aeronave.} 
+    \includegraphics[width=1.0\textwidth]{Images-3-ProjetoDetalhado/render_isometrico.png} \caption{Vista em perspectiva da configuração final da aeronave.} 
     \label{render_frontal} 
 \end{figure}
 
+% \begin{figure}[H] 
+%     \centering 
+%     \includegraphics[width=1.0\textwidth]{Images-3-ProjetoDetalhado/render_perspectiva.jpeg} \caption{Renderização em perspectiva da configuração final da aeronave.} 
+%     \label{render_frontal} 
+% \end{figure}
 
 
 
 \begin{figure}[H] 
     \centering 
-    \includegraphics[width=0.68\textwidth]{Images-3-ProjetoDetalhado/render_lateral_dianteira.jpeg} \caption{Detalhe lateral dianteiro da aeronave, evidenciando a fuselagem, a nacele, o trem de pouso e a asa.} \label{render_lateral_dianteira} 
+    \includegraphics[width=1.0\textwidth]{Images-3-ProjetoDetalhado/render_lateral.jpeg} \caption{Vista Lateral da Aeronave} \label{render_lateral_dianteira} 
 \end{figure}
 
-\begin{figure}[H] 
-    \centering \includegraphics[width=0.68\textwidth]{Images-3-ProjetoDetalhado/render_traseira.jpeg} \caption{Detalhe da região traseira da aeronave, evidenciando as empenagens e o cone de cauda.} 
-    \label{render_traseira} 
-\end{figure} 
+
+% \begin{figure}[H] 
+%     \centering 
+%     \includegraphics[width=0.68\textwidth]{Images-3-ProjetoDetalhado/render_lateral_dianteira.jpeg} \caption{Detalhe lateral dianteiro da aeronave, evidenciando a fuselagem, a nacele, o trem de pouso e a asa.} \label{render_lateral_dianteira} 
+% \end{figure}
+
+% \begin{figure}[H] 
+%     \centering \includegraphics[width=0.68\textwidth]{Images-3-ProjetoDetalhado/render_traseira.jpeg} \caption{Detalhe da região traseira da aeronave, evidenciando as empenagens e o cone de cauda.} 
+%     \label{render_traseira} 
+% \end{figure} 
+
 
 \subsection*{Projetos 1}
 
@@ -311,6 +429,17 @@ Dimensionamento do Revestimento
 & Vitor Mendes \\
 \hline
 
+Materiais da Construção 
+& Gabriel Soares e Saulo Lacerda \\
+\hline
+
+Dimensionamento do Berço do Motor 
+& Gabriel Soares e Saulo Lacerda \\
+\hline
+
 \end{xltabular}
 
 \includepdf[pages=-, angle=90]{detalhamento.pdf}
+
+\includepdf[pages=-, angle=90]{berco.pdf}
+

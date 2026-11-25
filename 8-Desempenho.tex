@@ -1,5 +1,7 @@
 \chapter{Cálculos de Aerodinâmica e Desempenho}
 
+As análises conduzidas neste capítulo utilizam os pesos definidos na Tabela~\ref{tab:cg_entradas}, selecionados conforme a condição operacional de cada fase de voo.
+
 \section{Cálculo da Polar de Arrasto}
 
 Nesta seção, determina-se a curva $C_D \times C_L$ da aeronave regional de projeto, que serve como base fundamental para mapear o envelope aerodinâmico e subsidiar todos os cálculos subsequentes de desempenho em missão. A polar de arrasto global é modelada analiticamente pela equação quadrática:
@@ -190,7 +192,7 @@ A área frontal da cabine foi extraída diretamente da projeção frontal do mod
 
 Por fim, realizou-se o somatório de todas as componentes aerodinâmicas calculadas anteriormente para determinar o coeficiente de arrasto parasita total da fuselagem. Este valor engloba as parcelas de atrito viscoso das três seções longitudinais ($C_{D_{0A}}$, $C_{D_{0B}}$, $C_{D_{0C}}$) e os incrementos de pressão devidos à geometria do cone de cauda e da cabine.
 
-Aplicando-se os valores na Equação 5.1, obtiveram-se os coeficientes finais para as fases de operação da aeronave, conforme apresentado na Tabela \ref{tab:arrasto_fuselagem_total}.
+Aplicando-se os valores na Equação 7.2, obtiveram-se os coeficientes finais para as fases de operação da aeronave, conforme apresentado na Tabela \ref{tab:arrasto_fuselagem_total}.
 
 \begin{table}[H]
     \centering
@@ -385,7 +387,7 @@ Foram simuladas três condições operacionais distintas, considerando as deflex
 
 O cálculo considerou a geometria completa da aeronave, variando-se o ângulo de ataque global ($\alpha$), mas mantendo a deflexão das superfícies de controle (profundor) nula em todos os pontos. Portanto, os valores representam a capacidade de geração de sustentação e o arrasto associado para a atitude da aeronave, sem o equilíbrio de momentos longitudinais.
 
-O arrasto total apresentado nos gráficos é a soma do arrasto aerodinâmico calculado pelo CEA-VLM (induzido + viscoso da asa/empenagem) com o coeficiente de arrasto parasita da fuselagem e demais componentes ($C_{D_0}$) calculado analiticamente na Seção 5.4.
+O arrasto total apresentado nos gráficos é a soma do arrasto aerodinâmico calculado pelo CEA-VLM (induzido + viscoso da asa/empenagem) com o coeficiente de arrasto parasita da fuselagem e demais componentes ($C_{D_0}$) calculado analiticamente nas Seções 7.2 a 7.4.
 
 As Figuras a seguir apresentam as polares obtidas para as três condições analisadas.
 
@@ -528,28 +530,27 @@ Velocidade [m/s] & $C_L$ & $C_D$ & Potência Requerida [kW] \\
     \item{Pouso:}
 \end{itemize}
 
-A altitude considerada para os cálculos foi ao nível do mar, ou seja, de acordo com a atmosfera ISA, $\rho = 1,225 \space kg/m^3$. Abaixo encontra-se a tabela com os valores obtidos.
-
+Os cálculos foram realizados ao nível do mar em atmosfera padrão ($\rho = 1{,}225~\text{kg/m}^3$, ISA), considerando a aeronave no peso máximo de pouso ($\text{MLW} = 22\,350~\text{kgf}$). A Tabela~\ref{tab:pouso_p_req} reúne os resultados obtidos.
 
 \begin{table}[H]
-\centering
-\caption{Valores obtidos por meio dos cálculos - Pouso.}
-\begin{tabular}{c c c c}
-\hline
-Velocidade [m/s] & $C_L$ & $C_D$ & Potência dissipada no planeio [kW] \\
-\hline
-20 & 12{,}2560 & 7{,}1987 & 2613{,}7 \\
-30 & 5{,}4469 & 1{,}3654 & 1673{,}2 \\
-40 & 3{,}0639 & 0{,}4540 & 1318{,}6 \\
-50 & 1{,}9609 & 0{,}2305 & 1307{,}8 \\
-60 & 1{,}3617 & 0{,}1618 & 1585{,}9 \\
-70 & 1{,}0005 & 0{,}1382 & 2151{,}7 \\
-80 & 0{,}7660 & 0{,}1301 & 3024{,}2 \\
-90 & 0{,}6052 & 0{,}1279 & 4231{,}2 \\
-\hline
-\end{tabular}
+    \centering
+    \caption{Valores obtidos por meio dos cálculos - Pouso (MLW).}
+    \label{tab:pouso_p_req}
+    \begin{tabular}{c c c c}
+    \hline
+        Velocidade [m/s] & $C_L$ & $C_D$ & Potência dissipada no planeio [kW] \\
+    \hline
+        20 & 12{,}0771 & 6{,}9769 & 2533{,}2 \\
+        30 & 5{,}3676 & 1{,}3264 & 1625{,}4 \\
+        40 & 3{,}0193 & 0{,}4429 & 1286{,}5 \\
+        50 & 1{,}9323 & 0{,}2266 & 1285{,}4 \\
+        60 & 1{,}3419 & 0{,}1602 & 1571{,}0 \\
+        70 & 0{,}9859 & 0{,}1376 & 2141{,}7 \\
+        80 & 0{,}7548 & 0{,}1299 & 3018{,}4 \\
+        90 & 0{,}5964 & 0{,}1279 & 4232{,}2 \\
+    \hline
+    \end{tabular}
 \end{table}
-
 
 \subsubsection{Potência disponível:}
 
@@ -763,7 +764,6 @@ Finalmente, com todos os valores obtidos pelos cálculos, foi possível traçar 
     \item{Decolagem:}
 \end{itemize}
 
-
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -773,7 +773,7 @@ Finalmente, com todos os valores obtidos pelos cálculos, foi possível traçar 
         xlabel={Velocidade (m/s)},
         ylabel={Potência (kW)},
         xmin=20, xmax=110,
-        ymin=500, ymax=3500,    
+        ymin=500, ymax=3500,
         grid=major,
         tick label style={font=\small},
         label style={font=\small},
@@ -790,113 +790,42 @@ Finalmente, com todos os valores obtidos pelos cálculos, foi possível traçar 
         every axis plot/.append style={thick}
     ]
 
-    % -------------------------
-    % Potência requerida
-    % -------------------------
-    \addplot[
-        color=orange!85!black,
-        smooth,
-        mark=none
-    ] coordinates {
-        (20,1940)
-        (30,1320)
-        (40,1050)
-        (50,970)
-        (60,1030)
-        (70,1210)
-        (80,1510)
-        (90,1940)
-        (100,2490)
-        (110,3190)
+    % Potência requerida (Tabela 7.10, MTOW)
+    \addplot[color=orange!85!black, smooth, mark=none] coordinates {
+        (20,1943.4) (30,1313.4) (40,1052.1) (50,976.7) (60,1035.7)
+        (70,1214.7) (80,1513.6) (90,1938.2) (100,2497.8) (110,3203.1)
     };
     \addlegendentry{$P_{req}$}
-
-    \addplot[
-        only marks,
-        color=orange!85!black,
-        mark=o,
-        mark options={scale=0.9},
-        forget plot
-    ] coordinates {
-        (20,1940)
-        (30,1320)
-        (40,1050)
-        (50,970)
-        (60,1030)
-        (70,1210)
-        (80,1510)
-        (90,1940)
-        (100,2490)
-        (110,3190)
+    \addplot[only marks, color=orange!85!black, mark=o, mark options={scale=0.9}, forget plot] coordinates {
+        (20,1943.4) (30,1313.4) (40,1052.1) (50,976.7) (60,1035.7)
+        (70,1214.7) (80,1513.6) (90,1938.2) (100,2497.8) (110,3203.1)
     };
 
-    % -------------------------
-    % Potência disponível
-    % -------------------------
-    \addplot[
-        color=blue,
-        smooth,
-        mark=none
-    ] coordinates {
-        (20,1845.6)
-        (30,2399.3)
-        (40,2879.2)
-        (50,3026.8)
-        (60,3100.6)
-        (70,3026.8)
-        (80,2879.2)
-        (90,2694.6)
-        (100,2473.1)
-        (110,2362.4)
+    % Potência disponível (Tabela 7.16)
+    \addplot[color=blue, smooth, mark=none] coordinates {
+        (20,1845.6) (30,2399.3) (40,2879.2) (50,3026.8) (60,3100.6)
+        (70,3026.8) (80,2879.2) (90,2694.6) (100,2473.1) (110,2362.4)
     };
     \addlegendentry{$P_{disp}$}
-
-    \addplot[
-        only marks,
-        color=blue,
-        mark=square*,
-        mark options={scale=0.75},
-        forget plot
-    ] coordinates {
-        (20,1845.6)
-        (30,2399.3)
-        (40,2879.2)
-        (50,3026.8)
-        (60,3100.6)
-        (70,3026.8)
-        (80,2879.2)
-        (90,2694.6)
-        (100,2473.1)
-        (110,2362.4)
+    \addplot[only marks, color=blue, mark=square*, mark options={scale=0.75}, forget plot] coordinates {
+        (20,1845.6) (30,2399.3) (40,2879.2) (50,3026.8) (60,3100.6)
+        (70,3026.8) (80,2879.2) (90,2694.6) (100,2473.1) (110,2362.4)
     };
 
-    % -------------------------
-    % Linha da velocidade de estol
-    % -------------------------
-    \addplot[
-        red,
-        dashed,
-        thick
-    ] coordinates {(64.7,500) (64.7,3500)};
+    % Velocidade de estol com flap 10° (Seção 7.6)
+    \addplot[red, dashed, thick] coordinates {(51.1,500) (51.1,3500)};
 
-    % -------------------------
     % Anotações
-    % -------------------------
-    \node[anchor=west, font=\scriptsize] at (axis cs:22,1850)
-        {$V_{min}=20{,}8\ \mathrm{m/s}$};
-
-    \node[red, anchor=west, font=\scriptsize] at (axis cs:66,660)
-        {$V_{stall}=64{,}7\ \mathrm{m/s}$};
-
+    \node[red, anchor=west, font=\scriptsize] at (axis cs:52.5,660)
+        {$V_{stall}=V_{min}=51{,}1\ \mathrm{m/s}$};
     \node[anchor=west, font=\scriptsize] at (axis cs:96,2200)
         {$V_{max}=99{,}7\ \mathrm{m/s}$};
 
     \end{axis}
     \end{tikzpicture}
-    \caption{Curvas de potência na decolagem com $10^\circ$ de flap (Nível do Mar, 100\% SHP).}
+    \caption{Curvas de potência na decolagem com $10^\circ$ de flap (nível do mar, 100\% SHP, MTOW).}
     \label{fig:potencia_decolagem_suave}
 \end{figure}
-
 
 Para uma análise com mais detalhes, sugere-se também a análise das curvas sem deflexão dos flaps, haja vista que para velocidades altas algumas aeronaves podem não acionar os flaps na decolagem.
 
@@ -1054,7 +983,6 @@ Para uma análise com mais detalhes, sugere-se também a análise das curvas sem
     \item{Pouso:}
 \end{itemize}
 
-
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -1081,99 +1009,40 @@ Para uma análise com mais detalhes, sugere-se também a análise das curvas sem
         every axis plot/.append style={thick}
     ]
 
-    % -------------------------
-    % Condição de planeio
-    % -------------------------
-    \addplot[
-        color=orange!85!black,
-        smooth,
-        mark=none
-    ] coordinates {
-        (20,2620)
-        (30,1680)
-        (40,1330)
-        (50,1320)
-        (60,1590)
-        (70,2150)
-        (80,3020)
-        (90,4240)
+    % Condição de planeio (Tabela 7.12, MLW)
+    \addplot[color=orange!85!black, smooth, mark=none] coordinates {
+        (20,2533.2) (30,1625.4) (40,1286.5) (50,1285.4)
+        (60,1571.0) (70,2141.7) (80,3018.4) (90,4232.2)
     };
     \addlegendentry{$P_{planeio}$}
-
-    \addplot[
-        only marks,
-        color=orange!85!black,
-        mark=o,
-        mark options={scale=0.9},
-        forget plot
-    ] coordinates {
-        (20,2620)
-        (30,1680)
-        (40,1330)
-        (50,1320)
-        (60,1590)
-        (70,2150)
-        (80,3020)
-        (90,4240)
+    \addplot[only marks, color=orange!85!black, mark=o, mark options={scale=0.9}, forget plot] coordinates {
+        (20,2533.2) (30,1625.4) (40,1286.5) (50,1285.4)
+        (60,1571.0) (70,2141.7) (80,3018.4) (90,4232.2)
     };
 
-    % -------------------------
-    % Potência disponível
-    % -------------------------
-    \addplot[
-        color=blue,
-        smooth,
-        mark=none
-    ] coordinates {
-        (20,730)
-        (30,950)
-        (40,1150)
-        (50,1210)
-        (60,1230)
-        (70,1210)
-        (80,1200)
-        (90,1185)
+    % Potência disponível (Tabela 7.18)
+    \addplot[color=blue, smooth, mark=none] coordinates {
+        (20,738.2) (30,959.7) (40,1151.7) (50,1210.7)
+        (60,1240.2) (70,1210.7) (80,1196.0) (90,1181.2)
     };
     \addlegendentry{$P_{disp}$}
-
-    \addplot[
-        only marks,
-        color=blue,
-        mark=square*,
-        mark options={scale=0.75},
-        forget plot
-    ] coordinates {
-        (20,730)
-        (30,950)
-        (40,1150)
-        (50,1210)
-        (60,1230)
-        (70,1210)
-        (80,1200)
-        (90,1185)
+    \addplot[only marks, color=blue, mark=square*, mark options={scale=0.75}, forget plot] coordinates {
+        (20,738.2) (30,959.7) (40,1151.7) (50,1210.7)
+        (60,1240.2) (70,1210.7) (80,1196.0) (90,1181.2)
     };
 
-    % -------------------------
-    % Linha da velocidade de estol
-    % -------------------------
-    \addplot[
-        red,
-        dashed,
-        thick
-    ] coordinates {(55.5,500) (55.5,4500)};
+    % Velocidade de estol com flap 40°, MLW (Seção 7.6)
+    \addplot[red, dashed, thick] coordinates {(42.4,500) (42.4,4500)};
 
-    % -------------------------
     % Anotações
-    % -------------------------
-    \node[red, anchor=west, font=\scriptsize] at (axis cs:55.5,600)
-        {$V_{stall}=55{,}5\ \mathrm{m/s}$};
+    \node[red, anchor=west, font=\scriptsize] at (axis cs:43.5,600)
+        {$V_{stall}=42{,}4\ \mathrm{m/s}$};
 
     \end{axis}
     \end{tikzpicture}
-    \caption{Condição de planeio e potência disponível no pouso com $40^\circ$ de flap (Nível do Mar, 40\% SHP).}
+    \caption{Condição de planeio e potência disponível no pouso com $40^\circ$ de flap (nível do mar, 40\% SHP, MLW).}
     \label{fig:potencia_pouso_suave}
 \end{figure}
-
 
 Assim como comentado nas curvas de potência para decolagem, no pouso sugere-se, em análises posteriores, a verificação de pouso sem deflexão dps flaps e/ou com angulações menores.
 
@@ -1186,11 +1055,11 @@ A velocidade máxima e mínima de voo em cada condição podem ser determinadas 
 \end{itemize}
 
 \begin{equation}
-    V_{min,decolagem} = 64,7 \space m/s = 125.8\space kt
+    V_{min,decolagem} = 51{,}1 \text{ m/s} = 99{,}3 \text{ kt}
 \end{equation}
 
 \begin{equation}
-    V_{max,decolagem} = 99,7 \space m/s = 193.8 \space kt
+    V_{max,decolagem} = 99{,}7 \text{ m/s} = 193{,}8 \text{ kt}
 \end{equation}
 
 
@@ -1200,11 +1069,11 @@ A velocidade máxima e mínima de voo em cada condição podem ser determinadas 
 
 
 \begin{equation}
-    V_{min,cruzeiro} = 78,3 \space m/s = 152.2\space kt
+    V_{min,cruzeiro} = 78{,}3 \text{ m/s} = 152{,}2 \text{ kt}
 \end{equation}
 
 \begin{equation}
-    V_{max,cruzeiro} = 124,1 \space m/s = 241.3 \space kt
+    V_{max,cruzeiro} = 124{,}1 \text{ m/s} = 241{,}3 \text{ kt}
 \end{equation}
 
 \begin{itemize}
@@ -1217,43 +1086,85 @@ Na condição de pouso, não se utiliza a interseção entre potência requerida
     \item \textbf{Velocidade de Estol:}
 \end{itemize}
 
-
-
-Conforme extraído da tabela \ref{tab:clmax}, o coeficiente de sustentação máximo ($C_{L,máx}$) não é fixo, variando de acordo com a configuração das superfícies hipersustentadoras (flaps). Além disso, por ser inversamente proporcional à raiz quadrada da densidade do ar ($\rho$), a velocidade verdadeira de estol (TAS - \textit{True Airspeed}) aumenta à medida que a aeronave ganha altitude e o ar se torna mais rarefeito.
-
-Aplicando os parâmetros da aeronave e as respectivas configurações aerodinâmicas para cada fase de voo, obtêm-se as seguintes velocidades de estol:
+As velocidades de estol para cada condição operacional são determinadas pela Equação~5.10, empregando o peso correspondente à fase de voo (Tabela~\ref{tab:cg_entradas}) e os coeficientes de sustentação máximos de cada configuração aerodinâmica ($C_{L\max} = 1{,}50$ em configuração limpa, $1{,}88$ com flap a $10^\circ$ e $2{,}69$ com flap a $40^\circ$, valores consistentes com o diagrama $V\text{--}n$ da Seção~9.2). Cabe ressaltar que os coeficientes de $1{,}17$ e $1{,}59$ reportados na Tabela~5.2 correspondem às condições operacionais de decolagem ($1{,}13\,V_S$) e pouso ($1{,}30\,V_S$), e não aos limites de estol.
 
 \begin{itemize}
-    \item \textbf{Pouso (Nível do mar):} Na configuração de aproximação final, utiliza-se a deflexão máxima dos flaps ($\delta_f = 40^\circ$), o que eleva o coeficiente para $C_{L,máx} = 1.59$. Considerando a densidade atmosférica padrão ($\rho = 1,225 \text{ kg/m}^3$), a velocidade mínima sustentável cai significativamente para:
+    \item \textbf{Pouso (nível do mar, flap $40^\circ$, MLW):}
     \begin{equation}
-        V_{estol} = 55,5 \text{ m/s} \approx 107.9 \text{ kt}
+        V_{S,L} = \sqrt{\frac{2 \cdot 22\,350 \cdot 9{,}81}{1{,}225 \cdot 74{,}1 \cdot 2{,}69}} = 42{,}4~\text{m/s} \approx 82{,}4~\text{kt}
     \end{equation}
-    
-    \item \textbf{Decolagem (Nível do mar):} Para otimizar a sustentação sem gerar arrasto excessivo, utiliza-se uma deflexão parcial de flaps ($\delta_f = 10^\circ$), resultando em um $C_{L,máx} = 1,17$. Sob a mesma densidade ao nível do mar, tem-se:
+
+    \item \textbf{Decolagem (nível do mar, flap $10^\circ$, MTOW):}
     \begin{equation}
-        V_{estol} = 64,7 \text{ m/s} \approx 125.8\text{ kt}
+        V_{S,TO} = \sqrt{\frac{2 \cdot 22\,680 \cdot 9{,}81}{1{,}225 \cdot 74{,}1 \cdot 1{,}88}} = 51{,}1~\text{m/s} \approx 99{,}3~\text{kt}
     \end{equation}
-    
-    \item \textbf{Cruzeiro (20.000 ft):} Em rota, a aeronave opera em configuração limpa ($\delta_f = 0^\circ$), com $C_{L,máx} = 1,5$. Sob as condições de menor densidade na altitude de cruzeiro ($\rho = 0,653 \text{ kg/m}^3$), a velocidade verdadeira de estol sofre o seu maior incremento, passando para:
-    \begin{equation}
-        V_{estol} = 78,3 \text{ m/s} \approx 152,2 \text{ kt}
-    \end{equation}
+
+    \item \textbf{Configuração limpa (MTOW):} $V_S = 57{,}2~\text{m/s}$ ($111~\text{kt}$) ao nível do mar, conforme a Tabela~5.2, atingindo $V_S = 78{,}3~\text{m/s}$ ($152{,}2~\text{kt}$ TAS) a $20\,000~\text{ft}$ ($\rho = 0{,}653~\text{kg/m}^3$).
 \end{itemize}
+
+A partir desses limites, obtêm-se a velocidade operacional de aproximação ($1{,}30\,V_{S,L} = 55{,}1~\text{m/s}$ ou $107{,}1~\text{kt}$) e a velocidade de decolagem de $125~\text{kt}$ apresentada na Tabela~5.2.
 
 
 \section{Distância de Decolagem}
 
-A avaliação do desempenho de decolagem do presente turboélice regional foi fundamentada nos requisitos de certificação da categoria transporte (notadamente os regulamentos 14 CFR Part 25 e RBAC 25). Os cálculos assumem operação ao nível do mar, com os motores fornecendo potência máxima de decolagem e a aeronave carregada em seu peso máximo estrutural (MTOW). Adotou-se um coeficiente de atrito de rolamento $\mu = 0,02$, considerado para uma pista de concreto seca. As diferentes etapas que compõem a manobra de decolagem encontram-se esquematizadas na Figura \ref{fig:fases_decolagem}.
+A avaliação do desempenho de decolagem do turboélice regional fundamenta-se nos requisitos de certificação da categoria transporte estabelecidos pelo 14 CFR Part~25 e pelo RBAC~25~\cite{far25}. Os cálculos consideram operação ao nível do mar em atmosfera padrão (ISA), com os motores em potência máxima de decolagem, a aeronave em seu peso máximo de decolagem (MTOW) e coeficiente de atrito de rolamento $\mu = 0{,}02$, representativo de pista seca de concreto.
+
+Pelo \S25.113, a distância de decolagem corresponde ao maior valor entre o percurso até $35~\text{ft}$ com falha do motor crítico (OEI) e $115\%$ do percurso até a mesma altura com todos os motores operantes (AEO). Complementarmente, o \S25.109 define a distância de aceleração-parada para o caso de decolagem abortada após a falha. Nas subseções seguintes, determina-se inicialmente o desempenho com todos os motores operando (Seções~7.7.1 a 7.7.3) e, na sequência, analisa-se a condição monomotora por meio do comprimento de pista balanceado (BFL), na Seção~7.7.4.
+
+Os critérios normativos aplicáveis estão esquematizados na Figura~\ref{fig:fases_decolagem}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Images-3-ProjetoDetalhado/fases_de_decolagem.png} % TODO: Atualizar caminho da imagem
-    \caption{Fases da decolagem.}
-    \label{fig:fases_decolagem}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small,
+  dim/.style={{Latex[length=2mm]}-{Latex[length=2mm]},thin},
+  vline/.style={densely dotted,gray}]
+  % pista
+  \fill[gray!15] (0,-0.12) rectangle (14.6,0);
+  \draw[thick] (0,0) -- (14.6,0);
+  % altura de 35 ft
+  \draw[gray,dashed] (0,1.6) -- (14.6,1.6);
+  \node[gray,anchor=west] at (12.25,1.85) {35 ft (10,7 m)};
+  % todos os motores operando (AEO)
+  \draw[very thick,blue!70!black] (0,0) -- (5.4,0)
+     .. controls (6.6,0.05) and (7.4,0.9) .. (8.4,1.6) -- (9.0,2.0);
+  % motor crítico inoperante (OEI)
+  \draw[very thick,red!75!black,dashed] (3.2,0.03) -- (7.2,0.03)
+     .. controls (8.6,0.08) and (9.9,0.95) .. (11.0,1.6) -- (11.8,2.0);
+  % aceleração-parada
+  \draw[very thick,green!45!black,dash dot] (4.0,-0.35) -- (11.0,-0.35);
+  \draw[green!45!black] (4.0,-0.2) -- (4.0,-0.5);
+  \fill[green!45!black] (11.0,-0.35) circle (1.8pt);
+  \node[green!45!black,anchor=north,font=\footnotesize] at (7.5,-0.38) {Frenagem após $V_1$ (parada)};
+  % marcas de velocidade
+  \draw[vline] (3.2,0) -- (3.2,2.6) node[above] {$V_{EF}$};
+  \draw[vline] (4.0,0) -- (4.0,2.6) node[above] {$V_1$};
+  \draw[vline] (5.4,0) -- (5.4,2.6) node[above] {$V_{LOF}$};
+  \draw[vline] (11.0,0) -- (11.0,2.6) node[above] {$V_2$};
+  \node[blue!70!black,anchor=east] at (7.3,1.2) {AEO};
+  \node[red!75!black,anchor=west] at (10.0,0.55) {OEI};
+  % cotas
+  \draw[dim] (0,-1.1) -- (8.4,-1.1) node[midway,fill=white,inner sep=1pt] {$d_{AEO}$ (até 35 ft)};
+  \draw[dim] (0,-1.65) -- (9.66,-1.65) node[midway,fill=white,inner sep=1pt] {$1{,}15\,d_{AEO}$};
+  \draw[dim] (0,-2.2) -- (11.0,-2.2) node[midway,fill=white,inner sep=1pt] {$d_{OEI}$: Falha do motor crítico em $V_{EF}$ (§25.113(a)(1))};
+  \draw[dim] (0,-2.75) -- (11.0,-2.75) node[midway,fill=white,inner sep=1pt] {Distância de aceleração--parada (§25.109)};
+  % linhas de chamada das cotas
+  \draw[thin,gray] (0,-0.6)    -- (0,-2.9);
+  \draw[thin,gray] (8.4,-0.8)  -- (8.4,-1.2);
+  \draw[thin,gray] (9.66,-0.8) -- (9.66,-1.75);
+  \draw[thin,gray] (11.0,-0.5) -- (11.0,-2.9);
+  % legenda lateral
+  \node[anchor=west,align=left,font=\footnotesize] at (11.4,-1.9)
+     {Distância de decolagem\\$=\max\{d_{OEI};\,1{,}15\,d_{AEO}\}$\\[2pt]
+      BFL: $d_{OEI} = $ Dist. de\\aceleração--parada};
+\end{tikzpicture}%
+}
+\caption{Distâncias de decolagem da categoria transporte (alturas fora de escala). Elaborado pelos autores com base no 14 CFR Part 25, §25.109 e §25.113 \cite{far25}.}
+\label{fig:fases_decolagem}
 \end{figure}
 
 \subsection{Corrida no Solo}
-O deslocamento inicial da aeronave sobre a pista, correspondente ao intervalo de 0 a 5 na Figura \ref{fig:fases_decolagem}, define a corrida de decolagem. A velocidade de decolagem ($V_{lof}$) é estimada pela seguinte proporção empírica em relação ao limite de estol:
+O deslocamento inicial da aeronave sobre a pista, do repouso até $V_{lof}$ na Figura~\ref{fig:fases_decolagem}, define a corrida de decolagem. A velocidade de decolagem ($V_{lof}$) é estimada pela seguinte proporção empírica em relação ao limite de estol:
 \begin{equation}
     V_{lof} = 1,13 \cdot V_{s}
 \end{equation}
@@ -1365,12 +1276,11 @@ Por fim, o comprimento exigido de pista para que a aeronave complete toda a oper
     S_{decolagem} = 1101,59\text{ m}
 \end{equation}
 
-Esse valor estimado cumpre o requisito de projeto de ter uma pista de decolagem de 4200 ft (1280,16 m).
+Esse valor corresponde à decolagem com todos os motores operando. A verificação do requisito de 4 200 ft (1 280 m), no entanto, é feita pela condição monomotora, apresentada na Seção 7.7.4.
 
 \subsection{Comprimento de Pista Balanceado (BFL)}
 \label{sec:bfl}
-
-O comprimento de pista balanceado (\textit{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e peso máximo de decolagem de $22\,680~\mathrm{kgf}$. Utilizaram-se a geometria e as características propulsivas apresentadas anteriormente, adotando-se o valor de $C_{L_{\max,TO}}$ retirado da polar de decolagem.
+O comprimento de pista balanceado (\emph{Balanced Field Length} -- BFL) corresponde ao comprimento para o qual a interrupção da decolagem e sua continuação após a falha do motor crítico exigem a mesma distância. Sua estimativa foi realizada pelo método semiempírico de Raymer \cite{raymer2018}, considerando atmosfera ISA ao nível do mar, pista seca e horizontal, ausência de vento e peso máximo de decolagem de $22\,680~\mathrm{kgf}$. Foram utilizadas a geometria e as características propulsivas apresentadas anteriormente, adotando-se o valor de $C_{L_{\max,TO}}$ retirado da polar de decolagem.
 
 A velocidade de subida inicial e o coeficiente de sustentação correspondente foram determinados por:
 \begin{equation}
@@ -1438,26 +1348,84 @@ A tração média equivalente durante a aceleração foi estimada pela correlaç
 \end{equation}
 na qual $P$ é a potência total de eixo em hp, $D_p$ é o diâmetro da hélice em pés e $N_e$ é o número de motores. A tração obtida em lbf foi convertida para newtons antes da aplicação na Equação~\ref{eq:bfl_raymer}.
 
-Substituindo os parâmetros calculados, obtém-se:
-\begin{equation}
-    \boxed{
-    \mathrm{BFL} \approx 1\,620~\mathrm{m}
-    \approx 5\,320~\mathrm{ft}
-    }.
-\end{equation}
+Os valores intermediários empregados na Equação~\ref{eq:bfl_raymer} estão reunidos na Tabela~\ref{tab:parametros_bfl}.
 
-A estimativa supera em aproximadamente $26{,}7\%$ o comprimento de pista especificado para a missão. A avaliação do atendimento ao requisito depende da definição da condição de decolagem associada a esse comprimento. O método fornece uma estimativa preliminar, sem determinar explicitamente $V_1$ ou integrar as trajetórias de interrupção e continuação da decolagem.
+\begin{table}[H]
+    \centering
+    \caption{Parâmetros da estimativa do comprimento de pista balanceado (ISA, nível do mar, MTOW).}
+    \label{tab:parametros_bfl}
+    \begin{tabular}{l c c}
+    \toprule
+        Grandeza & Símbolo & Valor \\
+    \midrule
+        Peso de decolagem & $W$ & $22\,680~\text{kgf}$ ($222{,}5~\text{kN}$) \\
+        Carga alar & $W/S$ & $3\,003~\text{N/m}^2$ \\
+        Coeficiente de sustentação máximo (flap $10^\circ$) & $C_{L\max,TO}$ & $1{,}77$ \\
+        Velocidade de segurança de decolagem & $V_2$ & $63{,}1~\text{m/s}$ ($122{,}6~\text{kt}$) \\
+        Coeficiente de sustentação na subida & $C_{L,\text{sub}}$ & $1{,}23$ \\
+        Gradiente de subida monomotor & $\gamma_{OEI}$ & $3{,}29\%$ \\
+        Parâmetros auxiliares & $G\,;\,U$ & $0{,}0089\,;\,0{,}0377$ \\
+        Tração média na aceleração & $T_{av}$ & $51{,}5~\text{kN}$ \\
+        Razão tração média--peso & $T_{av}/W$ & $0{,}231$ \\
+    \midrule
+        Comprimento de pista balanceado & BFL & $1\,620~\text{m}$ ($5\,315~\text{ft}$) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+O gradiente monomotor de $3{,}29\%$ atende ao mínimo de $2{,}4\%$ exigido pelo \S25.121(b) para bimotores no segundo segmento \cite{far25}. Quanto ao comprimento de pista, os parágrafos \S25.109 e \S25.113 determinam que a distância de decolagem considere tanto a aceleração-parada quanto o maior valor entre a trajetória monomotora até $35~\mathrm{ft}$ e $115\%$ da distância com todos os motores operantes \cite{far25}. Como o caso normal majorado ($1{,}15 \times 1\,101{,}6 = 1\,267~\mathrm{m}$) permanece abaixo do limite, a restrição decorre da condição monomotora, representada pela BFL:
+\begin{equation}
+    \mathrm{BFL} \approx 1\,620~\mathrm{m} \;>\; 1\,280~\mathrm{m}~(4\,200~\mathrm{ft})
+\end{equation}
+valor $26{,}5\%$ superior ao requisito, exigente mesmo para o ATR~72-600 ($1\,315~\mathrm{m}$ nas mesmas condições) \cite{atr72600}.
+
+Uma parte da diferença vem da hipótese de potência. O PW127M opera na decolagem com $2\,475~\mathrm{shp}$ por motor e, em caso de falha do outro motor, passa automaticamente à potência de reserva de $2\,750~\mathrm{shp}$ \cite{atr72600}. Com a potência de reserva no motor remanescente, $\gamma_{\mathrm{OEI}}$ sobe para cerca de $4{,}5\%$ e a BFL cai para aproximadamente $1\,580~\mathrm{m}$, ainda acima do requisito. Atender aos $4\,200~\mathrm{ft}$ exigiria combinar a potência de reserva com maior $C_{L_{\max,TO}}$ (deflexão de flap de decolagem maior que $10^\circ$) ou com redução da carga alar. Como o método de Raymer é semiempírico, o resultado deve ser lido como estimativa preliminar.
+
 
 \section{Distância de Pouso}
 
 O procedimento de aterrissagem da aeronave em estudo é segmentado em três etapas consecutivas, conforme esquematizado na Figura \ref{fig:fases_pouso}. A fundamentação analítica para a determinação das distâncias correspondentes baseia-se nas diretrizes de homologação para a categoria transporte (RBAC 25). 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Images-3-ProjetoDetalhado/fases_pouso.png}
-    \caption{Fases do Pouso.}
-    \label{fig:fases_pouso}
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small,
+  dim/.style={{Latex[length=2mm]}-{Latex[length=2mm]},thin}]
+  % pista
+  \fill[gray!15] (0,-0.12) rectangle (14,0);
+  \draw[thick] (-0.6,0) -- (14,0);
+  % altura de 50 ft
+  \draw[gray,dashed] (-0.6,2.2) -- (1.2,2.2);
+  \draw[dim] (-0.3,0) -- (-0.3,2.2) node[midway,left] {50 ft};
+  % trajetória
+  \draw[very thick,blue!70!black] (0,2.2) -- (5.0,0.45)
+     .. controls (5.8,0.17) and (6.5,0.02) .. (7.2,0) -- (13.0,0);
+  \fill[blue!70!black] (0,2.2) circle (1.8pt);
+  \fill[blue!70!black] (7.2,0) circle (1.8pt);
+  \fill[red!70!black] (13.0,0) circle (2pt);
+  % rótulos
+  \node[gray,anchor=south west] at (2.6,1.3) {Rampa $\gamma = 3^\circ$};
+  \node[anchor=south west,align=left] at (0.1,2.25) {$V \geq V_{REF} \geq 1{,}23\,V_{SR0}$};
+  \node[anchor=west,align=left] at (5.6,1.0) {Arredondamento ($n \approx 1{,}2$)};
+  \node[anchor=south] at (7.2,0.05) {Toque, $V_{TD}$};
+  \node[anchor=south] at (13.0,0.05) {Parada total};
+  \node[anchor=south,align=center] at (10.1,0.05) {Frenagem ($\mu$)};
+  % linhas de chamada das cotas
+  \draw[thin,gray] (0,-0.15)    -- (0,-1.55);
+  \draw[thin,gray] (5.0,-0.15)  -- (5.0,-0.75);
+  \draw[thin,gray] (7.2,-0.15)  -- (7.2,-0.75);
+  \draw[thin,gray] (13.0,-0.15) -- (13.0,-1.55);
+  % cotas
+  \draw[dim] (0,-0.6) -- (5.0,-0.6) node[midway,fill=white,inner sep=1pt] {$S_{af}$ (Aproximação)};
+  \draw[dim] (5.0,-0.6) -- (7.2,-0.6) node[midway,fill=white,inner sep=1pt] {$S_t$};
+  \draw[dim] (7.2,-0.6) -- (13.0,-0.6) node[midway,fill=white,inner sep=1pt] {$S_r$ (Corrida no solo)};
+  \draw[dim] (0,-1.4) -- (13.0,-1.4) node[midway,fill=white,inner sep=1pt] {Distância de pouso (§25.125): de 50 ft até a parada total};
+\end{tikzpicture}%
+}
+\caption{Distância de pouso da categoria transporte (alturas fora de escala). Elaborado pelos autores com base no 14 CFR Part 25, §25.125 \cite{far25}.}
+\label{fig:fases_pouso}
 \end{figure}
+
 
 \subsection{Distância de Aproximação}
 Para estimar essa distância, estipulou-se um ângulo de descida de $\gamma = 3^{\circ}$, alinhado com a rampa eletrônica padrão de Sistemas de Pouso por Instrumentos (ILS), normais na aviação comercial regular. Com este valor, a altura em que a aeronave inicia a quebra de planeio (\textit{flare}), denotada por $h_{f}$, é dada por:
@@ -1466,6 +1434,8 @@ Para estimar essa distância, estipulou-se um ângulo de descida de $\gamma = 3^
     \label{eq:hf}
 \end{equation}
 
+As distâncias de pouso são calculadas no peso máximo de pouso, MLW = 22 350 kgf, condição estabelecida no requisito de projeto (Seção 2.1).
+
 De forma análoga à decolagem, o raio curvo da manobra de arredondamento é calculado por:
 \begin{equation}
     R = \frac{V_{f}^{2}}{(n - 1)g}
@@ -1473,16 +1443,16 @@ De forma análoga à decolagem, o raio curvo da manobra de arredondamento é cal
 
 A velocidade de referência na quebra de planeio ($V_{f}$) é definida como o ponto médio entre a velocidade mantida na aproximação final ($V_{FLR}$) e a velocidade no exato instante do toque na pista ($V_{L}$). Suas correlações são:
 \begin{equation}
-    V_{FLR} = 1,3 \cdot V_{S}
+    V_{FLR} = 1{,}3 \cdot V_{S}
 \end{equation}
 \begin{equation}
-    V_{FLR} = 55,5 \text{ m/s}
+    V_{FLR} = 55{,}09 \text{ m/s}
 \end{equation}
 \begin{equation}
-    V_{L} = 1,25 \cdot V_{S}
+    V_{L} = 1{,}25 \cdot V_{S}
 \end{equation}
 \begin{equation}
-    V_{L} = 53,37 \text{ m/s}
+    V_{L} = 52{,}97 \text{ m/s}
 \end{equation}
 
 Calculando a média para o \textit{flare}:
@@ -1490,15 +1460,15 @@ Calculando a média para o \textit{flare}:
     V_{f} = \frac{V_{FLR} + V_{L}}{2}
 \end{equation}
 \begin{equation}
-    V_{f} = 54,44 \text{ m/s}
+    V_{f} = 54{,}03 \text{ m/s}
 \end{equation}
 
-A magnitude de $V_{S}$ foi baseada na polar aerodinâmica de pouso (trem abaixado e flaps em deflexão máxima) no nível do mar. Assumindo um incremento de fator de carga provocado pela rotação do manche na ordem de $n_{flare} = 1,2$, o raio e a altura de quebra resultam em:
+A magnitude de $V_{S}$ foi baseada na polar aerodinâmica de pouso (trem abaixado e flaps em deflexão máxima) no nível do mar. Assumindo um incremento de fator de carga provocado pela rotação do manche na ordem de $n_{flare} = 1{,}2$, o raio e a altura de quebra resultam em:
 \begin{equation}
-    R = 1510,6 \text{ m}
+    R = 1488{,}0 \text{ m}
 \end{equation}
 \begin{equation}
-    h_{F} = 2,07 \text{ m}
+    h_{F} = 2{,}04 \text{ m}
 \end{equation}
 
 Segundo o \S 25.125 do 14 CFR Part 25, o obstáculo balizador que inicia a manobra de pouso possui uma altura convencional de $H = 50 \text{ ft} = 15,24 \text{ m}$. Por consequência, a projeção horizontal da aproximação em voo livre é:
@@ -1506,8 +1476,9 @@ Segundo o \S 25.125 do 14 CFR Part 25, o obstáculo balizador que inicia a manob
     S_{af} = \frac{H - h_{F}}{\tan(\gamma)}
 \end{equation}
 \begin{equation}
-    S_{af} = 251,29 \text{ m}
+    S_{af} = 251,89 \text{ m}
 \end{equation}
+
 
 \subsection{Distância de Arredondamento}
 O deslocamento tangencial sofrido pela aeronave enquanto o piloto executa a elevação de nariz para reduzir a razão de afundamento ($S_{t}$) é definido por:
@@ -1515,7 +1486,7 @@ O deslocamento tangencial sofrido pela aeronave enquanto o piloto executa a elev
     S_{t} = R \cdot \sin(\gamma)
 \end{equation}
 \begin{equation}
-    S_{t} = 79,05 \text{ m}
+    S_{t} = 77{,}87 \text{ m}
 \end{equation}
 
 \subsection{Distância de Corrida no Solo}
@@ -1539,14 +1510,14 @@ Os limites de integração abrangem o momento do toque até a parada total, culm
 
 Para alimentar a integração computacional, os coeficientes aerodinâmicos ($C_{L}$ e $C_{D}$) foram extraídos da curva polar suja da aeronave. Foi estipulado um cenário operacional de um coeficiente de atrito efetivo de $\mu = 0,5$ simulando operações em pavimentos secos. O montante de pista consumido foi:
 \begin{equation}
-    S_{r} = 467,02 \text{ m (Superfície Seca)}
+    S_{r} = 460{,}2 \text{ m (Superfície Seca)}
 \end{equation}
 
 
 \subsection{Distância Total de Pouso}
 Para estabelecer a exigência final de pista, as três parcelas analisadas são integradas algebricamente:
 \begin{equation}
-    S_{pouso} = S_{af} + S_{t} + S_{r} = 797,37 \text{ m}
+    S_{pouso} = S_{af} + S_{t} + S_{r} = 790{,}0 \text{ m}
 \end{equation}
 
 Esse valor estimado cumpre o requisito de comprimento de pista de pouso igual a 914,4 m (3000 ft).
@@ -1564,7 +1535,7 @@ os resultados estimados.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/distancias_pouso.png}
+    \includegraphics[width=0.7\textwidth]{images/fig7_11_pouso_peso.pdf}
     \caption{Distâncias de Pouso para a aeronave projetada.}
     \label{fig:distancias_pouso}
 \end{figure}
@@ -1674,15 +1645,17 @@ O sumário dos limites estratégicos atingidos por esta configuração, mapeados
     \centering
     \caption{Resultados operacionais para autonomia e alcance máximos.}
     \vspace{0.2cm}
+    \small
     \begin{tabular}{lccc}
         \toprule
         \textbf{Parâmetro} & \textbf{\makecell{Nível do Mar \\ (MSL)}} & \textbf{\makecell{Altitude de \\ 10000 ft}} & \textbf{\makecell{Altitude de Cruzeiro \\ (20000 ft)}} \\
         \midrule
-        Vel. Máx Autonomia $V_{E_{max}}$ (m/s) & 47,93 & 55,77 & 65,67 \\
-        Vel. Máx Alcance $V_{R_{max}}$ (m/s) & 63,07 & 73,40 & 86,42 \\
+        Vel. Máx Autonomia $V_{E_{max}}$ (m/s) & 50,3 & 58,5 & 68,9 \\
+        Vel. Máx Alcance $V_{R_{max}}$ (m/s) & 66,2 & 77,0 & 90,7 \\
         \bottomrule
     \end{tabular}
     \label{tab:resultados_alcance}
+    \caption*{Calculadas no MTOW, com $C_{D0} \approx 0,040$ e $K \approx 0,032$ ajustados à polar da Tabela 7.11.}
 \end{table}
 
 \subsection{Alcance da Missão de Projeto}
@@ -1751,14 +1724,15 @@ Os pontos B e C são os limites da Tabela~\ref{tab:cg_cargapaga}. Em nenhum pont
     \centering
     \caption{Pontos do diagrama de carga paga--alcance.}
     \label{tab:pontos_carga_paga}
+    \small
     \begin{tabular}{cccccc}
         \toprule
-        \textbf{Ponto} & \textbf{Carga paga [kgf]} & \textbf{Combustível [kgf]} & \textbf{Peso de decolagem [kgf]} & \textbf{Alcance [NM]} & \textbf{Limitado por} \\
+        \textbf{Ponto} & \textbf{Carga paga} & \textbf{Combustível} & \textbf{Peso de decolagem} & \textbf{Alcance} & \textbf{Limitado por} \\
         \midrule
-        A & 6.080 & 0     & 19.592 & 0     & MZFW \\
-        B & 6.080 & 3.088 & 22.680 & 925   & MZFW e MTOW \\
-        C & 4.178 & 4.990 & 22.680 & 1.767 & MTOW e tanques \\
-        D & 0     & 4.990 & 18.502 & 2.265 & tanques \\
+        A & 6.080 kgf & 0 kgf & 19.592 kgf & 0 NM    & MZFW \\
+        B & 6.080 kgf & 3.088 kgf & 22.680 kgf & 925 NM  & MZFW e MTOW \\
+        C & 4.178 kgf & 4.990 kgf & 22.680 kgf & 1.767 NM & MTOW e tanques \\
+        D & 0 kgf & 4.990 kgf & 18.502 kgf & 2.265 NM & Tanques \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -1894,10 +1868,10 @@ A Tabela \ref{tab:fases_missao} consolida as distâncias horizontais percorridas
         \textbf{Fase} & \textbf{Segmento} & \textbf{Distância (m)} & \textbf{Distância (ft)} & \textbf{Alt. Inicial (ft)} & \textbf{Alt. Final (ft)} \\
         \midrule
         \textbf{1. Decolagem} & Corrida no Solo & 907{,}5 & 2.977 & 0 & 0 \\
-                              & Transição até Obstáculo & 194{,}1 & 637 & 0 & 50 \\
+                              & Transição até Obstáculo & 194{,}1 & 637 & 0 & 35 \\
         \midrule
         
-        \textbf{2. Subida}    & \textit{Climb} contínuo & 75.580{,}0 & 247.967 & 50 & 20.000 \\
+        \textbf{2. Subida}    & \textit{Climb} contínuo & 75.580{,}0 & 247.967 & 35 & 20.000 \\
         \midrule
         
         \textbf{3. Cruzeiro}  & Voo Nivelado & 1.289.992{,}0 & 4.232.257 & 20.000 & 20.000 \\
@@ -1906,8 +1880,8 @@ A Tabela \ref{tab:fases_missao} consolida as distâncias horizontais percorridas
         \textbf{4. Descida}   & Rampa de Planeio & 116.028{,}0 & 380.668 & 20.000 & 50 \\
         \midrule
        
-        \textbf{5. Pouso}     & Aproximação e Arredondamento & 330{,}4 & 1.084 & 50 & 0 \\
-                              & Corrida de Frenagem & 467{,}0 & 1.532 & 0 & 0 \\
+        \textbf{5. Pouso}     & Aproximação e Arredondamento & 329{,}8 & 1.082 & 50 & 0 \\
+                              & Corrida de Frenagem & 460{,}2 & 1.510 & 0 & 0 \\
     
         \bottomrule
     \end{tabular}
@@ -1919,15 +1893,15 @@ A Tabela \ref{tab:fases_missao} consolida as distâncias horizontais percorridas
 As características operacionais de cada etapa, ilustradas na Figura \ref{fig:diagrama_missao}, são descritas a seguir:
 
 \begin{enumerate}
-    \item \textbf{Decolagem:} A aeronave inicia a missão com uma corrida no solo  de 907,5 m até atingir a velocidade de rotação. Após a decolagem, considera-se uma distância horizontal de 194,1 m para o ganho de altura e ascensão em segurança até a altura do obstáculo padrão de 50 pés. A distância total de decolagem requerida é de aproximadamente 1.102 m.
+    \item \textbf{Decolagem:} A aeronave inicia a missão com uma corrida no solo  de 907,5 m até atingir a velocidade de rotação. Após a decolagem, considera-se uma distância horizontal de 194,1 m para o ganho de altura e ascensão em segurança até a altura do obstáculo padrão de 35 pés (\S25.113). A distância total de decolagem requerida é de aproximadamente 1.102 m.
     
-    \item \textbf{Subida (\textit{Climb}):} A partir de 50 pés, a aeronave ascende até a altitude de cruzeiro de 20.000 pés. Sustentada pela potência excedente dos motores acoplados, a aeronave mantém um ângulo de trajetória de voo de $4{,}60^{\circ}$, percorrendo horizontalmente cerca de 75,5 km até atingir o nível de voo no ponto TOC (\textit{Top of Climb}).
+    \item \textbf{Subida (\textit{Climb}):} A partir de 35 pés, a aeronave ascende até a altitude de cruzeiro de 20.000 pés. Sustentada pela potência excedente dos motores acoplados, a aeronave mantém um ângulo de trajetória de voo de $4{,}60^{\circ}$, percorrendo horizontalmente cerca de 75,5 km até atingir o nível de voo no ponto TOC (\textit{Top of Climb}).
     
     \item \textbf{Cruzeiro:} É a fase predominante da missão, onde a aeronave estabiliza em voo reto e nivelado sob regime de potência eficiente. A distância desta etapa é extraída do balanço total da missão, cobrindo quase 1.290 km para garantir o fechamento do alcance estipulado de 800 NM.
     
     \item \textbf{Descida:} Inicia-se no ponto ideal de descida TOD (\textit{Top of Descent}). Assumindo uma rampa de descida padrão de $3^{\circ}$ típica de voos comerciais de passageiros e carga, a aeronave percorre uma distância de solo de aproximadamente 116 km até interceptar a altitude do obstáculo da cabeceira (50 pés).
     
-    \item \textbf{Pouso:} Compreende a aproximação aérea final descendo dos 50 pés, o arredondamento de 79 m para redução abrupta da razão de descida e o toque na pista (\textit{Touchdown}). Após o impacto, inicia-se a corrida de frenagem no solo de 467 m. A distância total da fase de pouso situa-se na margem segura de 797 m.
+    \item \textbf{Pouso:} Compreende a aproximação aérea final descendo dos 50 pés, o arredondamento de 78 m para redução abrupta da razão de descida e o toque na pista (\textit{Touchdown}). Após o impacto, inicia-se a corrida de frenagem no solo de 460 m. A distância total da fase de pouso situa-se na margem segura de 790 m.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -1968,16 +1942,18 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         & Potência de Decolagem (por motor) & 2.475 shp \\
         \midrule
         
-        \multirow{4}{*}{\textbf{Velocidades}}
+        \multirow{5}{*}{\textbf{Velocidades}}
         & Velocidade de Cruzeiro de Máximo Alcance (20.000 ft) & 193 kt TAS \\
-        & Velocidade Máxima em Cruzeiro ($V_{max,cru}$) & 247,1 kt \\
-        & Velocidade Máxima de Decolagem ($V_{max,TO}$) & 209,0 kt \\
-        & Razão de Subida Máxima para Cruzeiro ($RC_{max,cru}$) & 1,23 m/s \\
+        & Velocidade Máxima em Cruzeiro ($V_{max,cru}$) & 222 kt \\
+        & Velocidade Máxima de Decolagem ($V_{max,TO}$) & 193,8 kt \\
+        & Velocidade de Estol, flap 40° (MLW) & 82,4 kt \\
+        & Razão de Subida Máxima para Cruzeiro ($RC_{max,cru}$) & 1,81 m/s \\
         \midrule
         
-        \multirow{2}{*}{\textbf{Operação em Pista (MSL)}}
+        \multirow{3}{*}{\textbf{Operação em Pista (MSL)}}
         & Distância Total de Decolagem & 1.102 m (3.614 ft) \\
-        & Distância Física de Pouso & 797 m (2.616 ft) \\
+        & Distância Física de Pouso & 790 m (2.592 ft) \\
+        & Comprimento de Pista Balanceado (BFL) & 1620 m (5.315 ft) \\
         \midrule
         
         \multirow{4}{*}{\textbf{Limites de Missão}}
@@ -1985,7 +1961,7 @@ A tabela \ref{tab:resumo_desempenho} a seguir sumariza a maior parte dos cálcul
         & Autonomia do Trecho de Cruzeiro (cabine cheia) & 4,7 horas \\
         & Teto de Serviço & 24.438 ft (7.449 m) \\
         & Teto Absoluto & 26.115 ft (7.960 m) \\
-        
+                
         \bottomrule
     \end{tabular}
     } % --- FIM DO RESIZEBOX ---
